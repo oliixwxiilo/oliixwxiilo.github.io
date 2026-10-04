@@ -4,24 +4,29 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Generate APT Packages index
+      - name: Generate Packages
         run: |
           sudo apt update
           sudo apt install -y dpkg-dev
           dpkg-scanpackages . /dev/null > Packages
           gzip -k -f Packages
 
-      - name: Commit & Push changes
+      - name: Commit & Push
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "actions-bot"
+          git config user.email "bot@github.com"
           git add Packages Packages.gz
-          git commit -m "Auto update repo index" || echo "No changes to commit"
+          git commit -m "auto update repo index" || echo "No changes"
           git push
