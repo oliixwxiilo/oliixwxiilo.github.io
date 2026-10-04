@@ -11,22 +11,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Generate Packages
+      - name: Install dpkg-dev
         run: |
           sudo apt update
           sudo apt install -y dpkg-dev
+
+      - name: Generate Packages index
+        run: |
           dpkg-scanpackages . /dev/null > Packages
           gzip -k -f Packages
 
-      - name: Commit & Push
+      - name: Commit & Push index files
         run: |
-          git config user.name "actions-bot"
-          git config user.email "bot@github.com"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "bot@github.com"
           git add Packages Packages.gz
-          git commit -m "auto update repo index" || echo "No changes"
+          git commit -m "Auto update apt index" || echo "No changes to commit"
           git push
