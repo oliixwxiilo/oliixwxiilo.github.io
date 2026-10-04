@@ -1,0 +1,40 @@
+Package: com.translate.txt
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.translate.txt
+Replaces: com.translate.txt
+Provides: com.translate.txt
+Filename: ./com.translate.txt-1.0-roothide.deb.deb
+Size: 65320
+MD5sum: 8b05d94c65cd2c674c14646abb454301
+SHA1: ffaa95a641235530230b8d6c6cabc1dfde65c47b
+SHA256: c3adf086c824f93d9c0cfbc67a58ca863f09de7dcffab2deee37ab42ed65b02f
+Section: Tweaks
+Priority: optional
+Description: 双指长按任何界面弹出翻译替换窗口，默认com.apple.Preferences，可通过修改“翻译文本.plist”修改需要注入的应用
+Author: oliixwxiilo
+Name: 翻译文本
+
+Package: com.yuanshu.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.yuanshu.vip
+Replaces: com.yuanshu.vip
+Provides: com.yuanshu.vip
+Filename: ./com.yuanshu.vip-1.0-roothide.deb
+Size: 126324
+MD5sum: 0fd596dcd43d1051e34c4f9ce70c4714
+SHA1: bd4dc75a8a806138c152df22da493cbcc076e801
+SHA256: 354f16d8a96501e858771bc14b57a6ffe63c5da41a279ee537ac4642da6fafa9
+Section: Tweaks
+Priority: optional
+Description: 元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 元书输入法解锁会员
+
