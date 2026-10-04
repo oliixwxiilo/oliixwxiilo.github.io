@@ -1,3 +1,63 @@
+Package: com.baiduwp.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.baiduwp.vip
+Replaces: com.baiduwp.vip
+Provides: com.baiduwp.vip
+Filename: ./com.baiduwp.vip-1.0-roothide.deb
+Size: 151442
+MD5sum: 4b07f7bb3c0b3bb0b06ee9a7e5d782bb
+SHA1: 9d1244537a93dcf8cab81e8045ad2c4bfff1328a
+SHA256: a39342539f088660f34febb7b339d64c04f0b07efd88135dd5cbc93732cfd5f8
+Section: Tweaks
+Priority: optional
+Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 百度网盘解锁部分会员
+
+Package: com.fanqiety.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.fanqiety.vip
+Replaces: com.fanqiety.vip
+Provides: com.fanqiety.vip
+Filename: ./com.fanqiety.vip-1.0-roothide.deb
+Size: 147936
+MD5sum: ab9c12f4b8307729d5cf5daf23461792
+SHA1: dbe8ff02c71bbbe8956bf19e63aefb3c8a70240d
+SHA256: 72e324223e3efb684f0aaf9dff8986f1466a1aa3866fca739c85ecbd0fdb278d
+Section: Tweaks
+Priority: optional
+Description: 番茄全系通用，包含番茄畅听，番茄小说，红果短剧，红果漫剧这四个软件会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 番茄全系通用解锁会员
+
+Package: com.fqmusic.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.fqmusic.vip
+Replaces: com.fqmusic.vip
+Provides: com.fqmusic.vip
+Filename: ./com.fqmusic.vip-1.0-roothide.deb
+Size: 38662
+MD5sum: b6128e4822df16138420c3fa4ed7456c
+SHA1: ba3ccb269fac27425d8db3d38b6d94c7def2bcb5
+SHA256: c4b282989d7609d37117a1e325282a078e814b9493767bdbcfc559f7d77e785b
+Section: Tweaks
+Priority: optional
+Description: 番茄音乐解锁会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 番茄音乐解锁会员
+
 Package: com.translate.txt
 Version: 1.0
 Architecture: iphoneos-arm64e
