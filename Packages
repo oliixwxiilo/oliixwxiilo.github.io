@@ -18,6 +18,26 @@ Description: 双指长按任何界面弹出翻译替换窗口，默认com.apple.
 Author: oliixwxiilo
 Name: 翻译文本
 
+Package: com.wannianli.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.wannianli.vip
+Replaces: com.wannianli.vip
+Provides: com.wannianli.vip
+Filename: ./com.wannianli.vip-1.0-roothide.deb
+Size: 90746
+MD5sum: 606da10647cf81374b5069a0d45b286b
+SHA1: 07d0ea8e34d4a7ceb826157c254c8848771ebdde
+SHA256: 3307294652438902ab7506888d1be6e07c557de6ddc6259a9e3092fa4f22ef31
+Section: Tweaks
+Priority: optional
+Description: 万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 万年历解锁会员
+
 Package: com.yuanshu.vip
 Version: 1.0
 Architecture: iphoneos-arm64e
