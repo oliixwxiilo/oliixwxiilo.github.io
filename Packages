@@ -58,6 +58,21 @@ Description: 番茄音乐解锁会员，仅供交流使用，请勿非法传播�
 Author: oliixwxiilo
 Name: 番茄音乐解锁会员
 
+Package: com.n95.zh
+Version: 4.4
+Architecture: iphoneos-arm64e
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.n95.zh_4.4_iphoneos-arm64e.deb
+Size: 2080
+MD5sum: 40c543ecfdd548c56194a504e737013b
+SHA1: 33bd4fc4d53ff6d42bbb6515fac6d782e1905f27
+SHA256: 45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5
+Section: Tweaks
+Description: N95简体中文包，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: N95简体中文包
+
 Package: com.pulldown.cc
 Version: 0.1
 Architecture: iphoneos-arm64
