@@ -73,21 +73,6 @@ Description: N95简体中文包，仅供交流使用，请勿非法传播用于�
 Author: oliixwxiilo
 Name: N95简体中文包
 
-Package: com.pulldown.cc
-Version: 0.1
-Architecture: iphoneos-arm64
-Maintainer: oliixwxiilo
-Depends: mobilesubstrate
-Filename: ./com.pulldown.cc_0.1_iphoneos-arm64.deb
-Size: 3172
-MD5sum: 706ba8b200d1fcadaa62d04916616675
-SHA1: 57e71fdd0436d760432c3e3a550e77b8a2387e0e
-SHA256: ad00efdb67991f8d74d0e0b8158d6d76ebc31d008851892f7667334e48e88ff0
-Section: Tweaks
-Description: 下拉打开控制中心，自用，请勿非法传播用于商业目的
-Author: oliixwxiilo
-Name: 下拉控制中心
-
 Package: com.translate.txt
 Version: 1.0
 Architecture: iphoneos-arm64e
