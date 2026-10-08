@@ -58,6 +58,22 @@ Description: 番茄音乐解锁会员，仅供交流使用，请勿非法传播�
 Author: oliixwxiilo
 Name: 番茄音乐解锁会员
 
+Package: com.little16.rev
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Installed-Size: 380
+Depends: mobilesubstrate, preferenceloader
+Filename: ./com.little16.rev_1.0_iphoneos-arm64.deb
+Size: 42456
+MD5sum: 2473d3bb8cd54858fbb6fd532fe9895b
+SHA1: a51e2e6fbc18185dc5a0d19bf7c06bf5e2a9b878
+SHA256: 70e57a20d6fb73a4a716631470d67fdd919f67ef8eeea7f02e651acfdd8ce12f
+Section: Tweaks
+Description: 为非全面屏手机带来iPhoneX手势、iPad Dock栏、状态栏以及锁屏快捷按钮，此版本为修改版，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo & michaelmelita1
+Name: Little16单独开关版
+
 Package: com.n95.zh
 Version: 4.4
 Architecture: iphoneos-arm64e
