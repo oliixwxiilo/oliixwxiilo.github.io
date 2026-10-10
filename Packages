@@ -38,26 +38,6 @@ Description: 番茄全系通用，包含番茄畅听，番茄小说，红果短�
 Author: oliixwxiilo
 Name: 番茄全系通用解锁会员
 
-Package: com.fqmusic.vip
-Version: 1.0
-Architecture: iphoneos-arm64e
-Essential: no
-Maintainer: oliixwxiilo
-Pre-Depends: rootless-compat(>= 0.9)
-Conflicts: com.fqmusic.vip
-Replaces: com.fqmusic.vip
-Provides: com.fqmusic.vip
-Filename: ./com.fqmusic.vip-1.0-roothide.deb
-Size: 38662
-MD5sum: b6128e4822df16138420c3fa4ed7456c
-SHA1: ba3ccb269fac27425d8db3d38b6d94c7def2bcb5
-SHA256: c4b282989d7609d37117a1e325282a078e814b9493767bdbcfc559f7d77e785b
-Section: Tweaks
-Priority: optional
-Description: 番茄音乐解锁会员，仅供交流使用，请勿非法传播用于商业目的
-Author: oliixwxiilo
-Name: 番茄音乐解锁会员
-
 Package: com.little16.rev
 Version: 1.0
 Architecture: iphoneos-arm64
