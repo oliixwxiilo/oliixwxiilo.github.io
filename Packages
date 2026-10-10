@@ -18,26 +18,6 @@ Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法�
 Author: oliixwxiilo
 Name: 百度网盘解锁部分会员
 
-Package: com.fanqiety.vip
-Version: 1.0
-Architecture: iphoneos-arm64e
-Essential: no
-Maintainer: oliixwxiilo
-Pre-Depends: rootless-compat(>= 0.9)
-Conflicts: com.fanqiety.vip
-Replaces: com.fanqiety.vip
-Provides: com.fanqiety.vip
-Filename: ./com.fanqiety.vip-1.0-roothide.deb
-Size: 147936
-MD5sum: ab9c12f4b8307729d5cf5daf23461792
-SHA1: dbe8ff02c71bbbe8956bf19e63aefb3c8a70240d
-SHA256: 72e324223e3efb684f0aaf9dff8986f1466a1aa3866fca739c85ecbd0fdb278d
-Section: Tweaks
-Priority: optional
-Description: 番茄全系通用，包含番茄畅听，番茄小说，红果短剧，红果漫剧这四个软件会员，仅供交流使用，请勿非法传播用于商业目的
-Author: oliixwxiilo
-Name: 番茄全系通用解锁会员
-
 Package: com.little16.rev
 Version: 1.0
 Architecture: iphoneos-arm64
