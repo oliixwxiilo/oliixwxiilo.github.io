@@ -18,6 +18,22 @@ Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法�
 Author: oliixwxiilo
 Name: 百度网盘解锁部分会员
 
+Package: com.fanqiety.vip
+Version: 0.1
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo·iosrxwy
+Installed-Size: 168
+Depends: firmware (>= 15.0), mobilesubstrate | ellekit
+Filename: ./com.fanqiety.vip_0.1_iphoneos-arm64.deb
+Size: 4388
+MD5sum: 14765e81eb641cc0745a4141dfab694a
+SHA1: 3bd09cbe04755b6b28f6ad4f9fda084ed6f811cb
+SHA256: 82109cbdafc05f620e7a8e4c0c97f270259b2a973980f40266b5fd72f335b202
+Section: Tweaks
+Description: 番茄小说、番茄音乐、番茄畅听、红果短剧解锁会员，源代码由ios宝藏提供，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo·iosrxwy
+Name: 番茄通用解锁会员
+
 Package: com.little16.rev
 Version: 1.0
 Architecture: iphoneos-arm64
