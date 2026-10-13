@@ -34,6 +34,22 @@ Description: 番茄小说、番茄音乐、番茄畅听、红果短剧解锁会�
 Author: oliixwxiilo·iosrxwy
 Name: 番茄通用解锁会员
 
+Package: com.fqmusic.plus
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Installed-Size: 172
+Depends: mobilesubstrate
+Filename: ./com.fqmusic.plus_1.0_iphoneos-arm64.deb
+Size: 6180
+MD5sum: 5db646c3ca1360204f884790bc9d9dd9
+SHA1: 34fcf8fade5f0e98fe0b2bdfc6a0c030a7734a53
+SHA256: 244c9617cc6bca6d5bf81d58373ed8f9d636bdf105087f742d5128deb3de1860
+Section: Tweaks
+Description: 番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 番茄音乐优化
+
 Package: com.little16.rev
 Version: 1.0
 Architecture: iphoneos-arm64
