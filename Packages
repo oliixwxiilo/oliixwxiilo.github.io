@@ -81,6 +81,21 @@ Description: N95简体中文包，仅供交流使用，请勿非法传播用于�
 Author: oliixwxiilo
 Name: N95简体中文包
 
+Package: com.subtranslomatic.menu
+Version: 0.1
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.subtranslomatic.menu_0.1_iphoneos-arm64.deb
+Size: 3892
+MD5sum: 00099cb5a5d07f75f1582a77fc64b14a
+SHA1: e716f09220a9e034e70d11c3f1654532a41f637f
+SHA256: d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed
+Section: Tweaks
+Description: 替换Translomatic在文字菜单中显示为翻译,仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 替换Translomatic文字为翻译
+
 Package: com.translate.txt
 Version: 1.0
 Architecture: iphoneos-arm64e
