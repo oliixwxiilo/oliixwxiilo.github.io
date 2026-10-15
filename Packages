@@ -81,6 +81,21 @@ Description: N95简体中文包，仅供交流使用，请勿非法传播用于�
 Author: oliixwxiilo
 Name: N95简体中文包
 
+Package: com.safariexpand.color
+Version: 0.1
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.safariexpand.color_0.1_iphoneos-arm64.deb
+Size: 3196
+MD5sum: deeed676ea223d79ce3473ff70fa6173
+SHA1: 73637c71c52ab14ea749062d945b3b9688144fb0
+SHA256: 0ce700ecd348a939d91990cb6fcbe19d1494a4244692c65f4f6ba3b8db8e385c
+Section: Tweaks
+Description: 禁止Safari给第三方扩展图标上色，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: SafariExpandColor
+
 Package: com.subtranslomatic.menu
 Version: 0.1
 Architecture: iphoneos-arm64
