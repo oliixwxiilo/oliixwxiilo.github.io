@@ -1,3 +1,20 @@
+Package: cn.llld.skineditor
+Version: 0.1.11
+Architecture: iphoneos-arm64
+Maintainer: 来了老弟
+Installed-Size: 2672
+Depends: firmware (>= 14.0)
+Filename: ./皮肤编辑器_0.1.11_iphoneos-arm64.deb
+Size: 1163598
+MD5sum: a3cb149c2c47553ba719197446ede93b
+SHA1: 77dc963b4b44140c0151400b304da984b0b85299
+SHA256: c204f804578ad439a09bb26d0456c7a3c22025a0aa0917a3423ede90cb9b2933
+Section: Utilities
+Description: 百度/微信输入法皮肤可视化编辑器，系统配置预览或改图
+Tag: purpose::uikit, compatible::ios14
+Author: 来了老弟
+Name: 皮肤编辑器
+
 Package: com.baiduwp.vip
 Version: 1.0
 Architecture: iphoneos-arm64e
@@ -17,6 +34,22 @@ Priority: optional
 Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的
 Author: oliixwxiilo
 Name: 百度网盘解锁部分会员
+
+Package: com.eric.tools
+Version: 2.0.6-23+rootless
+Architecture: iphoneos-arm64
+Maintainer: Eric
+Installed-Size: 13240
+Depends: mobilesubstrate
+Filename: ./com.eric.tools_2.0.6-23+rootless_iphoneos-arm64.deb
+Size: 2251304
+MD5sum: c054a25bbbf22626a6f5fabcdddc042b
+SHA1: d9d92a471e163c02dbac8db4eb3817223f08723b
+SHA256: 7c14675d13e73f77d38db06ac5596fcfb45f9a5c3fe83c98739e60517ed02bf9
+Section: Tweaks
+Description: ToolsEric Pro 是一款集 网络监听、HTTPS/WebSocket 抓包、加密解密、正则分析、Runtime 检查、Hook 调试、URL 拦截、JSON 查看、设备模拟、虚拟定位、App 权限管理、应用保护、数据清理、Filza 文件管理 于一体的 iOS 专业分析工具。支持 AES/DES/RSA/SM 系列算法、Base64/Hex/UTF8 编解码、文件导入导出、Objective-C Runtime 分析、VC 生命周期追踪、类/方法/Ivar 查看、智能正则识别、请求响应分析 等功能，为 iOS 逆向分析、Hook 开发、安全测试及应用调试提供一站式解决方案。悬浮按钮弹出方式：注入你的app内，屏幕上写个v自动弹出，10s后自动隐藏
+Author: Eric
+Name: ToolsEric
 
 Package: com.fanqiety.vip
 Version: 0.1
@@ -150,6 +183,25 @@ Priority: optional
 Description: 万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的
 Author: oliixwxiilo
 Name: 万年历解锁会员
+
+Package: com.xwzios.classdumptweak
+Version: 3.7.0-1
+Architecture: iphoneos-arm64
+Essential: no
+Maintainer: xwzios
+Conflicts: com.xwzios.classdumptweak
+Replaces: com.xwzios.classdumptweak
+Provides: com.xwzios.classdumptweak
+Filename: ./com.xwzios.classdumptweak-3.7.0-1-iphoneos-arm64.deb
+Size: 617768
+MD5sum: 5e83bbda0e4c5a8e3ef1602abb1939bc
+SHA1: f22052b7d645356fd20d801acc247a2284883ee5
+SHA256: 9f2496ac9fe773ae024bb91f50b807c0b75d8f7338e0f12baad053404ba66cde
+Section: Tweaks
+Priority: optional
+Description: 运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式
+Author: xwzios
+Name: ClassDumpTweak
 
 Package: com.yuanshu.vip
 Version: 1.0
