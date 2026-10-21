@@ -223,3 +223,25 @@ Description: 元书输入法解锁会员，仅供交流使用，请勿非法传�
 Author: oliixwxiilo
 Name: 元书输入法解锁会员
 
+Package: ws.hbang.newterm33
+Version: 3.0~beta1-2048
+Architecture: iphoneos-arm64e
+Maintainer: HASHBANG Productions <support@hbang.ws>
+Depends: firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds
+Recommends: gettext-localizations, iterm2-shell-integration, zsh-autosuggestions, zsh-syntax-highlighting
+Conflicts: ws.hbang.newterm, ws.hbang.newterm2
+Replaces: ws.hbang.newterm, ws.hbang.newterm2
+Filename: ./ws.hbang.newterm33_3.0~beta1-2048_iphoneos-arm64e.deb
+Size: 5344500
+MD5sum: 65ee796a875f6d636a9f97a31e120b8c
+SHA1: a43642b82c009bc3ca344b4875989223b75bb408
+SHA256: 4bf2cd7677f04fd9184915b49ae43f73512a9a8179da9ac83385318ede96a337
+Section: Tweaks
+Description: Powerful terminal app for iOS
+Tag: compatible_min::ios14.0
+Author: HASHBANG Productions <support@hbang.ws>
+Depiction: https://chariz.com/get/newterm-beta
+Icon: https://img.chariz.cloud/icon/newterm-beta/icon@3x.png
+Name: NewTerm 3 Beta汉化版
+Support: https://hashbang.productions/support/
+
