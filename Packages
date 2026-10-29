@@ -144,6 +144,26 @@ Description: 替换Translomatic在文字菜单中显示为翻译,仅供交流使
 Author: oliixwxiilo
 Name: 替换Translomatic文字为翻译
 
+Package: com.textreplace.cn
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.textreplace.cn
+Replaces: com.textreplace.cn
+Provides: com.textreplace.cn
+Filename: ./com.textreplace.cn-1.0-roothide.deb
+Size: 65352
+MD5sum: dd8e38f33259c782913f06564cfcdff1
+SHA1: cc127db01ece13bf6e893a656173aee0d4cb7e74
+SHA256: 7265fd6f26267c10a23b67bd58e5f3745cbdc33382f8147b540d459c3aa705d9
+Section: Tweaks
+Priority: optional
+Description: 双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 替换文本字符
+
 Package: com.wannianli.vip
 Version: 1.0
 Architecture: iphoneos-arm64e
