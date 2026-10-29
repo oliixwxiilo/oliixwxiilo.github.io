@@ -164,25 +164,6 @@ Description: 万年历解锁会员，仅供交流使用，请勿非法传播用�
 Author: oliixwxiilo
 Name: 万年历解锁会员
 
-Package: com.xwzios.classdumptweak
-Version: 3.7.0-1
-Architecture: iphoneos-arm64
-Essential: no
-Maintainer: xwzios
-Conflicts: com.xwzios.classdumptweak
-Replaces: com.xwzios.classdumptweak
-Provides: com.xwzios.classdumptweak
-Filename: ./com.xwzios.classdumptweak-3.7.0-1-iphoneos-arm64.deb
-Size: 617768
-MD5sum: 5e83bbda0e4c5a8e3ef1602abb1939bc
-SHA1: f22052b7d645356fd20d801acc247a2284883ee5
-SHA256: 9f2496ac9fe773ae024bb91f50b807c0b75d8f7338e0f12baad053404ba66cde
-Section: Tweaks
-Priority: optional
-Description: 运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式
-Author: xwzios
-Name: ClassDumpTweak
-
 Package: com.yuanshu.vip
 Version: 1.0
 Architecture: iphoneos-arm64e
