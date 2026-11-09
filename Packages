@@ -1,0 +1,241 @@
+Package: cn.llld.skineditor
+Version: 0.1.11
+Architecture: iphoneos-arm64
+Maintainer: 来了老弟
+Depends: firmware (>= 14.0)
+Filename: ./cn.llld.skineditor-0.1.11-rootless.deb
+Size: 1161212
+MD5sum: 920c913b75ce9d1e24f0edae2431a1f5
+SHA1: 7d80a54ff650900475f3bb4192a214a640a0ff84
+SHA256: 2a9f8ef863198b31165ac46c15e961c76e59d9a2b7c41bc07f8fdbe2d9b7cdfc
+Section: Utilities
+Description: 百度/微信输入法皮肤可视化编辑器，系统配置预览或改图
+Tag: purpose::uikit, compatible::ios14
+Author: 来了老弟
+Name: 皮肤编辑器
+
+Package: com.baiduwp.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.baiduwp.vip
+Replaces: com.baiduwp.vip
+Provides: com.baiduwp.vip
+Filename: ./com.baiduwp.vip-1.0-roothide.deb
+Size: 56212
+MD5sum: 04b766436c3993bb632ae079537209a6
+SHA1: 2159b0b8ee535533f48cfb2af721e6479f24743c
+SHA256: 4585d83e6e4b74c796aad0feb7f46fbe8b0d9d2b495797dbc5c21d02389d505b
+Section: Tweaks
+Priority: optional
+Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 百度网盘解锁部分会员
+
+Package: com.eric.tools
+Version: 2.0.6
+Architecture: iphoneos-arm64
+Maintainer: Eric
+Depends: mobilesubstrate
+Filename: ./com.eric.tools-2.0.6-rootless.deb
+Size: 2252172
+MD5sum: fe877e63d1a50cf9762deb991b1f3e2f
+SHA1: 1035c9a126c390614116f45ee52658e8b6a22533
+SHA256: 571458730a6d61a9642cbaf5ac98f21f35241768a93a82ee9f414a0e5997562e
+Section: Tweaks
+Description: ToolsEric Pro 是一款集 网络监听、HTTPS/WebSocket 抓包、加密解密、正则分析、Runtime 检查、Hook 调试、URL 拦截、JSON 查看、设备模拟、虚拟定位、App 权限管理、应用保护、数据清理、Filza 文件管理 于一体的 iOS 专业分析工具。支持 AES/DES/RSA/SM 系列算法、Base64/Hex/UTF8 编解码、文件导入导出、Objective-C Runtime 分析、VC 生命周期追踪、类/方法/Ivar 查看、智能正则识别、请求响应分析 等功能，为 iOS 逆向分析、Hook 开发、安全测试及应用调试提供一站式解决方案。悬浮按钮弹出方式：注入你的app内，屏幕上写个v自动弹出，10s后自动隐藏
+Author: Eric
+Name: ToolsEric
+
+Package: com.fanqiety.vip
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: iosrxwy
+Depends: firmware (>= 15.0), mobilesubstrate | ellekit
+Filename: ./com.fanqiety.vip-1.0-rootless.deb
+Size: 4420
+MD5sum: 2b513b2fb3e906a51414634c45358a35
+SHA1: 79c6166052c5cd8ba4e6e69999cbdd12caa33609
+SHA256: a77190a988af6e6962d484322b13a81016eb36c0cc78f003cf22714ca99dc61c
+Section: Tweaks
+Description: 番茄小说、番茄音乐、番茄畅听、红果短剧解锁会员，源代码由ios宝藏提供，仅供交流使用，请勿非法传播用于商业目的
+Author: iosrxwy
+Name: 番茄通用解锁会员
+
+Package: com.fqmusic.plus
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.fqmusic.plus-1.0-rootless.deb
+Size: 6172
+MD5sum: e2b942c6438f816f9087f78c0535d35e
+SHA1: a4f4db44ec4afe74d36cfd236daaa0d758442d90
+SHA256: 7e3604c3273f02fedbc60b1207f0c1580b3ac2be93ed22ea93ef85ff1876c47d
+Section: Tweaks
+Description: 番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 番茄音乐优化
+
+Package: com.ireadercity.vip
+Version: 1.0
+Architecture: iphoneos-arm64
+Essential: no
+Maintainer: gekuGou
+Conflicts: com.ireadercity.vip
+Replaces: com.ireadercity.vip
+Provides: com.ireadercity.vip
+Filename: ./com.ireadercity.vip-1.0-rootless.deb
+Size: 27672
+MD5sum: 6f016eefda23bde80f0806caa54a05e6
+SHA1: 4d5a42bb1c8113c4a461e708e72f0f4ffb2ed0bd
+SHA256: 2eb133763cf7780e205e22001da265bd5677ffaba17679d40d9b5b590048d2d6
+Section: Tweaks
+Priority: optional
+Description: 万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的
+Author: gekuGou
+Name: 万年历解锁会员
+
+Package: com.little16.rev
+Version: 1.0.4
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate, preferenceloader
+Filename: ./com.little16.rev-1.0.4-rootless.deb
+Size: 43012
+MD5sum: 53f8d9707d3f03c7d3a53e2bcb386af7
+SHA1: f63ba0969e00bd68408e98bfaf654656202d255a
+SHA256: 9481bb3511a5f1c3cc5d7ae37e9be454228189bd4ee25844b4cc77872c7fac1f
+Section: Tweaks
+Description: 为非全面屏手机带来iPhoneX手势、iPad Dock栏、状态栏以及锁屏快捷按钮，此版本为修改版，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo & michaelmelita1
+Name: Little16单独开关版
+
+Package: com.n95.zh
+Version: 4.4
+Architecture: iphoneos-arm64e
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.n95.zh-4.4-roothide.deb
+Size: 2080
+MD5sum: 40c543ecfdd548c56194a504e737013b
+SHA1: 33bd4fc4d53ff6d42bbb6515fac6d782e1905f27
+SHA256: 45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5
+Section: Tweaks
+Description: N95简体中文包，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: N95简体中文包
+
+Package: com.safariexpand.color
+Version: 0.1
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.safariexpand.color-0.1-rootless.deb
+Size: 3200
+MD5sum: d8b98c3e3aa08a19981c1e25300253ed
+SHA1: 72005e3d14652982f5525b449a50ee15ac843c1e
+SHA256: deb7fa2d9e02ccb5970f4cbd7b86ea36013a1f63d0a5f0b98bc34f63260cb609
+Section: Tweaks
+Description: 禁止Safari给第三方扩展图标上色，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: SafariExpandColor
+
+Package: com.subtranslomatic.menu
+Version: 0.1
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: ./com.subtranslomatic.menu-0.1-rootless.deb
+Size: 3892
+MD5sum: 00099cb5a5d07f75f1582a77fc64b14a
+SHA1: e716f09220a9e034e70d11c3f1654532a41f637f
+SHA256: d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed
+Section: Tweaks
+Description: 替换Translomatic在文字菜单中显示为翻译,仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 替换Translomatic文字为翻译
+
+Package: com.textreplace.cn
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.textreplace.cn
+Replaces: com.textreplace.cn
+Provides: com.textreplace.cn
+Filename: ./com.textreplace.cn-1.0-roothide.deb
+Size: 27940
+MD5sum: 8429195b19d37ad052d7e89bf797e327
+SHA1: 88a5d277b643ad9598aa3e3c530af9b80fb97c9c
+SHA256: dd99dd2f1e9c38f43fb9ad1a3d68600f0818ea7bdcbe91aaa397a5cad5917cc5
+Section: Tweaks
+Priority: optional
+Description: 双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 替换文本字符
+
+Package: com.xwzios.classdumptweak
+Version: 3.7.0-1
+Architecture: iphoneos-arm64
+Essential: no
+Maintainer: xwzios
+Conflicts: com.xwzios.classdumptweak
+Replaces: com.xwzios.classdumptweak
+Provides: com.xwzios.classdumptweak
+Filename: ./com.xwzios.classdumptweak-3.7.0-1-rootless.deb
+Size: 270316
+MD5sum: 642a30ac38331e6fb6d0623f8e2f9ce9
+SHA1: b023b11bd43cadf87c37b1811e0c1e9488d0a550
+SHA256: e7b1130ca0bd93ca96a024e7e49db4e9f77c48d4868537af4a9036391a8ea651
+Section: Tweaks
+Priority: optional
+Description: 运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式
+Author: xwzios
+Name: ClassDumpTweak
+
+Package: com.yuanshu.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.yuanshu.vip
+Replaces: com.yuanshu.vip
+Provides: com.yuanshu.vip
+Filename: ./com.yuanshu.vip-1.0-roothide.deb
+Size: 57180
+MD5sum: d39675e7a6a7d50e5fc239597e122d77
+SHA1: e8394421b1a0d0abed981bfd6357152ffb861257
+SHA256: d692ec9b7fb48e94b94f183c924bcef76c7ff41d61defe581a8e1d8927d7da64
+Section: Tweaks
+Priority: optional
+Description: 元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 元书输入法解锁会员
+
+Package: ws.hbang.newterm33
+Version: 3.0~beta1-2048
+Architecture: iphoneos-arm64e
+Maintainer: HASHBANG Productions <support@hbang.ws>
+Depends: firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds
+Recommends: gettext-localizations, iterm2-shell-integration, zsh-autosuggestions, zsh-syntax-highlighting
+Conflicts: ws.hbang.newterm, ws.hbang.newterm2
+Replaces: ws.hbang.newterm, ws.hbang.newterm2
+Filename: ./ws.hbang.newterm33-3.0~beta1-2048-roothide.deb
+Size: 5351216
+MD5sum: 9ae35291cba032fe756568e87ae84123
+SHA1: e60bfcd402e51dbcfb12309d3c2a3f16279515ea
+SHA256: ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5
+Section: Tweaks
+Description: 终端管理，汉化版
+Tag: compatible_min::ios14.0
+Author: HASHBANG Productions <support@hbang.ws>
+Depiction: https://chariz.com/get/newterm-beta
+Icon: https://img.chariz.cloud/icon/newterm-beta/icon@3x.png
+Name: NewTerm 3 Beta汉化版
+Support: https://hashbang.productions/support/
+
