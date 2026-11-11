@@ -34,6 +34,22 @@ Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法�
 Author: oliixwxiilo
 Name: 百度网盘解锁部分会员
 
+Package: com.charlieleung.trollopenjb
+Version: 1.5.2+offline.5
+Architecture: iphoneos-arm64e
+Maintainer: 一刀
+Installed-Size: 55444
+Depends: firmware (>= 15.0),mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist, com.opa334.libsandy
+Filename: ./com.charlieleung.trollopenjb-1.5.2-roothide.deb
+Size: 16761890
+MD5sum: d12abbab3231b73801fb8081cfce8d0b
+SHA1: d2cb238fce13f3e82e5d556b93c50729357e93e2
+SHA256: e6212d8e47f3280f417c9efef5f250ce53cc460f92112c954c71b19973056411
+Section: Tweaks
+Description: 内置离线版，在16系统隐根状态测试正常，其他系统自测。
+Author: 一刀
+Name: TrollOpen
+
 Package: com.eric.tools
 Version: 2.0.6
 Architecture: iphoneos-arm64
