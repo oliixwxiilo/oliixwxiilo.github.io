@@ -114,6 +114,25 @@ Description: 万年历解锁会员，仅供交流使用，请勿非法传播用�
 Author: gekuGou
 Name: 万年历解锁会员
 
+Package: com.keyboard.max
+Version: 1.0
+Architecture: iphoneos-arm64
+Essential: no
+Maintainer: wkk
+Conflicts: com.keyboard.max
+Replaces: com.keyboard.max
+Provides: com.keyboard.max
+Filename: ./com.keyboard.max-1.0-rootless.deb
+Size: 13748
+MD5sum: 8fef04a0b969fcb1633d8106c042d508
+SHA1: e4b13db32cd96bbf66c254199dae62de3857fe6c
+SHA256: 2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990
+Section: Tweaks
+Priority: optional
+Description: 可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口
+Author: wkk
+Name: 键盘增强
+
 Package: com.little16.rev
 Version: 1.0.4
 Architecture: iphoneos-arm64
