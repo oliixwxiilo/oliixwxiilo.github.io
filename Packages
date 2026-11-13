@@ -115,22 +115,22 @@ Author: gekuGou
 Name: 万年历解锁会员
 
 Package: com.keyboard.max
-Version: 1.0
+Version: 2.0
 Architecture: iphoneos-arm64
 Essential: no
-Maintainer: wkk
+Maintainer: wkk & oliixwxiilo
 Conflicts: com.keyboard.max
 Replaces: com.keyboard.max
 Provides: com.keyboard.max
-Filename: ./com.keyboard.max-1.0-rootless.deb
-Size: 13748
-MD5sum: 8fef04a0b969fcb1633d8106c042d508
-SHA1: e4b13db32cd96bbf66c254199dae62de3857fe6c
-SHA256: 2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990
+Filename: ./com.keyboard.max-2.0-rootless.deb
+Size: 13880
+MD5sum: 4c192c93897fbb743e99613f7f4d068e
+SHA1: 34cd73b366bdd74e9361cd11400f1c0a23387fde
+SHA256: 5c7af72702368006a0f1c894bf4a0dc9738fb9fe0690a6fbc9c4a4e3bc9d0d7e
 Section: Tweaks
 Priority: optional
-Description: 可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口
-Author: wkk
+Description: 可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，仅供交流使用，请勿非法传播用于商业目的
+Author: wkk & oliixwxiilo
 Name: 键盘增强
 
 Package: com.little16.rev
