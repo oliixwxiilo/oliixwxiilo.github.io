@@ -14,6 +14,22 @@ Tag: purpose::uikit, compatible::ios14
 Author: 来了老弟
 Name: 皮肤编辑器
 
+Package: com.autotouch.pro
+Version: 8.0.11k
+Architecture: iphoneos-arm64
+Maintainer: Kent Krantz
+Depends: firmware (>=15.0), ellekit
+Filename: ./com.autotouch.pro-8.0.11k-rootless.deb
+Size: 21289016
+MD5sum: 3bd65b7eeca6860e1515bcaff9ea02ee
+SHA1: d7fa94b354ef749521018d9b89eb25ddddff5d1d
+SHA256: 012eb7a22cc3f08c0c5d15c3fa1171df15b118d15885ccea444176b3fa8a618d
+Section: Tweaks
+Description: AutoTouch用来录制和回放您在移动设备上的各种触摸和点击操作，它还可以运行事先用Lua语言写好的脚本，通过模拟人的触摸操作，来实现更多意想不到的功能。您可以用它自动玩游戏打怪赚取金币、批量编辑照片、进行程序自动化测试或者自动登入邮箱等。打开闪退的请进系统设置-显示与亮度，关闭粗体显示即可！仅供交流使用，请勿非法传播用于商业目的
+Author: Kent Krantz
+Icon: https://chinesebuilding.club/pic/cydia.png
+Name: AutoTouch
+
 Package: com.baiduwp.vip
 Version: 1.0
 Architecture: iphoneos-arm64e
