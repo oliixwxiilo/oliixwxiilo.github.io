@@ -268,22 +268,6 @@ Description: 元书输入法解锁会员，仅供交流使用，请勿非法传�
 Author: oliixwxiilo
 Name: 元书输入法解锁会员
 
-Package: net.autotouch.triggr
-Version: 8.0.11-1+debug
-Architecture: iphoneos-arm64
-Maintainer: oliixwxiilo
-Installed-Size: 208
-Depends: firmware (>= 15.0), mobilesubstrate, com.johndie.triggr (>= 2.0)
-Filename: ./net.autotouch.triggr-8.0.11-rootless.deb
-Size: 17400
-MD5sum: 7ceefeb61975fa2e427357cf248697f1
-SHA1: fdb3f69a7bc21612f2ee801b7b8196a76b475c2f
-SHA256: 7478e60a4feadeadfe0ec0cefe188b51f0931ee1ce0a13af01984e139147bac3
-Section: Tweaks
-Description: 将AutoTouch操作添加到Triggr中，动作由Triggr控制，仅供交流使用，请勿非法传播用于商业目的
-Author: oliixwxiilo
-Name: AutoTouch Triggr Actions
-
 Package: ws.hbang.newterm33
 Version: 3.0~beta1-2048
 Architecture: iphoneos-arm64e
