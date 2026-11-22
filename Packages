@@ -232,26 +232,6 @@ Description: 运行时类导出工具，带悬浮球界面。新增快手Kwaipil
 Author: xwzios
 Name: ClassDumpTweak
 
-Package: com.yuanshu.vip
-Version: 1.0
-Architecture: iphoneos-arm64e
-Essential: no
-Maintainer: oliixwxiilo
-Pre-Depends: rootless-compat(>= 0.9)
-Conflicts: com.yuanshu.vip
-Replaces: com.yuanshu.vip
-Provides: com.yuanshu.vip
-Filename: ./com.yuanshu.vip-1.0-roothide.deb
-Size: 57180
-MD5sum: d39675e7a6a7d50e5fc239597e122d77
-SHA1: e8394421b1a0d0abed981bfd6357152ffb861257
-SHA256: d692ec9b7fb48e94b94f183c924bcef76c7ff41d61defe581a8e1d8927d7da64
-Section: Tweaks
-Priority: optional
-Description: 元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的
-Author: oliixwxiilo
-Name: 元书输入法解锁会员
-
 Package: ws.hbang.newterm33
 Version: 3.0~beta1-2048
 Architecture: iphoneos-arm64e
