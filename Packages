@@ -213,6 +213,25 @@ Description: 双指长按界面弹出替换弹窗，目前只注入了com.apple.
 Author: oliixwxiilo
 Name: 替换文本字符
 
+Package: com.vip.hamster
+Version: 1.1
+Architecture: iphoneos-arm64
+Essential: no
+Maintainer: oliixwxiilo & iOSkuka
+Conflicts: com.vip.hamster
+Replaces: com.vip.hamster
+Provides: com.vip.hamster
+Filename: ./com.vip.hamster-1.1-rootless.deb
+Size: 57256
+MD5sum: 7155c24c1f650dc8c3eb596b5bf72c48
+SHA1: 5ff0a8f8fae6a0ae141885f14bc25dd131cab6b4
+SHA256: eb209af79af9ea2ff9971e0bf52ad7b169b872d5f8756bc43a79178d48b78898
+Section: Tweaks
+Priority: optional
+Description: 元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo & iOSkuka
+Name: 元书输入法解锁会员
+
 Package: com.xwzios.classdumptweak
 Version: 3.7.0-1
 Architecture: iphoneos-arm64
