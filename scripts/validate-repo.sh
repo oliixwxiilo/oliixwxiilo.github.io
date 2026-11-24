@@ -45,6 +45,10 @@ items = data.get("packages", [])
 if len(items) != len(stanzas):
     raise SystemExit("Catalog entry count mismatch: " + str(len(items)) + " vs " + str(len(stanzas)))
 for item in items:
+    for asset in item.get("images", []):
+        asset_path = Path(asset.get("path", ""))
+        if asset_path.is_absolute() or ".." in asset_path.parts or not asset_path.is_file():
+            raise SystemExit("Missing or unsafe package image asset: " + str(asset_path))
     page = Path("depictions") / item["package"] / item["version"] / "index.html"
     if not page.is_file():
         raise SystemExit("Missing depiction page: " + str(page))
