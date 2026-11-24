@@ -96,7 +96,8 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
       "ios":editorial.get("ios",{"min":"","max":""}),"compatibility":compatibility,
       "changelog":editorial.get("changelog",[]),
       "icon":local_icon or fields.get("Icon",""),"images":images,"size":fields.get("Size",""),"sha256":fields.get("SHA256",""),
-      "review":audit.get("review","not-audited"),"controlDepends":audit.get("depends",fields.get("Depends","")),\n      "detailUrl":"depictions/"+safe_part(pkg)+"/"+safe_part(ver)+"/"
+      "review":audit.get("review","not-audited"),"controlDepends":audit.get("depends",fields.get("Depends","")),
+      "detailUrl":"depictions/"+safe_part(pkg)+"/"+safe_part(ver)+"/"
     })
 packages.sort(key=lambda p:(p["environment"],p["name"].lower(),p["package"],p["version"]))
 for p in packages:
