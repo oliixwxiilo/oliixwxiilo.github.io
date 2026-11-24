@@ -58,6 +58,23 @@ for item in items:
     page = Path("depictions") / item["package"] / item["version"] / "index.html"
     if not page.is_file():
         raise SystemExit("Missing depiction page: " + str(page))
+# Package identity must be unique for each version and architecture.
+identities=set()
+filenames=set()
+for item in items:
+    identity=(item["package"],item["version"],item["architecture"])
+    if identity in identities:
+        raise SystemExit("Duplicate package/version/architecture: " + repr(identity))
+    identities.add(identity)
+    if item["filename"] in filenames:
+        raise SystemExit("Duplicate DEB filename: " + item["filename"])
+    filenames.add(item["filename"])
+dependency_audit=Path("dependency-audit.json")
+if not dependency_audit.is_file():
+    raise SystemExit("Missing dependency-audit.json")
+dependency_data=__import__("json").loads(dependency_audit.read_text(encoding="utf-8"))
+if len(dependency_data.get("packages",[])) != len(stanzas):
+    raise SystemExit("Dependency audit package count mismatch")
 history = Path("version-history.json")
 if not history.is_file():
     raise SystemExit("Missing version-history.json")
@@ -65,5 +82,5 @@ history_data = __import__("json").loads(history.read_text(encoding="utf-8"))
 history_items = history_data.get("packages", [])
 if len(history_items) != len(set(item["package"] for item in items)):
     raise SystemExit("Version history package count mismatch")
-print("Validated " + str(len(stanzas)) + " package entries, catalog records, version history and depiction pages.")
+print("Validated " + str(len(stanzas)) + " package entries, unique package identities, dependency audit, catalog, version history and depiction pages.")
 PY
