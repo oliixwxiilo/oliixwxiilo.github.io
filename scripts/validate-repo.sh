@@ -29,8 +29,12 @@ for stanza in stanzas:
         raise SystemExit("Missing or invalid package-manager Depiction URL: " + fields["Package"])
     filename = fields["Filename"].removeprefix("./")
     path = Path(filename)
-    if path.is_absolute() or ".." in path.parts or len(path.parts) != 1 or path.suffix.lower() != ".deb":
-        raise SystemExit("Unsafe or non-root DEB filename: " + fields["Filename"])
+    if path.is_absolute() or ".." in path.parts or len(path.parts) != 3 or path.parts[0] != "debs" or path.parts[1] not in ("rootless", "roothide") or path.suffix.lower() != ".deb":
+        raise SystemExit("Unsafe or incorrectly categorized DEB filename: " + fields["Filename"])
+    filename = path.name.lower()
+    expected_folder = "rootless" if filename.endswith("-rootless.deb") else "roothide" if filename.endswith("-roothide.deb") else ""
+    if not expected_folder or path.parts[1] != expected_folder:
+        raise SystemExit("DEB folder does not match filename environment hint: " + fields["Filename"])
     if not path.is_file():
         missing.append(str(path))
     digest = __import__("hashlib").sha256(path.read_bytes()).hexdigest()
