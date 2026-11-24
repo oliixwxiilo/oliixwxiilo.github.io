@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="Oliixwxiilo 越狱软件源，提供 Rootless 与 RootHide 插件。">
+<title>Oliixwxiilo Repo</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--line:#26364d;--text:#edf3ff;--muted:#9aabc3;--accent:#75a7ff;--green:#78dfb0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1a3151 0,transparent 45%),var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(920px,calc(100% - 32px));margin:64px auto}.hero{padding:42px 0 28px}.eyebrow{color:var(--green);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,58px);line-height:1.08;margin:12px 0}.hero p{color:var(--muted);max-width:620px}.panel{background:rgba(18,29,48,.88);border:1px solid var(--line);border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 18px 60px #0003}.panel h2{font-size:19px;margin:0 0 12px}.url{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#0b1423;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:14px ui-monospace,monospace;overflow-wrap:anywhere}.url span{flex:1}.button{display:inline-block;text-decoration:none;color:#081326;background:var(--accent);font-weight:700;border-radius:10px;padding:9px 14px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:#c9d8ed;font-size:13px}.muted{color:var(--muted)}footer{color:var(--muted);font-size:13px;padding:22px 2px}
+</style>
+</head>
+<body><main>
+<header class="hero"><div class="eyebrow">Personal jailbreak repository</div><h1>Oliixwxiilo Repo</h1><p>个人越狱插件源，持续整理与维护 Rootless、RootHide 软件包。简洁、安全、方便添加。</p><div class="chips"><span class="chip">Rootless</span><span class="chip">RootHide</span><span class="chip">APT compatible</span></div></header>
+<section class="panel"><h2>添加软件源</h2><p class="muted">复制以下地址，在 Sileo、Zebra、Installer 或其他兼容 APT 的软件包管理器中添加。</p><div class="url"><span id="repo">https://oliixwxiilo.github.io/</span><button class="button" id="copy" type="button">复制地址</button></div><p id="status" class="muted" aria-live="polite"></p></section>
+<section class="panel"><h2>兼容环境</h2><p class="muted">软件包按自身打包架构与依赖要求提供。请在安装前核对每个插件的 Rootless / RootHide 标识、系统版本及依赖；并非所有插件都适用于所有越狱环境。</p></section>
+<section class="panel"><h2>使用说明</h2><p class="muted">添加源后刷新软件包列表。若安装失败，请先检查设备架构、越狱类型、iOS 版本和依赖项。软件包信息以管理器显示的 APT 元数据为准。</p></section>
+<footer>© Oliixwxiilo · Personal repository</footer>
+</main><script>
+document.getElementById('copy').addEventListener('click',async()=>{const value=document.getElementById('repo').textContent;const status=document.getElementById('status');try{await navigator.clipboard.writeText(value);status.textContent='已复制软件源地址。'}catch(e){status.textContent='请长按上方地址手动复制。'}});
+</script></body></html>
