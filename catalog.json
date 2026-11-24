@@ -11,7 +11,16 @@
       "section": "Tweaks",
       "depends": "mobilesubstrate",
       "description": "N95简体中文包，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "2080",
@@ -29,7 +38,16 @@
       "section": "Tweaks",
       "depends": "firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds",
       "description": "终端管理，汉化版",
+      "summary": "",
       "author": "HASHBANG Productions <support@hbang.ws>",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "assets/packages/ws.hbang.newterm33/3.0~beta1-2048/95b334d39f6d.png",
       "images": [
         {
@@ -84,7 +102,16 @@
       "section": "Tweaks",
       "depends": "firmware (>= 15.0),mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist, com.opa334.libsandy",
       "description": "内置离线版，在16系统隐根状态测试正常，其他系统自测。",
+      "summary": "",
       "author": "一刀",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "assets/packages/com.charlieleung.trollopenjb/1.5.2+offline.5/9b0735503d7f.png",
       "images": [
         {
@@ -121,7 +148,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "27940",
@@ -139,7 +175,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "56212",
@@ -157,7 +202,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式",
+      "summary": "",
       "author": "xwzios",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "270316",
@@ -175,7 +229,16 @@
       "section": "Tweaks",
       "depends": "mobilesubstrate, preferenceloader",
       "description": "为非全面屏手机带来iPhoneX手势、iPad Dock栏、状态栏以及锁屏快捷按钮，此版本为修改版，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo & michaelmelita1",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "assets/packages/com.little16.rev/1.0.4/4d75c28a3712.png",
       "images": [
         {
@@ -212,7 +275,16 @@
       "section": "Tweaks",
       "depends": "mobilesubstrate",
       "description": "禁止Safari给第三方扩展图标上色，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "3200",
@@ -230,7 +302,16 @@
       "section": "Tweaks",
       "depends": "mobilesubstrate",
       "description": "ToolsEric Pro 是一款集 网络监听、HTTPS/WebSocket 抓包、加密解密、正则分析、Runtime 检查、Hook 调试、URL 拦截、JSON 查看、设备模拟、虚拟定位、App 权限管理、应用保护、数据清理、Filza 文件管理 于一体的 iOS 专业分析工具。支持 AES/DES/RSA/SM 系列算法、Base64/Hex/UTF8 编解码、文件导入导出、Objective-C Runtime 分析、VC 生命周期追踪、类/方法/Ivar 查看、智能正则识别、请求响应分析 等功能，为 iOS 逆向分析、Hook 开发、安全测试及应用调试提供一站式解决方案。悬浮按钮弹出方式：注入你的app内，屏幕上写个v自动弹出，10s后自动隐藏",
+      "summary": "",
       "author": "Eric",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "2252172",
@@ -248,7 +329,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "gekuGou",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "27672",
@@ -266,7 +356,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo & iOSkuka",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "57256",
@@ -284,7 +383,16 @@
       "section": "Tweaks",
       "depends": "mobilesubstrate",
       "description": "替换Translomatic在文字菜单中显示为翻译,仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "3892",
@@ -302,7 +410,16 @@
       "section": "Tweaks",
       "depends": "firmware (>= 15.0), mobilesubstrate | ellekit",
       "description": "番茄小说、番茄音乐、番茄畅听、红果短剧解锁会员，源代码由ios宝藏提供，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "iosrxwy",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "4420",
@@ -320,7 +437,16 @@
       "section": "Tweaks",
       "depends": "mobilesubstrate",
       "description": "番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "6172",
@@ -338,7 +464,16 @@
       "section": "Utilities",
       "depends": "firmware (>= 14.0)",
       "description": "百度/微信输入法皮肤可视化编辑器，系统配置预览或改图",
+      "summary": "",
       "author": "来了老弟",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "assets/packages/cn.llld.skineditor/0.1.11/2cbfd7c42a6a.png",
       "images": [
         {
@@ -393,7 +528,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
+      "summary": "",
       "author": "wkk",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "13748",
@@ -411,7 +555,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "wkk & oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "13880",
@@ -429,7 +582,16 @@
       "section": "Tweaks",
       "depends": "",
       "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，3.0增加横盘隐藏，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "",
       "author": "wkk & oliixwxiilo",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {},
+      "changelog": [],
       "icon": "",
       "images": [],
       "size": "14096",
