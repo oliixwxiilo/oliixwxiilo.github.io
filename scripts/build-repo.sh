@@ -21,5 +21,6 @@ gzip -n -9 -c Packages > Packages.gz
   sha256sum Packages Packages.gz | awk '{printf " %s %s\n", $1, $2}'
 } > Release
 python3 scripts/audit-debs.py
+python3 scripts/audit-dependencies.py
 python3 scripts/generate-catalog.py
 echo "Repository indexes and package catalog generated."
