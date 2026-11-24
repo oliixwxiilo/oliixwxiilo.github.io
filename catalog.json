@@ -100,6 +100,18 @@
           "source": "Applications/NewTerm.app/SwiftTerm/docs/docsets/SwiftTerm.docset/Contents/Resources/Documents/img/gh.png",
           "kind": "image",
           "size": 1571
+        },
+        {
+          "path": "assets/packages/ws.hbang.newterm33/3.0~beta1-2048/51da4df6f786.gif",
+          "source": "Applications/NewTerm.app/SwiftTerm/docs/docsets/SwiftTerm.docset/Contents/Resources/Documents/img/spinner.gif",
+          "kind": "image",
+          "size": 1849
+        },
+        {
+          "path": "assets/packages/ws.hbang.newterm33/3.0~beta1-2048/de085c21fe32.png",
+          "source": "Applications/NewTerm.app/SwiftTerm/TerminalApp/iOSTerminal/Assets.xcassets/AppIcon.appiconset/App_store_1024_1x.png",
+          "kind": "image",
+          "size": 388492
         }
       ],
       "size": "5351216",
@@ -140,12 +152,6 @@
         {
           "path": "assets/packages/com.charlieleung.trollopenjb/1.5.2+offline.5/9b0735503d7f.png",
           "source": "Library/PreferenceBundles/TrollOpenJBPrefs.bundle/icon.png",
-          "kind": "icon",
-          "size": 7191
-        },
-        {
-          "path": "assets/packages/com.charlieleung.trollopenjb/1.5.2+offline.5/9b0735503d7f.png",
-          "source": "Library/PreferenceBundles/TrollOpenJBPrefs.bundle/icon@2x.png",
           "kind": "icon",
           "size": 7191
         },
@@ -630,6 +636,18 @@
           "source": "var/jb/Applications/skineditor.app/AppIcon40@2x.png",
           "kind": "icon",
           "size": 7868
+        },
+        {
+          "path": "assets/packages/cn.llld.skineditor/0.1.11/8c99c8a9475f.png",
+          "source": "var/jb/Applications/skineditor.app/AppIcon40@3x.png",
+          "kind": "icon",
+          "size": 14599
+        },
+        {
+          "path": "assets/packages/cn.llld.skineditor/0.1.11/e29f844aa14a.png",
+          "source": "var/jb/Applications/skineditor.app/AppIcon60@3x.png",
+          "kind": "icon",
+          "size": 29065
         }
       ],
       "size": "1161212",
