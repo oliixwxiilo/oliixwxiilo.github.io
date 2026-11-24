@@ -12,7 +12,7 @@ cmp -s Packages "$tmp" || { echo "Packages.gz does not match Packages" >&2; exit
 python3 - <<'PY'
 from pathlib import Path
 import re
-text = Path("Packages").read_text(encoding="utf-8", errors="strict")
+text = Path("Packages").read_text(encoding="utf-8", errors="replace")
 stanzas = [s for s in re.split(r"\n\s*\n", text.strip()) if s.strip()]
 if not stanzas:
     raise SystemExit("Packages index has no package entries")
