@@ -5,7 +5,7 @@ on:
     paths-ignore:
       - Packages
       - Packages.gz
-      - Release
+      - Release\n      - catalog.json\n      - depictions/**
   workflow_dispatch:
 
 permissions:
@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Packages Packages.gz Release
+          git add Packages Packages.gz Release catalog.json depictions
           if git diff --cached --quiet; then
             echo "Indexes are already up to date."
             exit 0
