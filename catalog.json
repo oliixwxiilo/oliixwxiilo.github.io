@@ -20,7 +20,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -49,7 +55,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "assets/packages/ws.hbang.newterm33/3.0~beta1-2048/95b334d39f6d.png",
       "images": [
@@ -115,7 +127,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "assets/packages/com.charlieleung.trollopenjb/1.5.2+offline.5/9b0735503d7f.png",
       "images": [
@@ -163,7 +181,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -192,7 +216,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -221,7 +251,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -250,7 +286,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "assets/packages/com.little16.rev/1.0.4/4d75c28a3712.png",
       "images": [
@@ -298,7 +340,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -327,7 +375,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -356,7 +410,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -385,7 +445,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -414,7 +480,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -443,7 +515,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -472,7 +550,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -501,7 +585,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "assets/packages/cn.llld.skineditor/0.1.11/2cbfd7c42a6a.png",
       "images": [
@@ -567,7 +657,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -586,9 +682,9 @@
       "filename": "com.keyboard.max-2.0-rootless.deb",
       "section": "Tweaks",
       "depends": "",
-      "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
       "longDescription": "",
-      "summary": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
       "author": "wkk & oliixwxiilo",
       "homepage": "",
       "supportUrl": "",
@@ -596,7 +692,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
@@ -615,9 +717,9 @@
       "filename": "com.keyboard.max-3.0-rootless.deb",
       "section": "Tweaks",
       "depends": "",
-      "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，3.0增加横盘隐藏，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
       "longDescription": "",
-      "summary": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，3.0增加横盘隐藏，仅供交流使用，请勿非法传播用于商业目的",
+      "summary": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
       "author": "wkk & oliixwxiilo",
       "homepage": "",
       "supportUrl": "",
@@ -625,7 +727,13 @@
         "min": "",
         "max": ""
       },
-      "compatibility": {},
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
       "changelog": [],
       "icon": "",
       "images": [],
