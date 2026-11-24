@@ -1,4 +1,4 @@
-# Oliixwxiilo 越狱软件源
+# oliixwxiilo 越狱软件源
 
 个人自用 APT 软件源，提供 Rootless 与 RootHide 软件包。
 
