@@ -1,34 +1,47 @@
 <!doctype html>
-<html lang="zh-CN"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1220"><meta name="description" content="Oliixwxiilo 个人越狱软件源，Rootless 与 RootHide 插件目录。">
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="Oliixwxiilo 越狱软件源，选择你的软件包管理器添加源。">
 <title>Oliixwxiilo Repo</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--line:#26364d;--text:#edf3ff;--muted:#9aabc3;--blue:#83adff;--green:#78dfb0}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 12% 0%,#1b3558 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{width:min(1040px,calc(100% - 32px));margin:48px auto}.hero{padding:36px 0 22px}.eyebrow{color:var(--green);font-size:12px;font-weight:700;letter-spacing:.16em}.hero h1{font-size:clamp(36px,7vw,58px);line-height:1.1;margin:10px 0}.muted{color:var(--muted)}.chips,.filters{display:flex;gap:9px;flex-wrap:wrap}.chip,.filter{border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#c9d8ed;background:transparent}.filter{cursor:pointer}.filter[aria-pressed=true]{background:#203653;border-color:#5478a5;color:#fff}
-.panel{background:rgba(18,29,48,.9);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0}.source{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#0b1423;border:1px solid var(--line);border-radius:12px;padding:11px 13px}.source code{flex:1;overflow-wrap:anywhere}.button{border:0;border-radius:9px;padding:9px 13px;background:var(--blue);color:#081326;font-weight:700;cursor:pointer}
-input{width:100%;background:#0b1423;border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--text);font:inherit;outline:none}input:focus{border-color:var(--blue)}.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.count{color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:13px;margin-top:16px}.pkg{display:flex;flex-direction:column;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;min-width:0}.pkg h3{margin:0;font-size:17px;overflow-wrap:anywhere}.pkghead{display:flex;align-items:center;gap:12px}.pkgicon{width:46px;height:46px;border-radius:12px;object-fit:cover;background:#203653;flex:none}.pkgletter{width:46px;height:46px;border-radius:12px;background:#203653;display:grid;place-items:center;font-weight:800;color:#cfe0ff;flex:none}.pkg p{margin:0}.meta{font-size:12px;color:var(--muted)}.desc{font-size:13px;color:#c1cde0;min-height:40px}.pkg a{color:var(--blue);text-decoration:none;font-weight:650;margin-top:auto;padding-top:7px}.tag{display:inline-block;border:1px solid #40516a;border-radius:30px;padding:2px 8px;margin-right:5px;font-size:11px;color:#d5e2f4}.empty{padding:34px;text-align:center;color:var(--muted)}footer{padding:25px 2px;color:var(--muted);font-size:13px}
-@media(max-width:600px){main{margin:24px auto}.toolbar{grid-template-columns:1fr}.panel{padding:16px}}
-</style></head>
-<body><main>
-<header class="hero"><div class="eyebrow">PERSONAL JAILBREAK REPOSITORY</div><h1>Oliixwxiilo Repo</h1><p class="muted">个人维护 · 公开浏览与下载 · 访客只读</p><p class="muted">任何人都可以查看插件资料和下载 DEB，仓库内容仅由维护者更新。</p><div class="chips"><span class="chip">Rootless</span><span class="chip">RootHide</span><span class="chip">Sileo · Zebra · Installer · APT</span></div></header>
-<section class="panel"><h2>添加软件源</h2><p class="muted">复制地址，在兼容 APT 的软件包管理器中添加。</p><div class="source"><code id="repo">https://oliixwxiilo.github.io/</code><button class="button" id="copy">复制地址</button></div><p id="copyStatus" class="muted" aria-live="polite"></p></section>
-<section class="panel"><div class="toolbar"><div><h2 style="margin:0">软件包目录</h2><span class="count" id="count">正在加载目录…</span></div><input id="search" type="search" placeholder="搜索名称、包名、作者、描述、依赖或版本…" aria-label="搜索软件包"></div>
-<p class="count" style="margin:14px 0 7px">插件分类</p><div class="filters" id="categoryFilters"><button class="filter" data-category="全部" aria-pressed="true">全部分类</button></div><p class="count" style="margin:14px 0 7px">越狱环境（文件标记，非真机认证）</p><div class="filters" id="environmentFilters"><button class="filter" data-environment="全部" aria-pressed="true">全部环境</button></div>
-<div class="grid" id="packages"><div class="empty">正在读取软件包索引…</div></div>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--line:#26364d;--text:#edf3ff;--muted:#9aabc3;--blue:#83adff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 50% 0%,#1b3558 0,transparent 48%),var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(100%,480px);text-align:center}.mark{width:66px;height:66px;margin:0 auto 20px;border:1px solid #405879;border-radius:20px;display:grid;place-items:center;background:#14243b;color:#b9d1ff;font-size:27px;font-weight:800}
+h1{font-size:30px;margin:0 0 8px}.muted{color:var(--muted);margin:0 0 26px}
+.panel{padding:24px;border:1px solid var(--line);border-radius:20px;background:rgba(18,29,48,.92);box-shadow:0 18px 60px #0004}
+.repo{display:flex;align-items:center;gap:8px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#0b1423;text-align:left;margin-bottom:18px}
+.repo code{flex:1;min-width:0;overflow-wrap:anywhere;font-size:13px;color:#d7e5fa}
+button,.store{font:inherit;border:0;border-radius:11px;padding:12px 15px;cursor:pointer}
+.copy{background:#263b59;color:#eaf2ff;font-size:14px;white-space:nowrap}
+.stores{display:grid;gap:11px}
+.store{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:700;background:var(--blue);color:#091426}
+.store.secondary{background:#263b59;color:#edf3ff}
+.store:active,button:active{transform:scale(.985)}
+.note{font-size:12px;color:var(--muted);margin:17px 0 0}
+#status{min-height:20px;font-size:12px;color:#9bc8ff;margin-top:8px}
+</style>
+</head>
+<body>
+<main>
+<div class="mark">O</div>
+<h1>Oliixwxiilo Repo</h1>
+<p class="muted">选择软件包管理器，一键添加软件源</p>
+<section class="panel">
+<div class="repo"><code id="repo">https://oliixwxiilo.github.io/</code><button class="copy" id="copy" type="button">复制</button></div>
+<div class="stores">
+<a class="store" href="sileo://source/https://oliixwxiilo.github.io/">添加到 Sileo</a>
+<a class="store secondary" href="zbra://sources/add/https://oliixwxiilo.github.io/">添加到 Zebra</a>
+<a class="store secondary" href="installer://add/repo=https://oliixwxiilo.github.io/">添加到 Installer</a>
+</div>
+<p id="status" aria-live="polite"></p>
+<p class="note">请在已安装对应软件包管理器的越狱设备上打开此页面。</p>
 </section>
-<section class="panel"><h2>公开下载说明</h2><p class="muted">本站不提供访客上传、编辑、评论或账户功能。详情页可下载原始 DEB 文件。Rootless / RootHide 文件标记不等于真机兼容认证，未经设备实测的兼容性保持未知。</p></section><section class="panel"><h2>兼容说明</h2><p class="muted">软件包是否适用于特定设备，取决于 DEB 内部控制信息、架构、越狱环境、iOS 版本及依赖。目录分类仅作检索参考，安装前请以软件包实际元数据为准。</p></section>
-<footer>© Oliixwxiilo · Personal repository</footer>
 </main>
 <script>
-const $=s=>document.querySelector(s);let all=[],category="全部",environment="全部";
-$("#copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText($("#repo").textContent);$("#copyStatus").textContent="已复制软件源地址。"}catch(e){$("#copyStatus").textContent="请长按地址手动复制。"}});
-function bindFilters(root,field,setter){root.addEventListener("click",e=>{const b=e.target.closest("button[data-"+field+"]");if(!b)return;setter(b.dataset[field]);root.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()})}
-bindFilters($("#categoryFilters"),"category",v=>category=v);
-bindFilters($("#environmentFilters"),"environment",v=>environment=v);
-$("#search").addEventListener("input",render);
-function render(){const q=$("#search").value.trim().toLowerCase();const items=all.filter(p=>(category==="全部"||(p.section||"未分类")===category)&&(environment==="全部"||(p.environment||"待核实")===environment)&&[p.name,p.package,p.author,p.description,p.longDescription,p.depends,p.section,p.environment,p.architecture,p.filename,p.version,(p.changelog||[]).join(" ")].join(" ").toLowerCase().includes(q));$("#count").textContent="共 "+new Set(all.map(p=>p.package)).size+" 个插件、"+all.length+" 个版本 · 当前显示 "+items.length+" 个版本";const root=$("#packages");root.replaceChildren();if(!items.length){const d=document.createElement("div");d.className="empty";d.textContent="没有找到匹配的软件包。";root.append(d);return}for(const p of items){const card=document.createElement("article");card.className="pkg";const title=document.createElement("h3");title.textContent=p.name||p.package;const head=document.createElement("div");head.className="pkghead";if(typeof p.icon==="string"&&(p.icon.startsWith("https://")||p.icon.startsWith("assets/"))){const img=document.createElement("img");img.className="pkgicon";img.src=p.icon;img.alt="";img.loading="lazy";img.referrerPolicy="no-referrer";img.onerror=()=>{const fallback=document.createElement("div");fallback.className="pkgletter";fallback.textContent=(p.name||p.package||"?").slice(0,1).toUpperCase();img.replaceWith(fallback)};head.append(img)}else{const fallback=document.createElement("div");fallback.className="pkgletter";fallback.textContent=(p.name||p.package||"?").slice(0,1).toUpperCase();head.append(fallback)}head.append(title);const id=document.createElement("p");id.className="meta";id.textContent=p.package;const tags=document.createElement("div");for(const t of [p.section,p.environment,p.architecture,"v"+p.version]){const s=document.createElement("span");s.className="tag";s.textContent=t;tags.append(s)}const desc=document.createElement("p");desc.className="desc";desc.textContent=p.description||"暂无详细介绍";const author=document.createElement("p");author.className="meta";author.textContent="作者："+(p.author||"未提供");const deps=document.createElement("p");deps.className="meta";deps.textContent="依赖："+(p.depends||"无");const size=document.createElement("p");size.className="meta";const bytes=Number(p.size||0);size.textContent="安装包："+(bytes?((bytes/1024/1024).toFixed(2)+" MB"):"大小未知");const a=document.createElement("a");a.textContent="查看详情 →";a.href=p.detailUrl||("depictions/"+encodeURIComponent(p.package)+"/"+encodeURIComponent(p.version)+"/");const dl=document.createElement("a");dl.textContent="下载 DEB ↓";dl.href=p.filename||"#";dl.style.marginLeft="12px";card.append(head,id,tags,desc,author,deps,size,a,dl);root.append(card)}}
-fetch("./catalog.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("catalog unavailable");return r.json()}).then(d=>{all=Array.isArray(d.packages)?d.packages:[];const sections=[...new Set(all.map(p=>p.section||"未分类"))].sort();const environments=[...new Set(all.map(p=>p.environment||"待核实"))].sort();function addOptions(root,field,values,allLabel){root.replaceChildren();for(const value of ["全部",...values]){const b=document.createElement("button");b.className="filter";b.textContent=value==="全部"?allLabel:value;b.dataset[field]=value;b.setAttribute("aria-pressed",String(value==="全部"));root.append(b)}}addOptions($("#categoryFilters"),"category",sections,"全部分类");addOptions($("#environmentFilters"),"environment",environments,"全部环境");render()}).catch(()=>{$("#count").textContent="目录暂时不可用";$("#packages").textContent="软件包目录加载失败，请稍后刷新。"});
-</script></body></html>
+document.getElementById("copy").addEventListener("click",async()=>{const value=document.getElementById("repo").textContent;try{await navigator.clipboard.writeText(value);document.getElementById("status").textContent="软件源地址已复制"}catch(e){document.getElementById("status").textContent="请长按上方地址手动复制"}});
+</script>
+</body>
+</html>
