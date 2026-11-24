@@ -211,7 +211,7 @@ SHA256: 45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5
 Section: Tweaks
 Description: N95简体中文包，仅供交流使用，请勿非法传播用于商业目的
 Author: oliixwxiilo
-Name: N95简体中文�
+Name: com.n95.zh
 
 Package: com.safariexpand.color
 Version: 0.1
