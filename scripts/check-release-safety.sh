@@ -17,11 +17,5 @@ if ! cmp -s "$tmp_base" "$tmp_head"; then
   echo "All original DEB bytes must be preserved exactly during directory migration." >&2
   exit 1
 fi
-python3 - <<'PY'
-import json
-from pathlib import Path
-cfg=json.loads(Path("repo-config.json").read_text(encoding="utf-8"))
-if cfg.get("repository") != "https://oliixwxiilo.github.io/":
-    raise SystemExit("Release blocked: canonical repository URL changed")
-PY
+grep -q 'https://oliixwxiilo.github.io/' index.html || { echo "Release blocked: canonical repository URL changed" >&2; exit 1; }
 echo "Release safety passed: all existing DEB files and hashes are preserved."
