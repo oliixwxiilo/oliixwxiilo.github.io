@@ -43,6 +43,25 @@ if not config_path.is_file():
 config_data = __import__("json").loads(config_path.read_text(encoding="utf-8"))
 if config_data.get("schemaVersion") != 1 or not isinstance(config_data.get("packages"), dict):
     raise SystemExit("Invalid repo-config.json schema")
+known_packages={dict(re.findall(r"^Package:\\s*(.+)$", stanza, re.M)).get("Package","") for stanza in stanzas}
+for package_id, metadata in config_data["packages"].items():
+    if package_id == "_example.package":
+        continue
+    if package_id not in known_packages:
+        raise SystemExit("Metadata references unknown package: " + package_id)
+    if not isinstance(metadata, dict):
+        raise SystemExit("Package metadata must be an object: " + package_id)
+    compatibility=metadata.get("compatibility", {})
+    if not isinstance(compatibility, dict):
+        raise SystemExit("Invalid compatibility metadata: " + package_id)
+    for key in ("rootless", "roothide"):
+        status=compatibility.get(key, "unknown")
+        if status not in ("unknown", "tested", "not-tested", "partial"):
+            raise SystemExit("Invalid " + key + " test status for " + package_id)
+    for key in ("homepage", "supportUrl"):
+        url=metadata.get(key, "")
+        if url and (not isinstance(url, str) or not url.startswith("https://")):
+            raise SystemExit("Only verified HTTPS URLs are allowed for " + package_id + " " + key)
 catalog = Path("catalog.json")
 if not catalog.is_file():
     raise SystemExit("Missing generated catalog.json")
@@ -55,7 +74,11 @@ for item in items:
         asset_path = Path(asset.get("path", ""))
         if asset_path.is_absolute() or ".." in asset_path.parts or not asset_path.is_file():
             raise SystemExit("Missing or unsafe package image asset: " + str(asset_path))
-    page = Path("depictions") / item["package"] / item["version"] / "index.html"
+    safe_part=lambda value: re.sub(r"[^A-Za-z0-9.+~-]+", "-", str(value or "unknown")).strip(".-") or "unknown"
+    page = Path("depictions") / safe_part(item["package"]) / safe_part(item["version"]) / "index.html"
+    expected_url="depictions/"+safe_part(item["package"])+"/"+safe_part(item["version"])+"/"
+    if item.get("detailUrl") != expected_url:
+        raise SystemExit("Invalid detail URL for " + item["package"])
     if not page.is_file():
         raise SystemExit("Missing depiction page: " + str(page))
 # Package identity must be unique for each version and architecture.
