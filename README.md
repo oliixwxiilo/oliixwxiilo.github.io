@@ -28,3 +28,13 @@ bash scripts/validate-repo.sh
 ## 安全与发布原则
 
 重构先在 `refactor/modern-apt` 分支验证，不直接修改 `main`。现有 DEB 文件名和 URL 暂时保持不变；任何软件包迁移、删除或元数据变更都应先检查兼容性并单独审阅。
+
+
+## 软件包资料维护
+
+- repo-config.json：人工维护插件展示名称、介绍、主页、iOS 范围、兼容性实测状态和更新日志。
+- catalog.json：自动生成的主页目录。
+- version-history.json：从当前 APT 索引归集各包已保留的版本、文件名和 SHA256。
+- depictions/<包名>/<版本>/index.html：自动生成的插件详情页。
+
+编辑 repo-config.json 时，使用 DEB 的准确 Package 字段作为键。兼容性状态建议使用 unknown、tested 或 not-tested 等明确值；没有设备实测记录时请保持 unknown。iOS 版本范围留空表示尚未确认。更新日志日期必须来自真实发布记录，不要推测。
