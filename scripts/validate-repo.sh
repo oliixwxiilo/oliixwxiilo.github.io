@@ -27,6 +27,16 @@ for stanza in stanzas:
         missing.append(str(path))
 if missing:
     raise SystemExit("Missing package files:\n" + "\n".join(missing))
+audit = Path("package-audit.json")
+if not audit.is_file():
+    raise SystemExit("Missing DEB audit report")
+audit_data = __import__("json").loads(audit.read_text(encoding="utf-8"))
+audit_items = audit_data.get("packages", [])
+if len(audit_items) != len(stanzas):
+    raise SystemExit("DEB audit count mismatch: " + str(len(audit_items)) + " vs " + str(len(stanzas)))
+for item in audit_items:
+    if item.get("review") == "filename-and-architecture-conflict; manual review required":
+        print("WARNING: manual compatibility review required for " + item.get("filename", "<unknown>"))
 catalog = Path("catalog.json")
 if not catalog.is_file():
     raise SystemExit("Missing generated catalog.json")
