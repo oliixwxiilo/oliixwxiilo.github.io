@@ -1,23 +1,32 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101827">
-<meta name="description" content="Oliixwxiilo 越狱软件源，提供 Rootless 与 RootHide 插件。">
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220"><meta name="description" content="Oliixwxiilo 个人越狱软件源，Rootless 与 RootHide 插件目录。">
 <title>Oliixwxiilo Repo</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--line:#26364d;--text:#edf3ff;--muted:#9aabc3;--accent:#75a7ff;--green:#78dfb0}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1a3151 0,transparent 45%),var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{width:min(920px,calc(100% - 32px));margin:64px auto}.hero{padding:42px 0 28px}.eyebrow{color:var(--green);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,58px);line-height:1.08;margin:12px 0}.hero p{color:var(--muted);max-width:620px}.panel{background:rgba(18,29,48,.88);border:1px solid var(--line);border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 18px 60px #0003}.panel h2{font-size:19px;margin:0 0 12px}.url{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#0b1423;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:14px ui-monospace,monospace;overflow-wrap:anywhere}.url span{flex:1}.button{display:inline-block;text-decoration:none;color:#081326;background:var(--accent);font-weight:700;border-radius:10px;padding:9px 14px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:#c9d8ed;font-size:13px}.muted{color:var(--muted)}footer{color:var(--muted);font-size:13px;padding:22px 2px}
-</style>
-</head>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--line:#26364d;--text:#edf3ff;--muted:#9aabc3;--blue:#83adff;--green:#78dfb0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 12% 0%,#1b3558 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(1040px,calc(100% - 32px));margin:48px auto}.hero{padding:36px 0 22px}.eyebrow{color:var(--green);font-size:12px;font-weight:700;letter-spacing:.16em}.hero h1{font-size:clamp(36px,7vw,58px);line-height:1.1;margin:10px 0}.muted{color:var(--muted)}.chips,.filters{display:flex;gap:9px;flex-wrap:wrap}.chip,.filter{border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#c9d8ed;background:transparent}.filter{cursor:pointer}.filter[aria-pressed=true]{background:#203653;border-color:#5478a5;color:#fff}
+.panel{background:rgba(18,29,48,.9);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0}.source{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#0b1423;border:1px solid var(--line);border-radius:12px;padding:11px 13px}.source code{flex:1;overflow-wrap:anywhere}.button{border:0;border-radius:9px;padding:9px 13px;background:var(--blue);color:#081326;font-weight:700;cursor:pointer}
+input{width:100%;background:#0b1423;border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--text);font:inherit;outline:none}input:focus{border-color:var(--blue)}.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.count{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:13px;margin-top:16px}.pkg{display:flex;flex-direction:column;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:17px;min-width:0}.pkg h3{margin:0;font-size:17px;overflow-wrap:anywhere}.pkg p{margin:0}.meta{font-size:12px;color:var(--muted)}.desc{font-size:13px;color:#c1cde0;min-height:40px}.pkg a{color:var(--blue);text-decoration:none;font-weight:650;margin-top:auto;padding-top:7px}.tag{display:inline-block;border:1px solid #40516a;border-radius:30px;padding:2px 8px;margin-right:5px;font-size:11px;color:#d5e2f4}.empty{padding:34px;text-align:center;color:var(--muted)}footer{padding:25px 2px;color:var(--muted);font-size:13px}
+@media(max-width:600px){main{margin:24px auto}.toolbar{grid-template-columns:1fr}.panel{padding:16px}}
+</style></head>
 <body><main>
-<header class="hero"><div class="eyebrow">Personal jailbreak repository</div><h1>Oliixwxiilo Repo</h1><p>个人越狱插件源，持续整理与维护 Rootless、RootHide 软件包。简洁、安全、方便添加。</p><div class="chips"><span class="chip">Rootless</span><span class="chip">RootHide</span><span class="chip">APT compatible</span></div></header>
-<section class="panel"><h2>添加软件源</h2><p class="muted">复制以下地址，在 Sileo、Zebra、Installer 或其他兼容 APT 的软件包管理器中添加。</p><div class="url"><span id="repo">https://oliixwxiilo.github.io/</span><button class="button" id="copy" type="button">复制地址</button></div><p id="status" class="muted" aria-live="polite"></p></section>
-<section class="panel"><h2>兼容环境</h2><p class="muted">软件包按自身打包架构与依赖要求提供。请在安装前核对每个插件的 Rootless / RootHide 标识、系统版本及依赖；并非所有插件都适用于所有越狱环境。</p></section>
-<section class="panel"><h2>使用说明</h2><p class="muted">添加源后刷新软件包列表。若安装失败，请先检查设备架构、越狱类型、iOS 版本和依赖项。软件包信息以管理器显示的 APT 元数据为准。</p></section>
+<header class="hero"><div class="eyebrow">PERSONAL JAILBREAK REPOSITORY</div><h1>Oliixwxiilo Repo</h1><p class="muted">个人越狱插件源 · 持续维护 Rootless / RootHide 软件包</p><div class="chips"><span class="chip">Rootless</span><span class="chip">RootHide</span><span class="chip">Sileo · Zebra · Installer · APT</span></div></header>
+<section class="panel"><h2>添加软件源</h2><p class="muted">复制地址，在兼容 APT 的软件包管理器中添加。</p><div class="source"><code id="repo">https://oliixwxiilo.github.io/</code><button class="button" id="copy">复制地址</button></div><p id="copyStatus" class="muted" aria-live="polite"></p></section>
+<section class="panel"><div class="toolbar"><div><h2 style="margin:0">软件包目录</h2><span class="count" id="count">正在加载目录…</span></div><input id="search" type="search" placeholder="搜索插件名称、包名或作者…" aria-label="搜索软件包"></div>
+<div class="filters" style="margin-top:16px"><button class="filter" data-env="全部" aria-pressed="true">全部</button><button class="filter" data-env="Rootless" aria-pressed="false">Rootless</button><button class="filter" data-env="RootHide" aria-pressed="false">RootHide</button><button class="filter" data-env="待核实" aria-pressed="false">待核实</button></div>
+<div class="grid" id="packages"><div class="empty">正在读取软件包索引…</div></div>
+</section>
+<section class="panel"><h2>兼容说明</h2><p class="muted">软件包是否适用于特定设备，取决于 DEB 内部控制信息、架构、越狱环境、iOS 版本及依赖。目录分类仅作检索参考，安装前请以软件包实际元数据为准。</p></section>
 <footer>© Oliixwxiilo · Personal repository</footer>
-</main><script>
-document.getElementById('copy').addEventListener('click',async()=>{const value=document.getElementById('repo').textContent;const status=document.getElementById('status');try{await navigator.clipboard.writeText(value);status.textContent='已复制软件源地址。'}catch(e){status.textContent='请长按上方地址手动复制。'}});
+</main>
+<script>
+const $=s=>document.querySelector(s);let all=[],env="全部";
+$("#copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText($("#repo").textContent);$("#copyStatus").textContent="已复制软件源地址。"}catch(e){$("#copyStatus").textContent="请长按地址手动复制。"}});
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{env=b.dataset.env;document.querySelectorAll(".filter").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()}));
+$("#search").addEventListener("input",render);
+function render(){const q=$("#search").value.trim().toLowerCase();const items=all.filter(p=>(env==="全部"||p.environment===env)&&[p.name,p.package,p.author,p.description,p.section].join(" ").toLowerCase().includes(q));$("#count").textContent="共 "+all.length+" 个版本 · 当前显示 "+items.length+" 个";const root=$("#packages");root.replaceChildren();if(!items.length){const d=document.createElement("div");d.className="empty";d.textContent="没有找到匹配的软件包。";root.append(d);return}for(const p of items){const card=document.createElement("article");card.className="pkg";const title=document.createElement("h3");title.textContent=p.name||p.package;const id=document.createElement("p");id.className="meta";id.textContent=p.package;const tags=document.createElement("div");for(const t of [p.environment,p.architecture,"v"+p.version]){const s=document.createElement("span");s.className="tag";s.textContent=t;tags.append(s)}const desc=document.createElement("p");desc.className="desc";desc.textContent=p.description||"暂无详细介绍";const author=document.createElement("p");author.className="meta";author.textContent="作者："+(p.author||"未提供");const a=document.createElement("a");a.textContent="查看详情 →";a.href="depictions/"+encodeURIComponent(p.package)+"/"+encodeURIComponent(p.version)+"/";card.append(title,id,tags,desc,author,a);root.append(card)}}
+fetch("./catalog.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("catalog unavailable");return r.json()}).then(d=>{all=Array.isArray(d.packages)?d.packages:[];render()}).catch(()=>{$("#count").textContent="目录暂时不可用";$("#packages").textContent="软件包目录加载失败，请稍后刷新。"});
 </script></body></html>
