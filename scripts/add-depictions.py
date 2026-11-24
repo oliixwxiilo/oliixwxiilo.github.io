@@ -11,7 +11,7 @@ def safe_part(value):
     value=re.sub(r"[^A-Za-z0-9.+~-]+","-",str(value or "unknown"))
     return value.strip(".-") or "unknown"
 
-raw=index.read_text(encoding="utf-8")
+raw=index.read_text(encoding="utf-8",errors="surrogateescape")
 output=[]
 for stanza in re.split(r"\n\s*\n",raw.strip()):
     if not stanza.strip():
@@ -35,5 +35,5 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     insert_at=next((i+1 for i,line in enumerate(lines) if line.startswith("Version: ")),len(lines))
     lines.insert(insert_at,"Depiction: "+url)
     output.append("\n".join(lines))
-index.write_text("\n\n".join(output)+"\n",encoding="utf-8")
+index.write_text("\n\n".join(output)+"\n",encoding="utf-8",errors="surrogateescape")
 print("Added stable Depiction URLs to "+str(len(output))+" package entries.")
