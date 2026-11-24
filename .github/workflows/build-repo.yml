@@ -1,7 +1,7 @@
 name: Build APT Repo
 on:
   push:
-    branches: [ refactor/modern-apt, main ]
+    branches: [ refactor/modern-apt ]
     paths-ignore:
       - Packages
       - Packages.gz
