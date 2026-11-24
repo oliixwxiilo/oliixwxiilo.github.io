@@ -17,7 +17,7 @@
 
 ## 仓库维护
 
-- `*.deb`：当前阶段保留在仓库根目录，避免改变既有下载路径。
+- `debs/rootless/*.deb` 与 `debs/roothide/*.deb`：按环境提示分类存放；APT 索引使用对应子目录路径。
 - `Packages` / `Packages.gz`：由 `scripts/build-repo.sh` 生成。
 - `Release`：包含索引文件校验和及 arm64、arm64e 架构声明。
 - `scripts/validate-repo.sh`：检查索引压缩一致性、必需字段和 DEB 文件是否存在。
@@ -34,7 +34,7 @@ bash scripts/validate-repo.sh
 
 ## 安全与发布原则
 
-重构先在 `refactor/modern-apt` 分支验证，不直接修改 `main`。现有 DEB 文件名和 URL 暂时保持不变；任何软件包迁移、删除或元数据变更都应先检查兼容性并单独审阅。
+重构先在 `refactor/modern-apt` 分支验证，不直接修改 `main`。DEB 文件名与二进制内容保持不变；目录迁移会更新 APT 下载路径，需经独立 PR 审查后发布。
 
 
 ## 软件包资料维护
