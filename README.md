@@ -49,3 +49,6 @@ bash scripts/validate-repo.sh
 - `.github/workflows/release-safety.yml`：面向合并到 `main` 的 Pull Request 执行发布安全门禁；只有检查通过后才适合人工审阅合并。
 
 当前阶段不自动合并到 `main`，也不自动覆盖生产软件源。依赖审计只检查本仓库是否提供依赖；标记为 `external-or-virtual` 的项目通常需要由用户已添加的越狱基础源提供，不能单凭该标签判断为安装失败。
+
+
+- `scripts/add-depictions.py`：为每个 APT 包条目写入稳定的 `Depiction` URL，让支持该字段的软件包管理器可以打开对应的 HTML 详情页。
