@@ -25,9 +25,17 @@ for stanza in stanzas:
     expected_depiction="https://oliixwxiilo.github.io/depictions/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Package"]).strip(".-")+"/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Version"]).strip(".-")+"/"
     if fields.get("Depiction") != expected_depiction:
         raise SystemExit("Missing or invalid package-manager Depiction URL: " + fields["Package"])
-    path = Path(fields["Filename"].removeprefix("./"))
+    filename = fields["Filename"].removeprefix("./")
+    path = Path(filename)
+    if path.is_absolute() or ".." in path.parts or len(path.parts) != 1 or path.suffix.lower() != ".deb":
+        raise SystemExit("Unsafe or non-root DEB filename: " + fields["Filename"])
     if not path.is_file():
         missing.append(str(path))
+    digest = __import__("hashlib").sha256(path.read_bytes()).hexdigest()
+    if digest.lower() != fields["SHA256"].lower():
+        raise SystemExit("DEB SHA256 mismatch: " + filename)
+    if path.stat().st_size != int(fields["Size"]):
+        raise SystemExit("DEB size mismatch: " + filename)
 if missing:
     raise SystemExit("Missing package files:\n" + "\n".join(missing))
 audit = Path("package-audit.json")
@@ -84,6 +92,12 @@ for item in items:
         raise SystemExit("Invalid detail URL for " + item["package"])
     if not page.is_file():
         raise SystemExit("Missing depiction page: " + str(page))
+    page_html=page.read_text(encoding="utf-8",errors="replace")
+    expected_download="../../../"+item["filename"]
+    if 'href="'+expected_download+'" download' not in page_html:
+        raise SystemExit("Depiction download link does not match DEB: " + item["package"])
+    if item.get("sha256") != next((fields.get("SHA256") for stanza in stanzas if re.search(r"^Package:\\s*"+re.escape(item["package"])+r"$",stanza,re.M) and re.search(r"^Version:\\s*"+re.escape(item["version"])+r"$",stanza,re.M)),None):
+        raise SystemExit("Catalog SHA256 does not match Packages: " + item["package"])
 # Package identity must be unique for each version and architecture.
 identities=set()
 filenames=set()
