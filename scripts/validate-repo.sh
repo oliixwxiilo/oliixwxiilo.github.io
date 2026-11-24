@@ -17,11 +17,13 @@ stanzas = [s for s in re.split(r"\n\s*\n", text.strip()) if s.strip()]
 if not stanzas:
     raise SystemExit("Packages index has no package entries")
 missing = []
+index_by_identity = {}
 for stanza in stanzas:
     fields = dict(re.findall(r"^([A-Za-z0-9-]+):\s*(.*)$", stanza, re.M))
     for key in ("Package", "Version", "Architecture", "Filename", "Size", "SHA256"):
         if key not in fields:
             raise SystemExit(f"Package stanza missing {key}: {fields.get('Package', '<unknown>')}")
+    index_by_identity[(fields["Package"],fields["Version"])] = fields
     expected_depiction="https://oliixwxiilo.github.io/depictions/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Package"]).strip(".-")+"/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Version"]).strip(".-")+"/"
     if fields.get("Depiction") != expected_depiction:
         raise SystemExit("Missing or invalid package-manager Depiction URL: " + fields["Package"])
@@ -96,7 +98,8 @@ for item in items:
     expected_download="../../../"+item["filename"]
     if 'href="'+expected_download+'" download' not in page_html:
         raise SystemExit("Depiction download link does not match DEB: " + item["package"])
-    if item.get("sha256") != next((fields.get("SHA256") for stanza in stanzas if re.search(r"^Package:\\s*"+re.escape(item["package"])+r"$",stanza,re.M) and re.search(r"^Version:\\s*"+re.escape(item["version"])+r"$",stanza,re.M)),None):
+    indexed=index_by_identity.get((item["package"],item["version"]), {})
+    if item.get("sha256") != indexed.get("SHA256") or item.get("filename") != indexed.get("Filename","").removeprefix("./") or str(item.get("size")) != indexed.get("Size"):
         raise SystemExit("Catalog SHA256 does not match Packages: " + item["package"])
 # Package identity must be unique for each version and architecture.
 identities=set()
