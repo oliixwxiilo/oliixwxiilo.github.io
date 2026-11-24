@@ -3,7 +3,7 @@
   "packages": [
     {
       "package": "com.n95.zh",
-      "name": "com.n95.zh",
+      "name": "N95简体中文包",
       "version": "4.4",
       "architecture": "iphoneos-arm64e",
       "environment": "RootHide",

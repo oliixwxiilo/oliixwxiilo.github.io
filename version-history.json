@@ -2,7 +2,7 @@
   "packages": [
     {
       "package": "com.n95.zh",
-      "name": "com.n95.zh",
+      "name": "N95简体中文包",
       "versions": [
         {
           "version": "4.4",
