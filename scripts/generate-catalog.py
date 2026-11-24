@@ -6,6 +6,9 @@ raw=(root/"Packages").read_text(encoding="utf-8",errors="replace")
 audit_path=root/"package-audit.json"
 audit_data=json.loads(audit_path.read_text(encoding="utf-8")) if audit_path.exists() else {"packages":[]}
 audit_by_file={x["filename"]:x for x in audit_data.get("packages",[])}
+config_path=root/"repo-config.json"
+config=json.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {"packages":{}}
+manual=config.get("packages",{})
 asset_root=root/"assets"/"packages"
 if asset_root.exists(): shutil.rmtree(asset_root)
 asset_root.mkdir(parents=True,exist_ok=True)
@@ -77,15 +80,39 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     images=extract_images(root/filename.removeprefix("./"),pkg,ver)
     local_icon=next((x["path"] for x in images if x["kind"]=="icon"),"")
     # Filename convention and APT architecture are independent signals.
+    editorial=manual.get(pkg,{})
+    compatibility=editorial.get("compatibility",{})
     packages.append({
       "package":pkg,"name":name,"version":ver,"architecture":arch,
       "environment":env,"filename":filename.removeprefix("./"),
       "section":fields.get("Section","Other"),"depends":fields.get("Depends",""),
-      "description":desc,"author":fields.get("Author",fields.get("Maintainer","")),
+      "description":editorial.get("description") or desc,"summary":editorial.get("summary",""),"author":fields.get("Author",fields.get("Maintainer","")),
+      "homepage":editorial.get("homepage",""),"supportUrl":editorial.get("supportUrl",""),
+      "ios":editorial.get("ios",{"min":"","max":""}),"compatibility":compatibility,
+      "changelog":editorial.get("changelog",[]),
       "icon":local_icon or fields.get("Icon",""),"images":images,"size":fields.get("Size",""),"sha256":fields.get("SHA256",""),
       "review":audit.get("review","not-audited"),"controlDepends":audit.get("depends",fields.get("Depends",""))
     })
 packages.sort(key=lambda p:(p["environment"],p["name"].lower(),p["package"],p["version"]))
+for p in packages:
+    editorial=manual.get(p["package"],{})
+    if editorial.get("displayName"):
+        p["name"]=editorial["displayName"]
+    if editorial.get("icon"):
+        p["icon"]=editorial["icon"]
+history={}
+for p in packages:
+    history.setdefault(p["package"],{"package":p["package"],"name":p["name"],"versions":[]})
+    history[p["package"]]["versions"].append({
+      "version":p["version"],"architecture":p["architecture"],
+      "filename":p["filename"],"sha256":p["sha256"],"size":p["size"]
+    })
+for item in history.values():
+    item["versions"].sort(key=lambda x:x["version"],reverse=True)
+(root/"version-history.json").write_text(
+    json.dumps({"packages":list(history.values())},ensure_ascii=False,indent=2)+"\n",
+    encoding="utf-8"
+)
 (root/"catalog.json").write_text(json.dumps({"repository":"https://oliixwxiilo.github.io/","packages":packages},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 pages=root/"depictions"
 for p in packages:
