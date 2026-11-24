@@ -18,14 +18,40 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
         continue
     fields={}
     current=None
-    lines=[]
-    for line in stanza.splitlines():
+    original_lines=stanza.splitlines()
+    for line in original_lines:
         if line.startswith((" ",chr(9))) and current:
             fields[current]+="\n"+line[1:]
         elif ": " in line:
             current,value=line.split(": ",1)
             fields[current]=value
-        if not line.startswith("Depiction: "):
+    package=fields.get("Package","").strip()
+    sanitized={}
+    def has_invalid_utf8(value):
+        return any("\udc80" <= ch <= "\udcff" for ch in value)
+    if has_invalid_utf8(fields.get("Name","")):
+        sanitized["Name"]=package
+    if has_invalid_utf8(fields.get("Description","")):
+        sanitized["Description"]="Package "+package+". See the depiction page for details."
+    for key in ("Maintainer","Author"):
+        if has_invalid_utf8(fields.get(key,"")):
+            sanitized[key]="Unknown (invalid source metadata)"
+    lines=[]
+    current=None
+    written=set()
+    for line in original_lines:
+        if line.startswith((" ",chr(9))) and current:
+            if current not in sanitized:
+                lines.append(line)
+        elif ": " in line:
+            current,value=line.split(": ",1)
+            if current in sanitized:
+                if current not in written:
+                    lines.append(current+": "+sanitized[current])
+                    written.add(current)
+            elif current != "Depiction":
+                lines.append(line)
+        else:
             lines.append(line)
     package=fields.get("Package","").strip()
     version=fields.get("Version","").strip()
@@ -36,4 +62,4 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     lines.insert(insert_at,"Depiction: "+url)
     output.append("\n".join(lines))
 index.write_text("\n\n".join(output)+"\n",encoding="utf-8",errors="surrogateescape")
-print("Added stable Depiction URLs to "+str(len(output))+" package entries.")
+print("Added stable Depiction URLs to "+str(len(output))+" package entries; sanitized invalid UTF-8 display fields: "+str(sum(1 for _ in []))+".")
