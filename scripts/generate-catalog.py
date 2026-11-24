@@ -35,13 +35,17 @@ def extract_images(deb_path, package, version):
             except OSError: continue
             low=rel.lower()
             if any(x in low for x in ("/.git/","/cache/","/caches/")): continue
-            score=100 if any(x in path.name.lower() for x in ("icon","appicon","logo")) else 0
-            if any(x in low for x in ("screenshot","preview","demo")): score+=30
+            score=200 if any(x in low for x in ("screenshot","preview","demo")) else 0
+            if any(x in path.name.lower() for x in ("icon","appicon","logo")): score=max(score,150)
             candidates.append((score,rel,path,size))
         candidates.sort(key=lambda x:(-x[0],x[1].lower()))
         dest=asset_root/safe_part(package)/safe_part(version)
-        for score,rel,path,size in candidates[:6]:
+        seen_digests=set()
+        for score,rel,path,size in candidates:
             digest=hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+            if digest in seen_digests: continue
+            seen_digests.add(digest)
+            if len(images)>=8: break
             dest.mkdir(parents=True,exist_ok=True)
             target=dest/(digest+path.suffix.lower())
             shutil.copyfile(path,target)
@@ -125,11 +129,12 @@ for p in packages:
     target=pages/safe_part(p["package"])/safe_part(p["version"])/"index.html"
     target.parent.mkdir(parents=True,exist_ok=True)
     esc=lambda x:html.escape(str(x or ""),quote=True)
+    icon_html=('<div class="package-identity"><img class="package-icon" src="../../../'+esc(p["icon"])+'" alt=""> <div><h1>'+esc(p["name"])+'</h1><p class="muted">'+esc(p["package"])+'</p></div></div>') if p.get("icon") and not p["icon"].startswith(("https://","http://")) else ""
     gallery_items=[]
     for item in p["images"]:
-        label={"icon":"插件图标","screenshot":"截图 / 预览","image":"插件资源"}[item["kind"]]
-        gallery_items.append('<figure><img loading="lazy" src="../../../'+esc(item["path"])+'" alt="'+esc(label)+'"><figcaption>'+esc(label)+'</figcaption></figure>')
-    gallery='<div class="gallery">'+''.join(gallery_items)+'</div>' if gallery_items else '<p class="muted">此 DEB 未发现可安全展示的图片资源。</p>'
+        if item["kind"]!="screenshot": continue
+        gallery_items.append('<figure><img loading="lazy" src="../../../'+esc(item["path"])+'" alt="插件截图或预览"><figcaption>截图 / 预览</figcaption></figure>')
+    gallery='<h2>截图与预览</h2><div class="gallery">'+''.join(gallery_items)+'</div>' if gallery_items else ""
     changelog_items=[]
     for entry in p.get("changelog",[]):
         version=esc(entry.get("version",""))
@@ -154,5 +159,5 @@ for p in packages:
     long_description_html='<div class="long-description">'+esc(p.get("longDescription",""))+'</div>' if p.get("longDescription") else ""
     target.write_text("""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101827"><title>"""+esc(p["name"])+""" · Oliixwxiilo Repo</title>
-<style>body{margin:0;background:#0b1220;color:#edf3ff;font:16px/1.7 -apple-system,BlinkMacSystemFont,sans-serif}main{max-width:720px;margin:48px auto;padding:20px}.card{background:#121d30;border:1px solid #26364d;border-radius:18px;padding:24px}h1{font-size:30px}.muted{color:#9aabc3}.long-description{white-space:pre-line;color:#c8d5e8;margin:14px 0}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0}figure{margin:0;background:#0b1423;border:1px solid #26364d;border-radius:12px;padding:10px}figure img{width:100%;height:150px;object-fit:contain}figcaption{font-size:12px;color:#9aabc3;text-align:center}.tag{display:inline-block;border:1px solid #40516a;border-radius:30px;padding:3px 10px;margin:3px;font-size:13px}a{color:#8bb5ff}.download{display:inline-block;background:#a5c8ff;color:#091526;text-decoration:none;font-weight:800;border-radius:10px;padding:11px 16px;margin:8px 0}</style></head><body><main><p><a href="../../../">← 返回软件源</a></p><section class="card"><p class="muted">软件包详情</p><h1>"""+esc(p["name"])+"""</h1><p class="muted">"""+esc(p["package"])+"""</p><span class="tag">"""+esc(p["environment"])+"""</span><span class="tag">"""+esc(p["architecture"])+"""</span><span class="tag">版本 """+esc(p["version"])+"""</span><p>"""+esc(p["description"] or "暂无详细介绍。") +"""</p>""" + gallery + changelog_html + versions_html + external_html + """<hr><p><b>作者：</b>"""+esc(p["author"] or "未提供")+"""</p><p><b>分类：</b>"""+esc(p["section"])+"""</p><p><b>依赖：</b>"""+esc(p["depends"] or "未提供")+"""</p><p><b>DEB：</b>"""+esc(p["filename"])+"""</p><p><b>iOS 版本：</b>""" + esc((p.get("ios") or {}).get("min") or "未填写") + """ – """ + esc((p.get("ios") or {}).get("max") or "未填写") + """</p><p><b>Rootless 实测：</b>""" + esc((p.get("compatibility") or {}).get("rootless","unknown")) + """</p><p><b>RootHide 实测：</b>""" + esc((p.get("compatibility") or {}).get("roothide","unknown")) + """</p><p><b>兼容性审计：</b>""" + esc(p["review"]) + """</p><p><b>兼容备注：</b>""" + esc((p.get("compatibility") or {}).get("notes","")) + """</p><p class="muted">兼容性状态须由真实设备测试记录确认；架构和文件名不构成兼容性证明。</p><p><a class="download" href="../../../"""+esc(p["filename"])+"""" download>下载原始 DEB 安装包</a></p></section></main></body></html>""",encoding="utf-8")
+<style>body{margin:0;background:#0b1220;color:#edf3ff;font:16px/1.7 -apple-system,BlinkMacSystemFont,sans-serif}main{width:min(760px,calc(100% - 24px));margin:28px auto;padding:12px}.card{background:#121d30;border:1px solid #26364d;border-radius:18px;padding:clamp(16px,4vw,28px)}h1{font-size:clamp(24px,6vw,32px)}.muted{color:#9aabc3}.long-description{white-space:pre-line;color:#c8d5e8;margin:14px 0}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0}figure{margin:0;background:#0b1423;border:1px solid #26364d;border-radius:12px;padding:10px}figure img{width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:8px}.package-identity{display:flex;align-items:center;gap:16px;margin:8px 0 18px}.package-identity h1{margin:0}.package-icon{width:76px;height:76px;object-fit:cover;border-radius:18px;background:#203653;border:1px solid #30445f}.tag{display:inline-block;border:1px solid #40516a;border-radius:30px;padding:3px 10px;margin:3px;font-size:13px}a{color:#8bb5ff}.download{display:inline-block;background:#a5c8ff;color:#091526;text-decoration:none;font-weight:800;border-radius:10px;padding:11px 16px;margin:8px 0}</style></head><body><main><p><a href="../../../">← 返回软件源</a></p><section class="card"><p class="muted">软件包详情</p>""" + icon_html + """<h1>"""+esc(p["name"])+"""</h1><p class="muted">"""+esc(p["package"])+"""</p><span class="tag">"""+esc(p["environment"])+"""</span><span class="tag">"""+esc(p["architecture"])+"""</span><span class="tag">版本 """+esc(p["version"])+"""</span><p>"""+esc(p["description"] or "暂无详细介绍。") +"""</p>""" + gallery + changelog_html + versions_html + external_html + """<hr><p><b>作者：</b>"""+esc(p["author"] or "未提供")+"""</p><p><b>分类：</b>"""+esc(p["section"])+"""</p><p><b>依赖：</b>"""+esc(p["depends"] or "未提供")+"""</p><p><b>DEB：</b>"""+esc(p["filename"])+"""</p><p><b>iOS 版本：</b>""" + esc((p.get("ios") or {}).get("min") or "未填写") + """ – """ + esc((p.get("ios") or {}).get("max") or "未填写") + """</p><p><b>Rootless 实测：</b>""" + esc((p.get("compatibility") or {}).get("rootless","unknown")) + """</p><p><b>RootHide 实测：</b>""" + esc((p.get("compatibility") or {}).get("roothide","unknown")) + """</p><p><b>兼容性审计：</b>""" + esc(p["review"]) + """</p><p><b>兼容备注：</b>""" + esc((p.get("compatibility") or {}).get("notes","")) + """</p><p class="muted">兼容性状态须由真实设备测试记录确认；架构和文件名不构成兼容性证明。</p><p><a class="download" href="../../../"""+esc(p["filename"])+"""" download>下载原始 DEB 安装包</a></p></section></main></body></html>""",encoding="utf-8")
 print(f"Generated catalog for {len(packages)} package versions and depiction pages.")
