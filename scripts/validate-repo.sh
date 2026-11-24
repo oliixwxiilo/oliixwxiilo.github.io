@@ -37,6 +37,12 @@ if len(audit_items) != len(stanzas):
 for item in audit_items:
     if item.get("review") == "filename-and-architecture-conflict; manual review required":
         print("WARNING: manual compatibility review required for " + item.get("filename", "<unknown>"))
+config_path = Path("repo-config.json")
+if not config_path.is_file():
+    raise SystemExit("Missing repo-config.json")
+config_data = __import__("json").loads(config_path.read_text(encoding="utf-8"))
+if config_data.get("schemaVersion") != 1 or not isinstance(config_data.get("packages"), dict):
+    raise SystemExit("Invalid repo-config.json schema")
 catalog = Path("catalog.json")
 if not catalog.is_file():
     raise SystemExit("Missing generated catalog.json")
@@ -52,5 +58,12 @@ for item in items:
     page = Path("depictions") / item["package"] / item["version"] / "index.html"
     if not page.is_file():
         raise SystemExit("Missing depiction page: " + str(page))
-print("Validated " + str(len(stanzas)) + " package entries, catalog records and depiction pages.")
+history = Path("version-history.json")
+if not history.is_file():
+    raise SystemExit("Missing version-history.json")
+history_data = __import__("json").loads(history.read_text(encoding="utf-8"))
+history_items = history_data.get("packages", [])
+if len(history_items) != len(set(item["package"] for item in items)):
+    raise SystemExit("Version history package count mismatch")
+print("Validated " + str(len(stanzas)) + " package entries, catalog records, version history and depiction pages.")
 PY
