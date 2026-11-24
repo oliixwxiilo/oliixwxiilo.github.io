@@ -38,3 +38,14 @@ bash scripts/validate-repo.sh
 - depictions/<包名>/<版本>/index.html：自动生成的插件详情页。
 
 编辑 repo-config.json 时，使用 DEB 的准确 Package 字段作为键。兼容性状态建议使用 unknown、tested 或 not-tested 等明确值；没有设备实测记录时请保持 unknown。iOS 版本范围留空表示尚未确认。更新日志日期必须来自真实发布记录，不要推测。
+
+
+## 发布安全与依赖审计
+
+- `scripts/audit-debs.py`：逐个检查 DEB 控制字段、文件大小及 SHA256 与 APT 索引是否一致。
+- `scripts/audit-dependencies.py`：区分仓库内可满足的依赖与需要由外部越狱基础源提供的依赖；外部依赖不自动视为错误。
+- `dependency-audit.json`：自动生成的依赖审计结果。
+- `scripts/check-release-safety.sh`：发布前对照 `main`，阻止删除或替换任何既有 DEB，并核对原软件源地址。
+- `.github/workflows/release-safety.yml`：面向合并到 `main` 的 Pull Request 执行发布安全门禁；只有检查通过后才适合人工审阅合并。
+
+当前阶段不自动合并到 `main`，也不自动覆盖生产软件源。依赖审计只检查本仓库是否提供依赖；标记为 `external-or-virtual` 的项目通常需要由用户已添加的越狱基础源提供，不能单凭该标签判断为安装失败。
