@@ -1,0 +1,270 @@
+{
+  "scope": "Repository-local dependency presence only; external dependencies are not proof of missing packages.",
+  "packages": [
+    {
+      "package": "cn.llld.skineditor",
+      "version": "0.1.11",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "firmware"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.baiduwp.vip",
+      "version": "1.0",
+      "dependencies": [
+        {
+          "field": "Pre-Depends",
+          "alternatives": [
+            "rootless-compat"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.charlieleung.trollopenjb",
+      "version": "1.5.2+offline.5",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "firmware"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "preferenceloader"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "com.opa334.altlist"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "com.opa334.libsandy"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.eric.tools",
+      "version": "2.0.6",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.fanqiety.vip",
+      "version": "1.0",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "firmware"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate",
+            "ellekit"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.fqmusic.plus",
+      "version": "1.0",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.ireadercity.vip",
+      "version": "1.0",
+      "dependencies": []
+    },
+    {
+      "package": "com.keyboard.max",
+      "version": "1.0",
+      "dependencies": []
+    },
+    {
+      "package": "com.keyboard.max",
+      "version": "2.0",
+      "dependencies": []
+    },
+    {
+      "package": "com.keyboard.max",
+      "version": "3.0",
+      "dependencies": []
+    },
+    {
+      "package": "com.little16.rev",
+      "version": "1.0.4",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "preferenceloader"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.n95.zh",
+      "version": "4.4",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.safariexpand.color",
+      "version": "0.1",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.subtranslomatic.menu",
+      "version": "0.1",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "mobilesubstrate"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.textreplace.cn",
+      "version": "1.0",
+      "dependencies": [
+        {
+          "field": "Pre-Depends",
+          "alternatives": [
+            "rootless-compat"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    },
+    {
+      "package": "com.vip.hamster",
+      "version": "1.1",
+      "dependencies": []
+    },
+    {
+      "package": "com.xwzios.classdumptweak",
+      "version": "3.7.0-1",
+      "dependencies": []
+    },
+    {
+      "package": "ws.hbang.newterm33",
+      "version": "3.0~beta1-2048",
+      "dependencies": [
+        {
+          "field": "Depends",
+          "alternatives": [
+            "firmware"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "zsh",
+            "bash",
+            "fish"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "coreutils"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "ncurses"
+          ],
+          "status": "external-or-virtual"
+        },
+        {
+          "field": "Depends",
+          "alternatives": [
+            "system-cmds"
+          ],
+          "status": "external-or-virtual"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "packageCount": 18,
+    "dependencyGroups": 22,
+    "inRepository": 0,
+    "externalOrVirtual": 22
+  }
+}
