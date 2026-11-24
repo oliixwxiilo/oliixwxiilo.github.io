@@ -153,6 +153,30 @@ homepage_html=homepage.read_text(encoding="utf-8",errors="replace")
 for required in ('fetch("./catalog.json"', 'id="categoryFilters"', 'id="environmentFilters"', 'https://oliixwxiilo.github.io/'):
     if required not in homepage_html:
         raise SystemExit("Homepage is missing required repository UI element: " + required)
+release_text=Path("Release").read_text(encoding="utf-8",errors="replace")
+release_fields=dict(re.findall(r"^([A-Za-z0-9-]+):\\s*(.*)$",release_text,re.M))
+if release_fields.get("Suite") != "stable" or release_fields.get("Codename") != "iphoneos" or release_fields.get("Components") != "main":
+    raise SystemExit("Release metadata has unexpected suite, codename or components")
+architectures=set(release_fields.get("Architectures","").split())
+if not {"iphoneos-arm64","iphoneos-arm64e"}.issubset(architectures):
+    raise SystemExit("Release metadata is missing supported repository architectures")
+for section, algorithm in (("MD5Sum","md5"),("SHA256","sha256")):
+    match=re.search(r"^"+section+r":\\s*\\n((?:[ \\t].*\\n?)*)",release_text,re.M)
+    if not match:
+        raise SystemExit("Release is missing "+section+" checksums")
+    entries={}
+    for line in match.group(1).splitlines():
+        item=re.match(r"^\\s+([0-9a-fA-F]+)\\s+(\\S+)$",line)
+        if item: entries[item.group(2)]=item.group(1).lower()
+    if set(entries) != {"Packages","Packages.gz"}:
+        raise SystemExit("Release "+section+" entries do not match Packages files")
+    for filename, expected in entries.items():
+        digest=__import__("hashlib").new(algorithm,Path(filename).read_bytes()).hexdigest()
+        if digest != expected:
+            raise SystemExit("Release "+section+" checksum mismatch: "+filename)
+if 'dl.href=p.filename||"#"' not in homepage_html:
+    raise SystemExit("Homepage is missing its direct DEB download link")
+print("Release metadata and MD5/SHA256 checksums match the generated APT indexes.")
 print("Version history exactly matches every catalog/index version.")
 print("Validated " + str(len(stanzas)) + " package entries, unique package identities, dependency audit, catalog, version history and depiction pages.")
 PY
