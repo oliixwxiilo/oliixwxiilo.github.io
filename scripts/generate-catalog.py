@@ -56,10 +56,12 @@ packages=[]
 for stanza in re.split(r"\n\s*\n",raw.strip()):
     if not stanza.strip(): continue
     fields={}
+    current=None
     for line in stanza.splitlines():
-        if line.startswith((" ","\t")): continue
-        if ": " in line:
-            k,v=line.split(": ",1); fields[k]=v
+        if line.startswith((" ","\\t")) and current:
+            fields[current]+="\\n"+line[1:]
+        elif ": " in line:
+            current,value=line.split(": ",1); fields[current]=value
     pkg=fields.get("Package","")
     ver=fields.get("Version","")
     filename=fields.get("Filename","")
@@ -69,8 +71,11 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     def looks_broken(s):
         return "\ufffd" in s or (s and sum(1 for c in s if "\ue000" <= c <= "\uf8ff")/len(s) > .08)
     if not name or looks_broken(name): name=pkg
-    desc=fields.get("Description","").split("\n",1)[0].strip()
+    description_lines=fields.get("Description","").split("\\n")
+    desc=description_lines[0].strip() if description_lines else ""
+    long_desc="\\n".join("" if line.strip()=="." else line.strip() for line in description_lines[1:]).strip()
     if looks_broken(desc): desc=""
+    if looks_broken(long_desc): long_desc=""
     low=filename.lower()
     if "-rootless.deb" in low: env="Rootless"
     elif "-roothide.deb" in low: env="RootHide"
