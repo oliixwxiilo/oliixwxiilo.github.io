@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://oliixwxiilo.github.io/",
+  "packages": {
+    "_example.package": {
+      "displayName": "示例插件名称",
+      "summary": "在这里填写经过确认的功能介绍。",
+      "description": "详细介绍、使用说明及注意事项。",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "unknown 表示尚未实际测试；不要仅凭架构或文件名标记为兼容。"
+      },
+      "changelog": [
+        {
+          "version": "",
+          "date": "",
+          "notes": []
+        }
+      ]
+    },
+    "com.n95.zh": {
+      "displayName": "N95简体中文包",
+      "summary": "N95简体中文包，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "N95简体中文包，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "ws.hbang.newterm33": {
+      "displayName": "NewTerm 3 Beta汉化版",
+      "summary": "终端管理，汉化版",
+      "description": "终端管理，汉化版",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.charlieleung.trollopenjb": {
+      "displayName": "TrollOpen",
+      "summary": "内置离线版，在16系统隐根状态测试正常，其他系统自测。",
+      "description": "内置离线版，在16系统隐根状态测试正常，其他系统自测。",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.textreplace.cn": {
+      "displayName": "替换文本字符",
+      "summary": "双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.baiduwp.vip": {
+      "displayName": "百度网盘解锁部分会员",
+      "summary": "百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.xwzios.classdumptweak": {
+      "displayName": "ClassDumpTweak",
+      "summary": "运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式",
+      "description": "运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.little16.rev": {
+      "displayName": "Little16单独开关版",
+      "summary": "为非全面屏手机带来iPhoneX手势、iPad Dock栏、状态栏以及锁屏快捷按钮，此版本为修改版，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "为非全面屏手机带来iPhoneX手势、iPad Dock栏、状态栏以及锁屏快捷按钮，此版本为修改版，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.safariexpand.color": {
+      "displayName": "SafariExpandColor",
+      "summary": "禁止Safari给第三方扩展图标上色，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "禁止Safari给第三方扩展图标上色，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.eric.tools": {
+      "displayName": "ToolsEric",
+      "summary": "ToolsEric Pro 是一款集 网络监听、HTTPS/WebSocket 抓包、加密解密、正则分析、Runtime 检查、Hook 调试、URL 拦截、JSON 查看、设备模拟、虚拟定位、App 权限管理、应用保护、数据清理、Filza 文件管理 于一体的 iOS 专业分析工具。支持 AES/DES/RSA/SM 系列算法、Base64/Hex/UTF8 编解码、文件导入导出、Objective-C Runtime 分析、VC 生命周期追踪、类/方法/Ivar 查看、智能正则识别、请求响应分析 等功能，为 iOS 逆向分析、Hook 开发、安全测试及应用调试提供一站式解决方案。悬浮按钮弹出方式：注入你的app内，屏幕上写个v自动弹出，10s后自动隐藏",
+      "description": "ToolsEric Pro 是一款集 网络监听、HTTPS/WebSocket 抓包、加密解密、正则分析、Runtime 检查、Hook 调试、URL 拦截、JSON 查看、设备模拟、虚拟定位、App 权限管理、应用保护、数据清理、Filza 文件管理 于一体的 iOS 专业分析工具。支持 AES/DES/RSA/SM 系列算法、Base64/Hex/UTF8 编解码、文件导入导出、Objective-C Runtime 分析、VC 生命周期追踪、类/方法/Ivar 查看、智能正则识别、请求响应分析 等功能，为 iOS 逆向分析、Hook 开发、安全测试及应用调试提供一站式解决方案。悬浮按钮弹出方式：注入你的app内，屏幕上写个v自动弹出，10s后自动隐藏",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.ireadercity.vip": {
+      "displayName": "万年历解锁会员",
+      "summary": "万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.vip.hamster": {
+      "displayName": "元书输入法解锁会员",
+      "summary": "元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.subtranslomatic.menu": {
+      "displayName": "替换Translomatic文字为翻译",
+      "summary": "替换Translomatic在文字菜单中显示为翻译,仅供交流使用，请勿非法传播用于商业目的",
+      "description": "替换Translomatic在文字菜单中显示为翻译,仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.fanqiety.vip": {
+      "displayName": "番茄通用解锁会员",
+      "summary": "番茄小说、番茄音乐、番茄畅听、红果短剧解锁会员，源代码由ios宝藏提供，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "番茄小说、番茄音乐、番茄畅听、红果短剧解锁会员，源代码由ios宝藏提供，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.fqmusic.plus": {
+      "displayName": "番茄音乐优化",
+      "summary": "番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的",
+      "description": "番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "cn.llld.skineditor": {
+      "displayName": "皮肤编辑器",
+      "summary": "百度/微信输入法皮肤可视化编辑器，系统配置预览或改图",
+      "description": "百度/微信输入法皮肤可视化编辑器，系统配置预览或改图",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    },
+    "com.keyboard.max": {
+      "displayName": "键盘增强",
+      "summary": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
+      "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "尚未取得独立真机安装验证记录；保持未知，不据 DEB 文件名推断兼容性。"
+      },
+      "changelog": []
+    }
+  }
+}

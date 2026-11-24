@@ -1,0 +1,226 @@
+{
+  "packages": [
+    {
+      "package": "com.n95.zh",
+      "name": "N95简体中文包",
+      "versions": [
+        {
+          "version": "4.4",
+          "architecture": "iphoneos-arm64e",
+          "filename": "com.n95.zh-4.4-roothide.deb",
+          "sha256": "45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5",
+          "size": "2080"
+        }
+      ]
+    },
+    {
+      "package": "ws.hbang.newterm33",
+      "name": "NewTerm 3 Beta汉化版",
+      "versions": [
+        {
+          "version": "3.0~beta1-2048",
+          "architecture": "iphoneos-arm64e",
+          "filename": "ws.hbang.newterm33-3.0~beta1-2048-roothide.deb",
+          "sha256": "ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5",
+          "size": "5351216"
+        }
+      ]
+    },
+    {
+      "package": "com.charlieleung.trollopenjb",
+      "name": "TrollOpen",
+      "versions": [
+        {
+          "version": "1.5.2+offline.5",
+          "architecture": "iphoneos-arm64e",
+          "filename": "com.charlieleung.trollopenjb-1.5.2-roothide.deb",
+          "sha256": "e6212d8e47f3280f417c9efef5f250ce53cc460f92112c954c71b19973056411",
+          "size": "16761890"
+        }
+      ]
+    },
+    {
+      "package": "com.textreplace.cn",
+      "name": "替换文本字符",
+      "versions": [
+        {
+          "version": "1.0",
+          "architecture": "iphoneos-arm64e",
+          "filename": "com.textreplace.cn-1.0-roothide.deb",
+          "sha256": "dd99dd2f1e9c38f43fb9ad1a3d68600f0818ea7bdcbe91aaa397a5cad5917cc5",
+          "size": "27940"
+        }
+      ]
+    },
+    {
+      "package": "com.baiduwp.vip",
+      "name": "百度网盘解锁部分会员",
+      "versions": [
+        {
+          "version": "1.0",
+          "architecture": "iphoneos-arm64e",
+          "filename": "com.baiduwp.vip-1.0-roothide.deb",
+          "sha256": "4585d83e6e4b74c796aad0feb7f46fbe8b0d9d2b495797dbc5c21d02389d505b",
+          "size": "56212"
+        }
+      ]
+    },
+    {
+      "package": "com.xwzios.classdumptweak",
+      "name": "ClassDumpTweak",
+      "versions": [
+        {
+          "version": "3.7.0-1",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.xwzios.classdumptweak-3.7.0-1-rootless.deb",
+          "sha256": "e7b1130ca0bd93ca96a024e7e49db4e9f77c48d4868537af4a9036391a8ea651",
+          "size": "270316"
+        }
+      ]
+    },
+    {
+      "package": "com.little16.rev",
+      "name": "Little16单独开关版",
+      "versions": [
+        {
+          "version": "1.0.4",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.little16.rev-1.0.4-rootless.deb",
+          "sha256": "9481bb3511a5f1c3cc5d7ae37e9be454228189bd4ee25844b4cc77872c7fac1f",
+          "size": "43012"
+        }
+      ]
+    },
+    {
+      "package": "com.safariexpand.color",
+      "name": "SafariExpandColor",
+      "versions": [
+        {
+          "version": "0.1",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.safariexpand.color-0.1-rootless.deb",
+          "sha256": "deb7fa2d9e02ccb5970f4cbd7b86ea36013a1f63d0a5f0b98bc34f63260cb609",
+          "size": "3200"
+        }
+      ]
+    },
+    {
+      "package": "com.eric.tools",
+      "name": "ToolsEric",
+      "versions": [
+        {
+          "version": "2.0.6",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.eric.tools-2.0.6-rootless.deb",
+          "sha256": "571458730a6d61a9642cbaf5ac98f21f35241768a93a82ee9f414a0e5997562e",
+          "size": "2252172"
+        }
+      ]
+    },
+    {
+      "package": "com.ireadercity.vip",
+      "name": "万年历解锁会员",
+      "versions": [
+        {
+          "version": "1.0",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.ireadercity.vip-1.0-rootless.deb",
+          "sha256": "2eb133763cf7780e205e22001da265bd5677ffaba17679d40d9b5b590048d2d6",
+          "size": "27672"
+        }
+      ]
+    },
+    {
+      "package": "com.vip.hamster",
+      "name": "元书输入法解锁会员",
+      "versions": [
+        {
+          "version": "1.1",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.vip.hamster-1.1-rootless.deb",
+          "sha256": "eb209af79af9ea2ff9971e0bf52ad7b169b872d5f8756bc43a79178d48b78898",
+          "size": "57256"
+        }
+      ]
+    },
+    {
+      "package": "com.subtranslomatic.menu",
+      "name": "替换Translomatic文字为翻译",
+      "versions": [
+        {
+          "version": "0.1",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.subtranslomatic.menu-0.1-rootless.deb",
+          "sha256": "d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed",
+          "size": "3892"
+        }
+      ]
+    },
+    {
+      "package": "com.fanqiety.vip",
+      "name": "番茄通用解锁会员",
+      "versions": [
+        {
+          "version": "1.0",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.fanqiety.vip-1.0-rootless.deb",
+          "sha256": "a77190a988af6e6962d484322b13a81016eb36c0cc78f003cf22714ca99dc61c",
+          "size": "4420"
+        }
+      ]
+    },
+    {
+      "package": "com.fqmusic.plus",
+      "name": "番茄音乐优化",
+      "versions": [
+        {
+          "version": "1.0",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.fqmusic.plus-1.0-rootless.deb",
+          "sha256": "7e3604c3273f02fedbc60b1207f0c1580b3ac2be93ed22ea93ef85ff1876c47d",
+          "size": "6172"
+        }
+      ]
+    },
+    {
+      "package": "cn.llld.skineditor",
+      "name": "皮肤编辑器",
+      "versions": [
+        {
+          "version": "0.1.11",
+          "architecture": "iphoneos-arm64",
+          "filename": "cn.llld.skineditor-0.1.11-rootless.deb",
+          "sha256": "2a9f8ef863198b31165ac46c15e961c76e59d9a2b7c41bc07f8fdbe2d9b7cdfc",
+          "size": "1161212"
+        }
+      ]
+    },
+    {
+      "package": "com.keyboard.max",
+      "name": "键盘增强",
+      "versions": [
+        {
+          "version": "3.0",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.keyboard.max-3.0-rootless.deb",
+          "sha256": "7866c4b55ab24b3ad9f50b482757e3622c6326cbb2d7baf8c0b55ce7cc0eee05",
+          "size": "14096"
+        },
+        {
+          "version": "2.0",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.keyboard.max-2.0-rootless.deb",
+          "sha256": "5c7af72702368006a0f1c894bf4a0dc9738fb9fe0690a6fbc9c4a4e3bc9d0d7e",
+          "size": "13880"
+        },
+        {
+          "version": "1.0",
+          "architecture": "iphoneos-arm64",
+          "filename": "com.keyboard.max-1.0-rootless.deb",
+          "sha256": "2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990",
+          "size": "13748"
+        }
+      ]
+    }
+  ]
+}

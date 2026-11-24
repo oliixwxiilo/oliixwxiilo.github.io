@@ -2,6 +2,14 @@ Origin: Oliixwxiilo
 Label: 丑象派
 Suite: stable
 Codename: iphoneos
-Architectures: iphoneos-arm64
+Architectures: iphoneos-arm64 iphoneos-arm64e
 Components: main
-Description: RootHide 个人插件源
+Description: Rootless and RootHide personal jailbreak repository
+
+MD5Sum:
+ 63845f9a7b70f3919cdcd2dc88fc4a18 Packages
+ 5d9b0a99ac5c7e6fe46422321215ebf4 Packages.gz
+
+SHA256:
+ 49278cd8ff943e85af704718c6a22a4488de537139cc4b5d8c24fb6c990fdcaa Packages
+ 9bf50b031ed081aae38a429b2ede502b6aed4314fa319a9e9987fa1d8af0193d Packages.gz
