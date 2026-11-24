@@ -5,7 +5,7 @@ command -v dpkg-scanpackages >/dev/null || { echo "dpkg-scanpackages is required
 # Keep the existing package paths stable during the first migration phase.
 dpkg-scanpackages --multiversion debs /dev/null > Packages
 python3 scripts/add-depictions.py
-gzip -n -9 -c Packages > Packages.gz
+rm -f Packages.gz
 {
   echo "Origin: Oliixwxiilo"
   echo "Label: 丑象派"
@@ -16,10 +16,10 @@ gzip -n -9 -c Packages > Packages.gz
   echo "Description: Rootless and RootHide personal jailbreak repository"
   echo
   echo "MD5Sum:"
-  md5sum Packages Packages.gz | awk '{printf " %s %s\n", $1, $2}'
+  md5sum Packages | awk '{printf " %s %s\n", $1, $2}'
   echo
   echo "SHA256:"
-  sha256sum Packages Packages.gz | awk '{printf " %s %s\n", $1, $2}'
+  sha256sum Packages | awk '{printf " %s %s\n", $1, $2}'
 } > Release
 python3 scripts/audit-debs.py
 python3 scripts/audit-dependencies.py

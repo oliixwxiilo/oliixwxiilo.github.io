@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-for f in Packages Packages.gz Release; do
+for f in Packages Release; do
   test -s "$f" || { echo "Missing or empty: $f" >&2; exit 1; }
 done
-gzip -t Packages.gz
-tmp="$(mktemp)"
-trap 'rm -f "$tmp"' EXIT
-gzip -dc Packages.gz > "$tmp"
-cmp -s Packages "$tmp" || { echo "Packages.gz does not match Packages" >&2; exit 1; }
 python3 - <<'PY'
 from pathlib import Path
 import re
@@ -182,7 +177,7 @@ for section, algorithm in (("MD5Sum","md5"),("SHA256","sha256")):
             parts=line.split()
             if len(parts)==2:
                 entries[parts[1]]=parts[0].lower()
-    if set(entries) != {"Packages","Packages.gz"}:
+    if set(entries) != {"Packages"}:
         raise SystemExit("Release "+section+" entries do not match Packages files")
     for filename, expected in entries.items():
         digest=__import__("hashlib").new(algorithm,Path(filename).read_bytes()).hexdigest()
