@@ -1,0 +1,32 @@
+name: Release Safety Gate
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: release-safety-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout proposed release
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install repository tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev gzip
+      - name: Fetch production baseline
+        run: git fetch origin main:refs/remotes/origin/main
+      - name: Protect existing DEB files and source URL
+        env:
+          BASE_REF: origin/main
+        run: bash scripts/check-release-safety.sh
+      - name: Rebuild APT metadata and package audits
+        run: bash scripts/build-repo.sh
+      - name: Validate complete repository
+        run: bash scripts/validate-repo.sh
