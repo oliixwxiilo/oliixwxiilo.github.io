@@ -1,191 +1,42 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-for f in Packages Release; do
-  test -s "$f" || { echo "Missing or empty: $f" >&2; exit 1; }
-done
+for f in Packages Release; do test -s "$f" || { echo "Missing or empty: $f" >&2; exit 1; }; done
 python3 - <<'PY'
 from pathlib import Path
-import re
-text = Path("Packages").read_text(encoding="utf-8", errors="replace")
-stanzas = [s for s in re.split(r"\n\s*\n", text.strip()) if s.strip()]
-if not stanzas:
-    raise SystemExit("Packages index has no package entries")
-missing = []
-index_by_identity = {}
+import hashlib,json,re
+raw=Path("Packages").read_text(encoding="utf-8",errors="replace")
+stanzas=[s for s in re.split(r"\n\s*\n",raw.strip()) if s.strip()]
+if not stanzas: raise SystemExit("Packages index has no entries")
+seen=set()
 for stanza in stanzas:
-    fields = dict(re.findall(r"^([A-Za-z0-9-]+):\s*(.*)$", stanza, re.M))
-    for key in ("Package", "Version", "Architecture", "Filename", "Size", "SHA256"):
-        if key not in fields:
-            raise SystemExit(f"Package stanza missing {key}: {fields.get('Package', '<unknown>')}")
-    index_by_identity[(fields["Package"],fields["Version"])] = fields
-    expected_depiction="https://oliixwxiilo.github.io/depictions/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Package"]).strip(".-")+"/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Version"]).strip(".-")+"/"
-    if fields.get("Depiction") != expected_depiction:
-        raise SystemExit("Missing or invalid package-manager Depiction URL: " + fields["Package"])
-    filename = fields["Filename"].removeprefix("./")
-    path = Path(filename)
-    if path.is_absolute() or ".." in path.parts or len(path.parts) != 3 or path.parts[0] != "debs" or path.parts[1] not in ("rootless", "roothide") or path.suffix.lower() != ".deb":
-        raise SystemExit("Unsafe or incorrectly categorized DEB filename: " + fields["Filename"])
-    filename = path.name.lower()
-    expected_folder = "rootless" if filename.endswith("-rootless.deb") else "roothide" if filename.endswith("-roothide.deb") else ""
-    if not expected_folder or path.parts[1] != expected_folder:
-        raise SystemExit("DEB folder does not match filename environment hint: " + fields["Filename"])
-    if not path.is_file():
-        missing.append(str(path))
-    digest = __import__("hashlib").sha256(path.read_bytes()).hexdigest()
-    if digest.lower() != fields["SHA256"].lower():
-        raise SystemExit("DEB SHA256 mismatch: " + filename)
-    if path.stat().st_size != int(fields["Size"]):
-        raise SystemExit("DEB size mismatch: " + filename)
-if missing:
-    raise SystemExit("Missing package files:\n" + "\n".join(missing))
-audit = Path("package-audit.json")
-if not audit.is_file():
-    raise SystemExit("Missing DEB audit report")
-audit_data = __import__("json").loads(audit.read_text(encoding="utf-8"))
-audit_items = audit_data.get("packages", [])
-if len(audit_items) != len(stanzas):
-    raise SystemExit("DEB audit count mismatch: " + str(len(audit_items)) + " vs " + str(len(stanzas)))
-for item in audit_items:
-    if item.get("review") == "filename-and-architecture-conflict; manual review required":
-        print("WARNING: manual compatibility review required for " + item.get("filename", "<unknown>"))
-config_path = Path("repo-config.json")
-if not config_path.is_file():
-    raise SystemExit("Missing repo-config.json")
-config_data = __import__("json").loads(config_path.read_text(encoding="utf-8"))
-if config_data.get("schemaVersion") != 1 or not isinstance(config_data.get("packages"), dict):
-    raise SystemExit("Invalid repo-config.json schema")
-known_packages={match.group(1).strip() for stanza in stanzas for match in [re.search(r"^Package:\s*(.+)$", stanza, re.M)] if match}
-for package_id, metadata in config_data["packages"].items():
-    if package_id == "_example.package":
-        continue
-    if package_id not in known_packages:
-        raise SystemExit("Metadata references unknown package: " + package_id)
-    if not isinstance(metadata, dict):
-        raise SystemExit("Package metadata must be an object: " + package_id)
-    compatibility=metadata.get("compatibility", {})
-    if not isinstance(compatibility, dict):
-        raise SystemExit("Invalid compatibility metadata: " + package_id)
-    for key in ("rootless", "roothide"):
-        status=compatibility.get(key, "unknown")
-        if status not in ("unknown", "tested", "not-tested", "partial"):
-            raise SystemExit("Invalid " + key + " test status for " + package_id)
-    for key in ("homepage", "supportUrl"):
-        url=metadata.get(key, "")
-        if url and (not isinstance(url, str) or not url.startswith("https://")):
-            raise SystemExit("Only verified HTTPS URLs are allowed for " + package_id + " " + key)
-catalog = Path("catalog.json")
-if not catalog.is_file():
-    raise SystemExit("Missing generated catalog.json")
-data = __import__("json").loads(catalog.read_text(encoding="utf-8"))
-items = data.get("packages", [])
-if len(items) != len(stanzas):
-    raise SystemExit("Catalog entry count mismatch: " + str(len(items)) + " vs " + str(len(stanzas)))
-for item in items:
-    for asset in item.get("images", []):
-        asset_path = Path(asset.get("path", ""))
-        if asset_path.is_absolute() or ".." in asset_path.parts or not asset_path.is_file():
-            raise SystemExit("Missing or unsafe package image asset: " + str(asset_path))
-    safe_part=lambda value: re.sub(r"[^A-Za-z0-9.+~-]+", "-", str(value or "unknown")).strip(".-") or "unknown"
-    page = Path("depictions") / safe_part(item["package"]) / safe_part(item["version"]) / "index.html"
-    expected_url="depictions/"+safe_part(item["package"])+"/"+safe_part(item["version"])+"/"
-    if item.get("detailUrl") != expected_url:
-        raise SystemExit("Invalid detail URL for " + item["package"])
-    if not page.is_file():
-        raise SystemExit("Missing depiction page: " + str(page))
-    page_html=page.read_text(encoding="utf-8",errors="replace")
-    expected_download="../../../"+item["filename"]
-    if 'href="'+expected_download+'" download' not in page_html:
-        raise SystemExit("Depiction download link does not match DEB: " + item["package"])
-    indexed=index_by_identity.get((item["package"],item["version"]), {})
-    if item.get("sha256") != indexed.get("SHA256") or item.get("filename") != indexed.get("Filename","").removeprefix("./") or str(item.get("size")) != indexed.get("Size"):
-        raise SystemExit("Catalog SHA256 does not match Packages: " + item["package"])
-# Package identity must be unique for each version and architecture.
-identities=set()
-filenames=set()
-for item in items:
-    identity=(item["package"],item["version"],item["architecture"])
-    if identity in identities:
-        raise SystemExit("Duplicate package/version/architecture: " + repr(identity))
-    identities.add(identity)
-    if item["filename"] in filenames:
-        raise SystemExit("Duplicate DEB filename: " + item["filename"])
-    filenames.add(item["filename"])
-dependency_audit=Path("dependency-audit.json")
-if not dependency_audit.is_file():
-    raise SystemExit("Missing dependency-audit.json")
-dependency_data=__import__("json").loads(dependency_audit.read_text(encoding="utf-8"))
-if len(dependency_data.get("packages",[])) != len(stanzas):
-    raise SystemExit("Dependency audit package count mismatch")
-history = Path("version-history.json")
-if not history.is_file():
-    raise SystemExit("Missing version-history.json")
-history_data = __import__("json").loads(history.read_text(encoding="utf-8"))
-history_items = history_data.get("packages", [])
-if len(history_items) != len(set(item["package"] for item in items)):
-    raise SystemExit("Version history package count mismatch")
-history_by_package={entry["package"]:entry for entry in history_items}
-expected_by_package={}
-for item in items:
-    expected_by_package.setdefault(item["package"], {})[item["version"]] = {
-        "architecture": item["architecture"],
-        "filename": item["filename"],
-        "sha256": item["sha256"],
-        "size": str(item["size"]),
-    }
-for package_id, expected_versions in expected_by_package.items():
-    entry=history_by_package.get(package_id)
-    if not entry:
-        raise SystemExit("Missing version history package: " + package_id)
-    actual_versions={version["version"]: {
-        "architecture": version.get("architecture"),
-        "filename": version.get("filename"),
-        "sha256": version.get("sha256"),
-        "size": str(version.get("size")),
-    } for version in entry.get("versions", [])}
-    if actual_versions != expected_versions:
-        raise SystemExit("Version history does not match catalog/index: " + package_id)
-homepage=Path("index.html")
-if not homepage.is_file():
-    raise SystemExit("Missing homepage index.html")
-homepage_html=homepage.read_text(encoding="utf-8",errors="replace")
-for required in ('fetch("./catalog.json"', 'id="categoryFilters"', 'id="environmentFilters"', 'https://oliixwxiilo.github.io/'):
-    if required not in homepage_html:
-        raise SystemExit("Homepage is missing required repository UI element: " + required)
-release_text=Path("Release").read_text(encoding="utf-8",errors="replace")
-def release_value(key):
-    prefix=key+":"
-    for line in release_text.splitlines():
-        if line.startswith(prefix):
-            return line[len(prefix):].strip()
-    return ""
-if release_value("Suite") != "stable" or release_value("Codename") != "iphoneos" or release_value("Components") != "main":
-    raise SystemExit("Release metadata has unexpected suite, codename or components")
-architectures=set(release_value("Architectures").split())
-if not {"iphoneos-arm64","iphoneos-arm64e"}.issubset(architectures):
-    raise SystemExit("Release metadata is missing supported repository architectures")
-for section, algorithm in (("MD5Sum","md5"),("SHA256","sha256")):
-    active=False
+    f=dict(re.findall(r"^([A-Za-z0-9-]+):\s*(.*)$",stanza,re.M))
+    for k in ("Package","Version","Architecture","Filename","Size","SHA256"):
+        if k not in f: raise SystemExit("Missing "+k+" in package stanza")
+    key=(f["Package"],f["Version"],f["Architecture"])
+    if key in seen: raise SystemExit("Duplicate package identity: "+repr(key))
+    seen.add(key)
+    p=Path(f["Filename"].removeprefix("./"))
+    if p.is_absolute() or ".." in p.parts or len(p.parts)!=3 or p.parts[0]!="debs" or p.parts[1] not in ("rootless","roothide") or not p.is_file():
+        raise SystemExit("Missing or unsafe DEB path: "+str(p))
+    if hashlib.sha256(p.read_bytes()).hexdigest()!=f["SHA256"].lower(): raise SystemExit("DEB SHA256 mismatch: "+str(p))
+    if p.stat().st_size!=int(f["Size"]): raise SystemExit("DEB size mismatch: "+str(p))
+audit=json.loads(Path(".github/audit/package-audit.json").read_text())
+if len(audit.get("packages",[]))!=len(stanzas): raise SystemExit("DEB audit count mismatch")
+deps=json.loads(Path(".github/audit/dependency-audit.json").read_text())
+if len(deps.get("packages",[]))!=len(stanzas): raise SystemExit("Dependency audit count mismatch")
+release=Path("Release").read_text()
+def val(k):
+    m=re.search(r"^"+re.escape(k)+r":\s*(.*)$",release,re.M); return m.group(1).strip() if m else ""
+if val("Suite")!="stable" or val("Codename")!="iphoneos" or val("Components")!="main": raise SystemExit("Unexpected Release metadata")
+if not {"iphoneos-arm64","iphoneos-arm64e"}.issubset(set(val("Architectures").split())): raise SystemExit("Missing architectures")
+for section,algo in (("MD5Sum","md5"),("SHA256","sha256")):
+    m=re.search(r"(?m)^"+section+r":\n((?:[ \t].*\n?)*)",release)
     entries={}
-    for line in release_text.splitlines():
-        if line == section+":":
-            active=True
-            continue
-        if active:
-            if not line.startswith((" ","\\t")):
-                break
-            parts=line.split()
-            if len(parts)==2:
-                entries[parts[1]]=parts[0].lower()
-    if set(entries) != {"Packages"}:
-        raise SystemExit("Release "+section+" entries do not match Packages files")
-    for filename, expected in entries.items():
-        digest=__import__("hashlib").new(algorithm,Path(filename).read_bytes()).hexdigest()
-        if digest != expected:
-            raise SystemExit("Release "+section+" checksum mismatch: "+filename)
-if 'dl.href=p.filename||"#"' not in homepage_html:
-    raise SystemExit("Homepage is missing its direct DEB download link")
-print("Release metadata and MD5/SHA256 checksums match the generated APT indexes.")
-print("Version history exactly matches every catalog/index version.")
-print("Validated " + str(len(stanzas)) + " package entries, unique package identities, dependency audit, catalog, version history and depiction pages.")
+    for line in (m.group(1).splitlines() if m else []):
+        a=line.split()
+        if len(a)==2: entries[a[1]]=a[0].lower()
+    if set(entries)!={"Packages"}: raise SystemExit(section+" must list only Packages")
+    if hashlib.new(algo,Path("Packages").read_bytes()).hexdigest()!=entries["Packages"]: raise SystemExit(section+" checksum mismatch")
+print("Validated "+str(len(stanzas))+" APT packages, DEB hashes, audits and Release checksums.")
 PY

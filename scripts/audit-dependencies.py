@@ -37,5 +37,5 @@ for item in records:
             dependencies.append({"field":field,"alternatives":alternatives,"status":"in-repository" if resolved else "external-or-virtual"})
     results.append({"package":item["Package"],"version":item.get("Version",""),"dependencies":dependencies})
 out={"scope":"Repository-local dependency presence only; external dependencies are not proof of missing packages.","packages":results,"summary":{"packageCount":len(results),"dependencyGroups":sum(len(x["dependencies"]) for x in results),"inRepository":sum(d["status"]=="in-repository" for x in results for d in x["dependencies"]),"externalOrVirtual":sum(d["status"]=="external-or-virtual" for x in results for d in x["dependencies"]) }}
-Path("dependency-audit.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+Path(".github/audit/dependency-audit.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("Dependency audit: "+json.dumps(out["summary"],ensure_ascii=False))

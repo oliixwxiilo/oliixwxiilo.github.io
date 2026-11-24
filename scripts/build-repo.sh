@@ -4,7 +4,6 @@ cd "$(dirname "$0")/.."
 command -v dpkg-scanpackages >/dev/null || { echo "dpkg-scanpackages is required (install dpkg-dev)." >&2; exit 1; }
 # Keep the existing package paths stable during the first migration phase.
 dpkg-scanpackages --multiversion debs /dev/null > Packages
-python3 scripts/add-depictions.py
 rm -f Packages.gz
 {
   echo "Origin: Oliixwxiilo"
@@ -23,5 +22,4 @@ rm -f Packages.gz
 } > Release
 python3 scripts/audit-debs.py
 python3 scripts/audit-dependencies.py
-python3 scripts/generate-catalog.py
 echo "Repository indexes and package catalog generated."
