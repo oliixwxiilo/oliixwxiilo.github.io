@@ -43,7 +43,7 @@ if not config_path.is_file():
 config_data = __import__("json").loads(config_path.read_text(encoding="utf-8"))
 if config_data.get("schemaVersion") != 1 or not isinstance(config_data.get("packages"), dict):
     raise SystemExit("Invalid repo-config.json schema")
-known_packages={dict(re.findall(r"^Package:\s*(.+)$", stanza, re.M)).get("Package","") for stanza in stanzas}
+known_packages={match.group(1).strip() for stanza in stanzas for match in [re.search(r"^Package:\s*(.+)$", stanza, re.M)] if match}
 for package_id, metadata in config_data["packages"].items():
     if package_id == "_example.package":
         continue
