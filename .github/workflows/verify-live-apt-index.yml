@@ -1,0 +1,44 @@
+name: Verify Live APT Index
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compare live Release checksums with live Packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://oliixwxiilo.github.io"
+          tmp="$(mktemp -d)"
+          trap 'rm -rf "$tmp"' EXIT
+
+          check_pair() {
+            label="$1"
+            suffix="$2"
+            curl --fail --silent --show-error --location "$base/Release$suffix" -o "$tmp/Release"
+            curl --fail --silent --show-error --location "$base/Packages$suffix" -o "$tmp/Packages"
+            expected="$(awk '/^SHA256:/{f=1;next} f && $2=="Packages"{print $1;exit}' "$tmp/Release")"
+            actual="$(sha256sum "$tmp/Packages" | awk '{print $1}')"
+            echo "$label Release SHA256: ${expected:-MISSING}"
+            echo "$label Packages SHA256: $actual"
+            echo "$label Packages bytes: $(wc -c < "$tmp/Packages")"
+            test -n "$expected"
+            test "$expected" = "$actual"
+          }
+
+          echo "Checking normal public URLs (same form used by package managers)"
+          check_pair "normal" ""
+          echo "Checking cache-busted URLs"
+          check_pair "cache-busted" "?apt_verify=$(date +%s)"
+          echo "Live APT index verification passed."
