@@ -13,6 +13,7 @@ for stanza in re.split(r"\n\s*\n",index.strip()):
             k,v=line.split(": ",1); fields[k]=v
     if fields.get("Filename"):
         records[fields["Filename"].removeprefix("./")]=fields
+(root/".github"/"audit").mkdir(parents=True,exist_ok=True)
 results=[]
 for deb in sorted((root/"debs").rglob("*.deb")):
     rel=deb.relative_to(root).as_posix()
@@ -57,5 +58,5 @@ for deb in sorted((root/"debs").rglob("*.deb")):
 extra=set(records)-{x["filename"] for x in results}
 if extra:
     raise SystemExit("Indexed DEB file missing from repository: "+", ".join(sorted(extra)))
-(root/"package-audit.json").write_text(json.dumps({"checks":"dpkg-deb control fields and SHA256 compared with Packages","packages":results},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+(root/".github"/"audit"/"package-audit.json").write_text(json.dumps({"checks":"dpkg-deb control fields and SHA256 compared with Packages","packages":results},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print("Audited "+str(len(results))+" DEB files against Packages.")
