@@ -154,20 +154,30 @@ for required in ('fetch("./catalog.json"', 'id="categoryFilters"', 'id="environm
     if required not in homepage_html:
         raise SystemExit("Homepage is missing required repository UI element: " + required)
 release_text=Path("Release").read_text(encoding="utf-8",errors="replace")
-release_fields=dict(re.findall(r"^([A-Za-z0-9-]+):\\s*(.*)$",release_text,re.M))
+release_fields={}
+for line in release_text.splitlines():
+    if not line or line[0].isspace() or ": " not in line:
+        continue
+    key,value=line.split(": ",1)
+    release_fields[key]=value
 if release_fields.get("Suite") != "stable" or release_fields.get("Codename") != "iphoneos" or release_fields.get("Components") != "main":
     raise SystemExit("Release metadata has unexpected suite, codename or components")
 architectures=set(release_fields.get("Architectures","").split())
 if not {"iphoneos-arm64","iphoneos-arm64e"}.issubset(architectures):
     raise SystemExit("Release metadata is missing supported repository architectures")
 for section, algorithm in (("MD5Sum","md5"),("SHA256","sha256")):
-    match=re.search(r"^"+section+r":\\s*\\n((?:[ \\t].*\\n?)*)",release_text,re.M)
-    if not match:
-        raise SystemExit("Release is missing "+section+" checksums")
+    active=False
     entries={}
-    for line in match.group(1).splitlines():
-        item=re.match(r"^\\s+([0-9a-fA-F]+)\\s+(\\S+)$",line)
-        if item: entries[item.group(2)]=item.group(1).lower()
+    for line in release_text.splitlines():
+        if line == section+":":
+            active=True
+            continue
+        if active:
+            if not line.startswith((" ","\\t")):
+                break
+            parts=line.split()
+            if len(parts)==2:
+                entries[parts[1]]=parts[0].lower()
     if set(entries) != {"Packages","Packages.gz"}:
         raise SystemExit("Release "+section+" entries do not match Packages files")
     for filename, expected in entries.items():
