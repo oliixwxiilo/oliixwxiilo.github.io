@@ -1,18 +1,15 @@
 name: Verify Live APT Index
 
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
-    branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"
 
 permissions:
   contents: read
 
 jobs:
   verify:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Compare live Release checksums with live Packages
@@ -37,8 +34,8 @@ jobs:
             test "$expected" = "$actual"
           }
 
-          echo "Checking normal public URLs (same form used by package managers)"
+          echo "Checking normal public URLs"
           check_pair "normal" ""
-          echo "Checking cache-busted URLs"
+          echo "Checking cache-busted public URLs"
           check_pair "cache-busted" "?apt_verify=$(date +%s)"
           echo "Live APT index verification passed."
