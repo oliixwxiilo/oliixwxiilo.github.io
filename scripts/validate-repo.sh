@@ -22,6 +22,9 @@ for stanza in stanzas:
     for key in ("Package", "Version", "Architecture", "Filename", "Size", "SHA256"):
         if key not in fields:
             raise SystemExit(f"Package stanza missing {key}: {fields.get('Package', '<unknown>')}")
+    expected_depiction="https://oliixwxiilo.github.io/depictions/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Package"]).strip(".-")+"/"+re.sub(r"[^A-Za-z0-9.+~-]+", "-", fields["Version"]).strip(".-")+"/"
+    if fields.get("Depiction") != expected_depiction:
+        raise SystemExit("Missing or invalid package-manager Depiction URL: " + fields["Package"])
     path = Path(fields["Filename"].removeprefix("./"))
     if not path.is_file():
         missing.append(str(path))
