@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://oliixwxiilo.github.io/",
+  "packages": {
+    "_example.package": {
+      "displayName": "示例插件名称",
+      "summary": "在这里填写经过确认的功能介绍。",
+      "description": "详细介绍、使用说明及注意事项。",
+      "icon": "",
+      "homepage": "",
+      "supportUrl": "",
+      "ios": {
+        "min": "",
+        "max": ""
+      },
+      "compatibility": {
+        "rootless": "unknown",
+        "roothide": "unknown",
+        "testedDevices": [],
+        "testedIos": [],
+        "notes": "unknown 表示尚未实际测试；不要仅凭架构或文件名标记为兼容。"
+      },
+      "changelog": [
+        {
+          "version": "",
+          "date": "",
+          "notes": []
+        }
+      ]
+    }
+  }
+}
