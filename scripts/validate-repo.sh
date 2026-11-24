@@ -154,15 +154,15 @@ for required in ('fetch("./catalog.json"', 'id="categoryFilters"', 'id="environm
     if required not in homepage_html:
         raise SystemExit("Homepage is missing required repository UI element: " + required)
 release_text=Path("Release").read_text(encoding="utf-8",errors="replace")
-release_fields={}
-for line in release_text.splitlines():
-    if not line or line[0].isspace() or ": " not in line:
-        continue
-    key,value=line.split(": ",1)
-    release_fields[key]=value
-if release_fields.get("Suite") != "stable" or release_fields.get("Codename") != "iphoneos" or release_fields.get("Components") != "main":
+def release_value(key):
+    prefix=key+":"
+    for line in release_text.splitlines():
+        if line.startswith(prefix):
+            return line[len(prefix):].strip()
+    return ""
+if release_value("Suite") != "stable" or release_value("Codename") != "iphoneos" or release_value("Components") != "main":
     raise SystemExit("Release metadata has unexpected suite, codename or components")
-architectures=set(release_fields.get("Architectures","").split())
+architectures=set(release_value("Architectures").split())
 if not {"iphoneos-arm64","iphoneos-arm64e"}.issubset(architectures):
     raise SystemExit("Release metadata is missing supported repository architectures")
 for section, algorithm in (("MD5Sum","md5"),("SHA256","sha256")):
