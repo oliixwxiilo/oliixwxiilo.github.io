@@ -1,6 +1,10 @@
 name: Verify Live APT Index
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - ".github/workflows/verify-live-apt-index.yml"
   workflow_dispatch:
   schedule:
     - cron: "*/10 * * * *"
