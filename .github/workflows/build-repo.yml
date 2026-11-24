@@ -5,7 +5,9 @@ on:
     paths-ignore:
       - Packages
       - Packages.gz
-      - Release\n      - catalog.json\n      - depictions/**
+      - Release
+      - catalog.json
+      - depictions/**
   workflow_dispatch:
 
 permissions:
