@@ -1,5 +1,6 @@
 Package: cn.llld.skineditor
 Version: 0.1.11
+Depiction: https://oliixwxiilo.github.io/depictions/cn.llld.skineditor/0.1.11/
 Architecture: iphoneos-arm64
 Maintainer: 来了老弟
 Depends: firmware (>= 14.0)
@@ -16,6 +17,7 @@ Name: 皮肤编辑器
 
 Package: com.baiduwp.vip
 Version: 1.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.baiduwp.vip/1.0/
 Architecture: iphoneos-arm64e
 Essential: no
 Maintainer: oliixwxiilo
@@ -36,6 +38,7 @@ Name: 百度网盘解锁部分会员
 
 Package: com.charlieleung.trollopenjb
 Version: 1.5.2+offline.5
+Depiction: https://oliixwxiilo.github.io/depictions/com.charlieleung.trollopenjb/1.5.2+offline.5/
 Architecture: iphoneos-arm64e
 Maintainer: 一刀
 Installed-Size: 55444
@@ -52,6 +55,7 @@ Name: TrollOpen
 
 Package: com.eric.tools
 Version: 2.0.6
+Depiction: https://oliixwxiilo.github.io/depictions/com.eric.tools/2.0.6/
 Architecture: iphoneos-arm64
 Maintainer: Eric
 Depends: mobilesubstrate
@@ -67,6 +71,7 @@ Name: ToolsEric
 
 Package: com.fanqiety.vip
 Version: 1.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.fanqiety.vip/1.0/
 Architecture: iphoneos-arm64
 Maintainer: iosrxwy
 Depends: firmware (>= 15.0), mobilesubstrate | ellekit
@@ -82,6 +87,7 @@ Name: 番茄通用解锁会员
 
 Package: com.fqmusic.plus
 Version: 1.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.fqmusic.plus/1.0/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
@@ -97,6 +103,7 @@ Name: 番茄音乐优化
 
 Package: com.ireadercity.vip
 Version: 1.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.ireadercity.vip/1.0/
 Architecture: iphoneos-arm64
 Essential: no
 Maintainer: gekuGou
@@ -116,6 +123,7 @@ Name: 万年历解锁会员
 
 Package: com.keyboard.max
 Version: 1.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.keyboard.max/1.0/
 Architecture: iphoneos-arm64
 Essential: no
 Maintainer: wkk
@@ -135,6 +143,7 @@ Name: 键盘增强
 
 Package: com.keyboard.max
 Version: 2.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.keyboard.max/2.0/
 Architecture: iphoneos-arm64
 Essential: no
 Maintainer: wkk & oliixwxiilo
@@ -154,6 +163,7 @@ Name: 键盘增强
 
 Package: com.keyboard.max
 Version: 3.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.keyboard.max/3.0/
 Architecture: iphoneos-arm64
 Essential: no
 Maintainer: oliixwxiilo
@@ -173,6 +183,7 @@ Name: 键盘增强
 
 Package: com.little16.rev
 Version: 1.0.4
+Depiction: https://oliixwxiilo.github.io/depictions/com.little16.rev/1.0.4/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate, preferenceloader
@@ -188,6 +199,7 @@ Name: Little16单独开关版
 
 Package: com.n95.zh
 Version: 4.4
+Depiction: https://oliixwxiilo.github.io/depictions/com.n95.zh/4.4/
 Architecture: iphoneos-arm64e
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
@@ -203,6 +215,7 @@ Name: N95简体中文�
 
 Package: com.safariexpand.color
 Version: 0.1
+Depiction: https://oliixwxiilo.github.io/depictions/com.safariexpand.color/0.1/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
@@ -218,6 +231,7 @@ Name: SafariExpandColor
 
 Package: com.subtranslomatic.menu
 Version: 0.1
+Depiction: https://oliixwxiilo.github.io/depictions/com.subtranslomatic.menu/0.1/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
@@ -233,6 +247,7 @@ Name: 替换Translomatic文字为翻译
 
 Package: com.textreplace.cn
 Version: 1.0
+Depiction: https://oliixwxiilo.github.io/depictions/com.textreplace.cn/1.0/
 Architecture: iphoneos-arm64e
 Essential: no
 Maintainer: oliixwxiilo
@@ -253,6 +268,7 @@ Name: 替换文本字符
 
 Package: com.vip.hamster
 Version: 1.1
+Depiction: https://oliixwxiilo.github.io/depictions/com.vip.hamster/1.1/
 Architecture: iphoneos-arm64
 Essential: no
 Maintainer: oliixwxiilo & iOSkuka
@@ -272,6 +288,7 @@ Name: 元书输入法解锁会员
 
 Package: com.xwzios.classdumptweak
 Version: 3.7.0-1
+Depiction: https://oliixwxiilo.github.io/depictions/com.xwzios.classdumptweak/3.7.0-1/
 Architecture: iphoneos-arm64
 Essential: no
 Maintainer: xwzios
@@ -291,6 +308,7 @@ Name: ClassDumpTweak
 
 Package: ws.hbang.newterm33
 Version: 3.0~beta1-2048
+Depiction: https://oliixwxiilo.github.io/depictions/ws.hbang.newterm33/3.0~beta1-2048/
 Architecture: iphoneos-arm64e
 Maintainer: HASHBANG Productions <support@hbang.ws>
 Depends: firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds
@@ -306,8 +324,6 @@ Section: Tweaks
 Description: 终端管理，汉化版
 Tag: compatible_min::ios14.0
 Author: HASHBANG Productions <support@hbang.ws>
-Depiction: https://chariz.com/get/newterm-beta
 Icon: https://img.chariz.cloud/icon/newterm-beta/icon@3x.png
 Name: NewTerm 3 Beta汉化版
 Support: https://hashbang.productions/support/
-
