@@ -12,8 +12,11 @@
       "depends": "mobilesubstrate",
       "description": "N95简体中文包，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo",
+      "icon": "",
       "size": "2080",
-      "sha256": "45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5"
+      "sha256": "45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "mobilesubstrate"
     },
     {
       "package": "ws.hbang.newterm33",
@@ -26,8 +29,11 @@
       "depends": "firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds",
       "description": "终端管理，汉化版",
       "author": "HASHBANG Productions <support@hbang.ws>",
+      "icon": "https://img.chariz.cloud/icon/newterm-beta/icon@3x.png",
       "size": "5351216",
-      "sha256": "ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5"
+      "sha256": "ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds"
     },
     {
       "package": "com.charlieleung.trollopenjb",
@@ -40,8 +46,11 @@
       "depends": "firmware (>= 15.0),mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist, com.opa334.libsandy",
       "description": "内置离线版，在16系统隐根状态测试正常，其他系统自测。",
       "author": "一刀",
+      "icon": "",
       "size": "16761890",
-      "sha256": "e6212d8e47f3280f417c9efef5f250ce53cc460f92112c954c71b19973056411"
+      "sha256": "e6212d8e47f3280f417c9efef5f250ce53cc460f92112c954c71b19973056411",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "firmware (>= 15.0),mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist, com.opa334.libsandy"
     },
     {
       "package": "com.textreplace.cn",
@@ -54,8 +63,11 @@
       "depends": "",
       "description": "双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo",
+      "icon": "",
       "size": "27940",
-      "sha256": "dd99dd2f1e9c38f43fb9ad1a3d68600f0818ea7bdcbe91aaa397a5cad5917cc5"
+      "sha256": "dd99dd2f1e9c38f43fb9ad1a3d68600f0818ea7bdcbe91aaa397a5cad5917cc5",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.baiduwp.vip",
@@ -68,8 +80,11 @@
       "depends": "",
       "description": "百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo",
+      "icon": "",
       "size": "56212",
-      "sha256": "4585d83e6e4b74c796aad0feb7f46fbe8b0d9d2b495797dbc5c21d02389d505b"
+      "sha256": "4585d83e6e4b74c796aad0feb7f46fbe8b0d9d2b495797dbc5c21d02389d505b",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.xwzios.classdumptweak",
@@ -82,8 +97,11 @@
       "depends": "",
       "description": "运行时类导出工具，带悬浮球界面。新增快手Kwaipilot AI支持，支持Claude API格式",
       "author": "xwzios",
+      "icon": "",
       "size": "270316",
-      "sha256": "e7b1130ca0bd93ca96a024e7e49db4e9f77c48d4868537af4a9036391a8ea651"
+      "sha256": "e7b1130ca0bd93ca96a024e7e49db4e9f77c48d4868537af4a9036391a8ea651",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.little16.rev",
@@ -96,8 +114,11 @@
       "depends": "mobilesubstrate, preferenceloader",
       "description": "为非全面屏手机带来iPhoneX手势、iPad Dock栏、状态栏以及锁屏快捷按钮，此版本为修改版，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo & michaelmelita1",
+      "icon": "",
       "size": "43012",
-      "sha256": "9481bb3511a5f1c3cc5d7ae37e9be454228189bd4ee25844b4cc77872c7fac1f"
+      "sha256": "9481bb3511a5f1c3cc5d7ae37e9be454228189bd4ee25844b4cc77872c7fac1f",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "mobilesubstrate, preferenceloader"
     },
     {
       "package": "com.safariexpand.color",
@@ -110,8 +131,11 @@
       "depends": "mobilesubstrate",
       "description": "禁止Safari给第三方扩展图标上色，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo",
+      "icon": "",
       "size": "3200",
-      "sha256": "deb7fa2d9e02ccb5970f4cbd7b86ea36013a1f63d0a5f0b98bc34f63260cb609"
+      "sha256": "deb7fa2d9e02ccb5970f4cbd7b86ea36013a1f63d0a5f0b98bc34f63260cb609",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "mobilesubstrate"
     },
     {
       "package": "com.eric.tools",
@@ -124,8 +148,11 @@
       "depends": "mobilesubstrate",
       "description": "ToolsEric Pro 是一款集 网络监听、HTTPS/WebSocket 抓包、加密解密、正则分析、Runtime 检查、Hook 调试、URL 拦截、JSON 查看、设备模拟、虚拟定位、App 权限管理、应用保护、数据清理、Filza 文件管理 于一体的 iOS 专业分析工具。支持 AES/DES/RSA/SM 系列算法、Base64/Hex/UTF8 编解码、文件导入导出、Objective-C Runtime 分析、VC 生命周期追踪、类/方法/Ivar 查看、智能正则识别、请求响应分析 等功能，为 iOS 逆向分析、Hook 开发、安全测试及应用调试提供一站式解决方案。悬浮按钮弹出方式：注入你的app内，屏幕上写个v自动弹出，10s后自动隐藏",
       "author": "Eric",
+      "icon": "",
       "size": "2252172",
-      "sha256": "571458730a6d61a9642cbaf5ac98f21f35241768a93a82ee9f414a0e5997562e"
+      "sha256": "571458730a6d61a9642cbaf5ac98f21f35241768a93a82ee9f414a0e5997562e",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "mobilesubstrate"
     },
     {
       "package": "com.ireadercity.vip",
@@ -138,8 +165,11 @@
       "depends": "",
       "description": "万年历解锁会员，仅供交流使用，请勿非法传播用于商业目的",
       "author": "gekuGou",
+      "icon": "",
       "size": "27672",
-      "sha256": "2eb133763cf7780e205e22001da265bd5677ffaba17679d40d9b5b590048d2d6"
+      "sha256": "2eb133763cf7780e205e22001da265bd5677ffaba17679d40d9b5b590048d2d6",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.vip.hamster",
@@ -152,8 +182,11 @@
       "depends": "",
       "description": "元书输入法解锁会员，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo & iOSkuka",
+      "icon": "",
       "size": "57256",
-      "sha256": "eb209af79af9ea2ff9971e0bf52ad7b169b872d5f8756bc43a79178d48b78898"
+      "sha256": "eb209af79af9ea2ff9971e0bf52ad7b169b872d5f8756bc43a79178d48b78898",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.subtranslomatic.menu",
@@ -166,8 +199,11 @@
       "depends": "mobilesubstrate",
       "description": "替换Translomatic在文字菜单中显示为翻译,仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo",
+      "icon": "",
       "size": "3892",
-      "sha256": "d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed"
+      "sha256": "d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "mobilesubstrate"
     },
     {
       "package": "com.fanqiety.vip",
@@ -180,8 +216,11 @@
       "depends": "firmware (>= 15.0), mobilesubstrate | ellekit",
       "description": "番茄小说、番茄音乐、番茄畅听、红果短剧解锁会员，源代码由ios宝藏提供，仅供交流使用，请勿非法传播用于商业目的",
       "author": "iosrxwy",
+      "icon": "",
       "size": "4420",
-      "sha256": "a77190a988af6e6962d484322b13a81016eb36c0cc78f003cf22714ca99dc61c"
+      "sha256": "a77190a988af6e6962d484322b13a81016eb36c0cc78f003cf22714ca99dc61c",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "firmware (>= 15.0), mobilesubstrate | ellekit"
     },
     {
       "package": "com.fqmusic.plus",
@@ -194,8 +233,11 @@
       "depends": "mobilesubstrate",
       "description": "番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的",
       "author": "oliixwxiilo",
+      "icon": "",
       "size": "6172",
-      "sha256": "7e3604c3273f02fedbc60b1207f0c1580b3ac2be93ed22ea93ef85ff1876c47d"
+      "sha256": "7e3604c3273f02fedbc60b1207f0c1580b3ac2be93ed22ea93ef85ff1876c47d",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "mobilesubstrate"
     },
     {
       "package": "cn.llld.skineditor",
@@ -208,8 +250,11 @@
       "depends": "firmware (>= 14.0)",
       "description": "百度/微信输入法皮肤可视化编辑器，系统配置预览或改图",
       "author": "来了老弟",
+      "icon": "",
       "size": "1161212",
-      "sha256": "2a9f8ef863198b31165ac46c15e961c76e59d9a2b7c41bc07f8fdbe2d9b7cdfc"
+      "sha256": "2a9f8ef863198b31165ac46c15e961c76e59d9a2b7c41bc07f8fdbe2d9b7cdfc",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": "firmware (>= 14.0)"
     },
     {
       "package": "com.keyboard.max",
@@ -222,8 +267,11 @@
       "depends": "",
       "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口",
       "author": "wkk",
+      "icon": "",
       "size": "13748",
-      "sha256": "2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990"
+      "sha256": "2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.keyboard.max",
@@ -236,8 +284,11 @@
       "depends": "",
       "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，仅供交流使用，请勿非法传播用于商业目的",
       "author": "wkk & oliixwxiilo",
+      "icon": "",
       "size": "13880",
-      "sha256": "5c7af72702368006a0f1c894bf4a0dc9738fb9fe0690a6fbc9c4a4e3bc9d0d7e"
+      "sha256": "5c7af72702368006a0f1c894bf4a0dc9738fb9fe0690a6fbc9c4a4e3bc9d0d7e",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     },
     {
       "package": "com.keyboard.max",
@@ -250,8 +301,11 @@
       "depends": "",
       "description": "可安装也可提取dylib注入屏蔽越狱的app，使你的键盘拥有更多的扩展功能，长按底部第一个按钮弹出设置项，带三个粘贴板接口，1.0为默认四个快捷键，2.0为默认五个快捷键，3.0增加横盘隐藏，仅供交流使用，请勿非法传播用于商业目的",
       "author": "wkk & oliixwxiilo",
+      "icon": "",
       "size": "14096",
-      "sha256": "7866c4b55ab24b3ad9f50b482757e3622c6326cbb2d7baf8c0b55ce7cc0eee05"
+      "sha256": "7866c4b55ab24b3ad9f50b482757e3622c6326cbb2d7baf8c0b55ce7cc0eee05",
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven",
+      "controlDepends": ""
     }
   ]
 }
