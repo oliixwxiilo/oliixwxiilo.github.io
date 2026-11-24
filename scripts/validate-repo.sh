@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+for f in Packages Packages.gz Release; do
+  test -s "$f" || { echo "Missing or empty: $f" >&2; exit 1; }
+done
+gzip -t Packages.gz
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+gzip -dc Packages.gz > "$tmp"
+cmp -s Packages "$tmp" || { echo "Packages.gz does not match Packages" >&2; exit 1; }
+python3 - <<'PY'
+from pathlib import Path
+import re
+text = Path("Packages").read_text(encoding="utf-8", errors="strict")
+stanzas = [s for s in re.split(r"\n\s*\n", text.strip()) if s.strip()]
+if not stanzas:
+    raise SystemExit("Packages index has no package entries")
+missing = []
+for stanza in stanzas:
+    fields = dict(re.findall(r"^([A-Za-z0-9-]+):\s*(.*)$", stanza, re.M))
+    for key in ("Package", "Version", "Architecture", "Filename", "Size", "SHA256"):
+        if key not in fields:
+            raise SystemExit(f"Package stanza missing {key}: {fields.get('Package', '<unknown>')}")
+    path = Path(fields["Filename"].removeprefix("./"))
+    if not path.is_file():
+        missing.append(str(path))
+if missing:
+    raise SystemExit("Missing package files:\n" + "\n".join(missing))
+print(f"Validated {len(stanzas)} package entries.")
+PY
