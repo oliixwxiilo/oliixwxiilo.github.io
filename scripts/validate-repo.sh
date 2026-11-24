@@ -125,5 +125,34 @@ history_data = __import__("json").loads(history.read_text(encoding="utf-8"))
 history_items = history_data.get("packages", [])
 if len(history_items) != len(set(item["package"] for item in items)):
     raise SystemExit("Version history package count mismatch")
+history_by_package={entry["package"]:entry for entry in history_items}
+expected_by_package={}
+for item in items:
+    expected_by_package.setdefault(item["package"], {})[item["version"]] = {
+        "architecture": item["architecture"],
+        "filename": item["filename"],
+        "sha256": item["sha256"],
+        "size": str(item["size"]),
+    }
+for package_id, expected_versions in expected_by_package.items():
+    entry=history_by_package.get(package_id)
+    if not entry:
+        raise SystemExit("Missing version history package: " + package_id)
+    actual_versions={version["version"]: {
+        "architecture": version.get("architecture"),
+        "filename": version.get("filename"),
+        "sha256": version.get("sha256"),
+        "size": str(version.get("size")),
+    } for version in entry.get("versions", [])}
+    if actual_versions != expected_versions:
+        raise SystemExit("Version history does not match catalog/index: " + package_id)
+homepage=Path("index.html")
+if not homepage.is_file():
+    raise SystemExit("Missing homepage index.html")
+homepage_html=homepage.read_text(encoding="utf-8",errors="replace")
+for required in ('fetch("./catalog.json"', 'id="categoryFilters"', 'id="environmentFilters"', 'https://oliixwxiilo.github.io/'):
+    if required not in homepage_html:
+        raise SystemExit("Homepage is missing required repository UI element: " + required)
+print("Version history exactly matches every catalog/index version.")
 print("Validated " + str(len(stanzas)) + " package entries, unique package identities, dependency audit, catalog, version history and depiction pages.")
 PY
