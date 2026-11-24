@@ -3,6 +3,9 @@ import json, re, html
 from pathlib import Path
 root=Path(__file__).resolve().parent.parent
 raw=(root/"Packages").read_text(encoding="utf-8",errors="replace")
+audit_path=root/"package-audit.json"
+audit_data=json.loads(audit_path.read_text(encoding="utf-8")) if audit_path.exists() else {"packages":[]}
+audit_by_file={x["filename"]:x for x in audit_data.get("packages",[])}
 packages=[]
 for stanza in re.split(r"\n\s*\n",raw.strip()):
     if not stanza.strip(): continue
@@ -27,13 +30,15 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     elif "-roothide.deb" in low: env="RootHide"
     else: env="待核实"
     arch=fields.get("Architecture","")
+    audit=audit_by_file.get(filename.removeprefix("./"),{})
     # Filename convention and APT architecture are independent signals.
     packages.append({
       "package":pkg,"name":name,"version":ver,"architecture":arch,
       "environment":env,"filename":filename.removeprefix("./"),
       "section":fields.get("Section","Other"),"depends":fields.get("Depends",""),
       "description":desc,"author":fields.get("Author",fields.get("Maintainer","")),
-      "size":fields.get("Size",""),"sha256":fields.get("SHA256","")
+      "icon":fields.get("Icon",""),"size":fields.get("Size",""),"sha256":fields.get("SHA256",""),
+      "review":audit.get("review","not-audited"),"controlDepends":audit.get("depends",fields.get("Depends",""))
     })
 packages.sort(key=lambda p:(p["environment"],p["name"].lower(),p["package"],p["version"]))
 (root/"catalog.json").write_text(json.dumps({"repository":"https://oliixwxiilo.github.io/","packages":packages},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
