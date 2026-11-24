@@ -4,7 +4,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/cn.llld.skineditor/0.1.11/
 Architecture: iphoneos-arm64
 Maintainer: 来了老弟
 Depends: firmware (>= 14.0)
-Filename: ./cn.llld.skineditor-0.1.11-rootless.deb
+Filename: debs/rootless/cn.llld.skineditor-0.1.11-rootless.deb
 Size: 1161212
 MD5sum: 920c913b75ce9d1e24f0edae2431a1f5
 SHA1: 7d80a54ff650900475f3bb4192a214a640a0ff84
@@ -25,7 +25,7 @@ Pre-Depends: rootless-compat(>= 0.9)
 Conflicts: com.baiduwp.vip
 Replaces: com.baiduwp.vip
 Provides: com.baiduwp.vip
-Filename: ./com.baiduwp.vip-1.0-roothide.deb
+Filename: debs/roothide/com.baiduwp.vip-1.0-roothide.deb
 Size: 56212
 MD5sum: 04b766436c3993bb632ae079537209a6
 SHA1: 2159b0b8ee535533f48cfb2af721e6479f24743c
@@ -43,7 +43,7 @@ Architecture: iphoneos-arm64e
 Maintainer: 一刀
 Installed-Size: 55444
 Depends: firmware (>= 15.0),mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist, com.opa334.libsandy
-Filename: ./com.charlieleung.trollopenjb-1.5.2-roothide.deb
+Filename: debs/roothide/com.charlieleung.trollopenjb-1.5.2-roothide.deb
 Size: 16761890
 MD5sum: d12abbab3231b73801fb8081cfce8d0b
 SHA1: d2cb238fce13f3e82e5d556b93c50729357e93e2
@@ -59,7 +59,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.eric.tools/2.0.6/
 Architecture: iphoneos-arm64
 Maintainer: Eric
 Depends: mobilesubstrate
-Filename: ./com.eric.tools-2.0.6-rootless.deb
+Filename: debs/rootless/com.eric.tools-2.0.6-rootless.deb
 Size: 2252172
 MD5sum: fe877e63d1a50cf9762deb991b1f3e2f
 SHA1: 1035c9a126c390614116f45ee52658e8b6a22533
@@ -75,7 +75,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.fanqiety.vip/1.0/
 Architecture: iphoneos-arm64
 Maintainer: iosrxwy
 Depends: firmware (>= 15.0), mobilesubstrate | ellekit
-Filename: ./com.fanqiety.vip-1.0-rootless.deb
+Filename: debs/rootless/com.fanqiety.vip-1.0-rootless.deb
 Size: 4420
 MD5sum: 2b513b2fb3e906a51414634c45358a35
 SHA1: 79c6166052c5cd8ba4e6e69999cbdd12caa33609
@@ -91,7 +91,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.fqmusic.plus/1.0/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
-Filename: ./com.fqmusic.plus-1.0-rootless.deb
+Filename: debs/rootless/com.fqmusic.plus-1.0-rootless.deb
 Size: 6172
 MD5sum: e2b942c6438f816f9087f78c0535d35e
 SHA1: a4f4db44ec4afe74d36cfd236daaa0d758442d90
@@ -110,7 +110,7 @@ Maintainer: gekuGou
 Conflicts: com.ireadercity.vip
 Replaces: com.ireadercity.vip
 Provides: com.ireadercity.vip
-Filename: ./com.ireadercity.vip-1.0-rootless.deb
+Filename: debs/rootless/com.ireadercity.vip-1.0-rootless.deb
 Size: 27672
 MD5sum: 6f016eefda23bde80f0806caa54a05e6
 SHA1: 4d5a42bb1c8113c4a461e708e72f0f4ffb2ed0bd
@@ -130,7 +130,7 @@ Maintainer: wkk
 Conflicts: com.keyboard.max
 Replaces: com.keyboard.max
 Provides: com.keyboard.max
-Filename: ./com.keyboard.max-1.0-rootless.deb
+Filename: debs/rootless/com.keyboard.max-1.0-rootless.deb
 Size: 13748
 MD5sum: 8fef04a0b969fcb1633d8106c042d508
 SHA1: e4b13db32cd96bbf66c254199dae62de3857fe6c
@@ -150,7 +150,7 @@ Maintainer: wkk & oliixwxiilo
 Conflicts: com.keyboard.max
 Replaces: com.keyboard.max
 Provides: com.keyboard.max
-Filename: ./com.keyboard.max-2.0-rootless.deb
+Filename: debs/rootless/com.keyboard.max-2.0-rootless.deb
 Size: 13880
 MD5sum: 4c192c93897fbb743e99613f7f4d068e
 SHA1: 34cd73b366bdd74e9361cd11400f1c0a23387fde
@@ -170,7 +170,7 @@ Maintainer: oliixwxiilo
 Conflicts: com.keyboard.max
 Replaces: com.keyboard.max
 Provides: com.keyboard.max
-Filename: ./com.keyboard.max-3.0-rootless.deb
+Filename: debs/rootless/com.keyboard.max-3.0-rootless.deb
 Size: 14096
 MD5sum: 3d1345189dce4af16f142ff50087052c
 SHA1: 136bc71295137e815560104a67b2de68b5d9e85a
@@ -187,7 +187,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.little16.rev/1.0.4/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate, preferenceloader
-Filename: ./com.little16.rev-1.0.4-rootless.deb
+Filename: debs/rootless/com.little16.rev-1.0.4-rootless.deb
 Size: 43012
 MD5sum: 53f8d9707d3f03c7d3a53e2bcb386af7
 SHA1: f63ba0969e00bd68408e98bfaf654656202d255a
@@ -203,7 +203,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.n95.zh/4.4/
 Architecture: iphoneos-arm64e
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
-Filename: ./com.n95.zh-4.4-roothide.deb
+Filename: debs/roothide/com.n95.zh-4.4-roothide.deb
 Size: 2080
 MD5sum: 40c543ecfdd548c56194a504e737013b
 SHA1: 33bd4fc4d53ff6d42bbb6515fac6d782e1905f27
@@ -219,7 +219,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.safariexpand.color/0.1/
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
-Filename: ./com.safariexpand.color-0.1-rootless.deb
+Filename: debs/rootless/com.safariexpand.color-0.1-rootless.deb
 Size: 3200
 MD5sum: d8b98c3e3aa08a19981c1e25300253ed
 SHA1: 72005e3d14652982f5525b449a50ee15ac843c1e
@@ -235,7 +235,7 @@ Depiction: https://oliixwxiilo.github.io/depictions/com.subtranslomatic.menu/0.1
 Architecture: iphoneos-arm64
 Maintainer: oliixwxiilo
 Depends: mobilesubstrate
-Filename: ./com.subtranslomatic.menu-0.1-rootless.deb
+Filename: debs/rootless/com.subtranslomatic.menu-0.1-rootless.deb
 Size: 3892
 MD5sum: 00099cb5a5d07f75f1582a77fc64b14a
 SHA1: e716f09220a9e034e70d11c3f1654532a41f637f
@@ -255,7 +255,7 @@ Pre-Depends: rootless-compat(>= 0.9)
 Conflicts: com.textreplace.cn
 Replaces: com.textreplace.cn
 Provides: com.textreplace.cn
-Filename: ./com.textreplace.cn-1.0-roothide.deb
+Filename: debs/roothide/com.textreplace.cn-1.0-roothide.deb
 Size: 27940
 MD5sum: 8429195b19d37ad052d7e89bf797e327
 SHA1: 88a5d277b643ad9598aa3e3c530af9b80fb97c9c
@@ -275,7 +275,7 @@ Maintainer: oliixwxiilo & iOSkuka
 Conflicts: com.vip.hamster
 Replaces: com.vip.hamster
 Provides: com.vip.hamster
-Filename: ./com.vip.hamster-1.1-rootless.deb
+Filename: debs/rootless/com.vip.hamster-1.1-rootless.deb
 Size: 57256
 MD5sum: 7155c24c1f650dc8c3eb596b5bf72c48
 SHA1: 5ff0a8f8fae6a0ae141885f14bc25dd131cab6b4
@@ -295,7 +295,7 @@ Maintainer: xwzios
 Conflicts: com.xwzios.classdumptweak
 Replaces: com.xwzios.classdumptweak
 Provides: com.xwzios.classdumptweak
-Filename: ./com.xwzios.classdumptweak-3.7.0-1-rootless.deb
+Filename: debs/rootless/com.xwzios.classdumptweak-3.7.0-1-rootless.deb
 Size: 270316
 MD5sum: 642a30ac38331e6fb6d0623f8e2f9ce9
 SHA1: b023b11bd43cadf87c37b1811e0c1e9488d0a550
@@ -315,7 +315,7 @@ Depends: firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds
 Recommends: gettext-localizations, iterm2-shell-integration, zsh-autosuggestions, zsh-syntax-highlighting
 Conflicts: ws.hbang.newterm, ws.hbang.newterm2
 Replaces: ws.hbang.newterm, ws.hbang.newterm2
-Filename: ./ws.hbang.newterm33-3.0~beta1-2048-roothide.deb
+Filename: debs/roothide/ws.hbang.newterm33-3.0~beta1-2048-roothide.deb
 Size: 5351216
 MD5sum: 9ae35291cba032fe756568e87ae84123
 SHA1: e60bfcd402e51dbcfb12309d3c2a3f16279515ea

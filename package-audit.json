@@ -2,18 +2,7 @@
   "checks": "dpkg-deb control fields and SHA256 compared with Packages",
   "packages": [
     {
-      "filename": "cn.llld.skineditor-0.1.11-rootless.deb",
-      "package": "cn.llld.skineditor",
-      "version": "0.1.11",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "firmware (>= 14.0)",
-      "sha256": "2a9f8ef863198b31165ac46c15e961c76e59d9a2b7c41bc07f8fdbe2d9b7cdfc",
-      "size": 1161212,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.baiduwp.vip-1.0-roothide.deb",
+      "filename": "debs/roothide/com.baiduwp.vip-1.0-roothide.deb",
       "package": "com.baiduwp.vip",
       "version": "1.0",
       "architecture": "iphoneos-arm64e",
@@ -24,7 +13,7 @@
       "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
     },
     {
-      "filename": "com.charlieleung.trollopenjb-1.5.2-roothide.deb",
+      "filename": "debs/roothide/com.charlieleung.trollopenjb-1.5.2-roothide.deb",
       "package": "com.charlieleung.trollopenjb",
       "version": "1.5.2+offline.5",
       "architecture": "iphoneos-arm64e",
@@ -35,95 +24,7 @@
       "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
     },
     {
-      "filename": "com.eric.tools-2.0.6-rootless.deb",
-      "package": "com.eric.tools",
-      "version": "2.0.6",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "mobilesubstrate",
-      "sha256": "571458730a6d61a9642cbaf5ac98f21f35241768a93a82ee9f414a0e5997562e",
-      "size": 2252172,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.fanqiety.vip-1.0-rootless.deb",
-      "package": "com.fanqiety.vip",
-      "version": "1.0",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "firmware (>= 15.0), mobilesubstrate | ellekit",
-      "sha256": "a77190a988af6e6962d484322b13a81016eb36c0cc78f003cf22714ca99dc61c",
-      "size": 4420,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.fqmusic.plus-1.0-rootless.deb",
-      "package": "com.fqmusic.plus",
-      "version": "1.0",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "mobilesubstrate",
-      "sha256": "7e3604c3273f02fedbc60b1207f0c1580b3ac2be93ed22ea93ef85ff1876c47d",
-      "size": 6172,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.ireadercity.vip-1.0-rootless.deb",
-      "package": "com.ireadercity.vip",
-      "version": "1.0",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "",
-      "sha256": "2eb133763cf7780e205e22001da265bd5677ffaba17679d40d9b5b590048d2d6",
-      "size": 27672,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.keyboard.max-1.0-rootless.deb",
-      "package": "com.keyboard.max",
-      "version": "1.0",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "",
-      "sha256": "2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990",
-      "size": 13748,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.keyboard.max-2.0-rootless.deb",
-      "package": "com.keyboard.max",
-      "version": "2.0",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "",
-      "sha256": "5c7af72702368006a0f1c894bf4a0dc9738fb9fe0690a6fbc9c4a4e3bc9d0d7e",
-      "size": 13880,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.keyboard.max-3.0-rootless.deb",
-      "package": "com.keyboard.max",
-      "version": "3.0",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "",
-      "sha256": "7866c4b55ab24b3ad9f50b482757e3622c6326cbb2d7baf8c0b55ce7cc0eee05",
-      "size": 14096,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.little16.rev-1.0.4-rootless.deb",
-      "package": "com.little16.rev",
-      "version": "1.0.4",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "mobilesubstrate, preferenceloader",
-      "sha256": "9481bb3511a5f1c3cc5d7ae37e9be454228189bd4ee25844b4cc77872c7fac1f",
-      "size": 43012,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.n95.zh-4.4-roothide.deb",
+      "filename": "debs/roothide/com.n95.zh-4.4-roothide.deb",
       "package": "com.n95.zh",
       "version": "4.4",
       "architecture": "iphoneos-arm64e",
@@ -134,29 +35,7 @@
       "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
     },
     {
-      "filename": "com.safariexpand.color-0.1-rootless.deb",
-      "package": "com.safariexpand.color",
-      "version": "0.1",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "mobilesubstrate",
-      "sha256": "deb7fa2d9e02ccb5970f4cbd7b86ea36013a1f63d0a5f0b98bc34f63260cb609",
-      "size": 3200,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.subtranslomatic.menu-0.1-rootless.deb",
-      "package": "com.subtranslomatic.menu",
-      "version": "0.1",
-      "architecture": "iphoneos-arm64",
-      "environmentHint": "Rootless",
-      "depends": "mobilesubstrate",
-      "sha256": "d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed",
-      "size": 3892,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "com.textreplace.cn-1.0-roothide.deb",
+      "filename": "debs/roothide/com.textreplace.cn-1.0-roothide.deb",
       "package": "com.textreplace.cn",
       "version": "1.0",
       "architecture": "iphoneos-arm64e",
@@ -167,7 +46,139 @@
       "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
     },
     {
-      "filename": "com.vip.hamster-1.1-rootless.deb",
+      "filename": "debs/roothide/ws.hbang.newterm33-3.0~beta1-2048-roothide.deb",
+      "package": "ws.hbang.newterm33",
+      "version": "3.0~beta1-2048",
+      "architecture": "iphoneos-arm64e",
+      "environmentHint": "RootHide",
+      "depends": "firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds",
+      "sha256": "ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5",
+      "size": 5351216,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/cn.llld.skineditor-0.1.11-rootless.deb",
+      "package": "cn.llld.skineditor",
+      "version": "0.1.11",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "firmware (>= 14.0)",
+      "sha256": "2a9f8ef863198b31165ac46c15e961c76e59d9a2b7c41bc07f8fdbe2d9b7cdfc",
+      "size": 1161212,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.eric.tools-2.0.6-rootless.deb",
+      "package": "com.eric.tools",
+      "version": "2.0.6",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "mobilesubstrate",
+      "sha256": "571458730a6d61a9642cbaf5ac98f21f35241768a93a82ee9f414a0e5997562e",
+      "size": 2252172,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.fanqiety.vip-1.0-rootless.deb",
+      "package": "com.fanqiety.vip",
+      "version": "1.0",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "firmware (>= 15.0), mobilesubstrate | ellekit",
+      "sha256": "a77190a988af6e6962d484322b13a81016eb36c0cc78f003cf22714ca99dc61c",
+      "size": 4420,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.fqmusic.plus-1.0-rootless.deb",
+      "package": "com.fqmusic.plus",
+      "version": "1.0",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "mobilesubstrate",
+      "sha256": "7e3604c3273f02fedbc60b1207f0c1580b3ac2be93ed22ea93ef85ff1876c47d",
+      "size": 6172,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.ireadercity.vip-1.0-rootless.deb",
+      "package": "com.ireadercity.vip",
+      "version": "1.0",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "",
+      "sha256": "2eb133763cf7780e205e22001da265bd5677ffaba17679d40d9b5b590048d2d6",
+      "size": 27672,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.keyboard.max-1.0-rootless.deb",
+      "package": "com.keyboard.max",
+      "version": "1.0",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "",
+      "sha256": "2b52a251e29b9ebabcf981082cd1cbdbc092a1acbaa7c6436ba7252c4e1d0990",
+      "size": 13748,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.keyboard.max-2.0-rootless.deb",
+      "package": "com.keyboard.max",
+      "version": "2.0",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "",
+      "sha256": "5c7af72702368006a0f1c894bf4a0dc9738fb9fe0690a6fbc9c4a4e3bc9d0d7e",
+      "size": 13880,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.keyboard.max-3.0-rootless.deb",
+      "package": "com.keyboard.max",
+      "version": "3.0",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "",
+      "sha256": "7866c4b55ab24b3ad9f50b482757e3622c6326cbb2d7baf8c0b55ce7cc0eee05",
+      "size": 14096,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.little16.rev-1.0.4-rootless.deb",
+      "package": "com.little16.rev",
+      "version": "1.0.4",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "mobilesubstrate, preferenceloader",
+      "sha256": "9481bb3511a5f1c3cc5d7ae37e9be454228189bd4ee25844b4cc77872c7fac1f",
+      "size": 43012,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.safariexpand.color-0.1-rootless.deb",
+      "package": "com.safariexpand.color",
+      "version": "0.1",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "mobilesubstrate",
+      "sha256": "deb7fa2d9e02ccb5970f4cbd7b86ea36013a1f63d0a5f0b98bc34f63260cb609",
+      "size": 3200,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.subtranslomatic.menu-0.1-rootless.deb",
+      "package": "com.subtranslomatic.menu",
+      "version": "0.1",
+      "architecture": "iphoneos-arm64",
+      "environmentHint": "Rootless",
+      "depends": "mobilesubstrate",
+      "sha256": "d91e685b250120ab7c3c77191d0b747c72ac73c0347dfedd88a5fb1e5822fbed",
+      "size": 3892,
+      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
+    },
+    {
+      "filename": "debs/rootless/com.vip.hamster-1.1-rootless.deb",
       "package": "com.vip.hamster",
       "version": "1.1",
       "architecture": "iphoneos-arm64",
@@ -178,7 +189,7 @@
       "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
     },
     {
-      "filename": "com.xwzios.classdumptweak-3.7.0-1-rootless.deb",
+      "filename": "debs/rootless/com.xwzios.classdumptweak-3.7.0-1-rootless.deb",
       "package": "com.xwzios.classdumptweak",
       "version": "3.7.0-1",
       "architecture": "iphoneos-arm64",
@@ -186,17 +197,6 @@
       "depends": "",
       "sha256": "e7b1130ca0bd93ca96a024e7e49db4e9f77c48d4868537af4a9036391a8ea651",
       "size": 270316,
-      "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
-    },
-    {
-      "filename": "ws.hbang.newterm33-3.0~beta1-2048-roothide.deb",
-      "package": "ws.hbang.newterm33",
-      "version": "3.0~beta1-2048",
-      "architecture": "iphoneos-arm64e",
-      "environmentHint": "RootHide",
-      "depends": "firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds",
-      "sha256": "ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5",
-      "size": 5351216,
       "review": "filename-and-architecture-consistent; jailbreak compatibility not proven"
     }
   ]
