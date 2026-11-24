@@ -13,7 +13,6 @@ gzip -n -9 -c Packages > Packages.gz
   echo "Architectures: iphoneos-arm64 iphoneos-arm64e"
   echo "Components: main"
   echo "Description: Rootless and RootHide personal jailbreak repository"
-  echo "Date: $(LC_ALL=C date -Ru)"
   echo
   echo "MD5Sum:"
   md5sum Packages Packages.gz | awk '{printf " %s %s\n", $1, $2}'
