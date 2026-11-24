@@ -27,6 +27,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Sync latest branch before build
+        run: |
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
       - name: Install repository tools
         run: |
           sudo apt-get update
