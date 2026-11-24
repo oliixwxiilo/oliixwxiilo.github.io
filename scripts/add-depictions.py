@@ -13,6 +13,7 @@ def safe_part(value):
 
 raw=index.read_text(encoding="utf-8",errors="surrogateescape")
 output=[]
+sanitized_count=0
 for stanza in re.split(r"\n\s*\n",raw.strip()):
     if not stanza.strip():
         continue
@@ -36,6 +37,7 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     for key in ("Maintainer","Author"):
         if has_invalid_utf8(fields.get(key,"")):
             sanitized[key]="Unknown (invalid source metadata)"
+    sanitized_count+=len(sanitized)
     lines=[]
     current=None
     written=set()
@@ -62,4 +64,4 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     lines.insert(insert_at,"Depiction: "+url)
     output.append("\n".join(lines))
 index.write_text("\n\n".join(output)+"\n",encoding="utf-8",errors="surrogateescape")
-print("Added stable Depiction URLs to "+str(len(output))+" package entries; sanitized invalid UTF-8 display fields: "+str(sum(1 for _ in []))+".")
+print("Added stable Depiction URLs to "+str(len(output))+" package entries; sanitized invalid UTF-8 display fields: "+str(sanitized_count)+".")
