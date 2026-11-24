@@ -21,4 +21,5 @@ gzip -n -9 -c Packages > Packages.gz
   echo "SHA256:"
   sha256sum Packages Packages.gz | awk '{printf " %s %s\n", $1, $2}'
 } > Release
-echo "Repository indexes generated."
+python3 scripts/generate-catalog.py
+echo "Repository indexes and package catalog generated."
