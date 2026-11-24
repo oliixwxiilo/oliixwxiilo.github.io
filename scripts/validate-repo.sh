@@ -27,5 +27,16 @@ for stanza in stanzas:
         missing.append(str(path))
 if missing:
     raise SystemExit("Missing package files:\n" + "\n".join(missing))
-print(f"Validated {len(stanzas)} package entries.")
+catalog = Path("catalog.json")
+if not catalog.is_file():
+    raise SystemExit("Missing generated catalog.json")
+data = __import__("json").loads(catalog.read_text(encoding="utf-8"))
+items = data.get("packages", [])
+if len(items) != len(stanzas):
+    raise SystemExit("Catalog entry count mismatch: " + str(len(items)) + " vs " + str(len(stanzas)))
+for item in items:
+    page = Path("depictions") / item["package"] / item["version"] / "index.html"
+    if not page.is_file():
+        raise SystemExit("Missing depiction page: " + str(page))
+print("Validated " + str(len(stanzas)) + " package entries, catalog records and depiction pages.")
 PY
