@@ -9,6 +9,7 @@ on:
       - catalog.json
       - version-history.json
       - package-audit.json
+      - dependency-audit.json
       - depictions/**
       - assets/packages/**
   workflow_dispatch:
@@ -44,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Packages Packages.gz Release catalog.json package-audit.json catalog.json version-history.json depictions assets/packages
+          git add Packages Packages.gz Release catalog.json package-audit.json dependency-audit.json version-history.json depictions assets/packages
           if git diff --cached --quiet; then
             echo "Indexes are already up to date."
             exit 0
