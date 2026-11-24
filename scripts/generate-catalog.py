@@ -58,8 +58,8 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     fields={}
     current=None
     for line in stanza.splitlines():
-        if line.startswith((" ","\\t")) and current:
-            fields[current]+="\\n"+line[1:]
+        if line.startswith((" ",chr(9))) and current:
+            fields[current]+="\n"+line[1:]
         elif ": " in line:
             current,value=line.split(": ",1); fields[current]=value
     pkg=fields.get("Package","")
@@ -71,9 +71,9 @@ for stanza in re.split(r"\n\s*\n",raw.strip()):
     def looks_broken(s):
         return "\ufffd" in s or (s and sum(1 for c in s if "\ue000" <= c <= "\uf8ff")/len(s) > .08)
     if not name or looks_broken(name): name=pkg
-    description_lines=fields.get("Description","").split("\\n")
+    description_lines=fields.get("Description","").split("\n")
     desc=description_lines[0].strip() if description_lines else ""
-    long_desc="\\n".join("" if line.strip()=="." else line.strip() for line in description_lines[1:]).strip()
+    long_desc="\n".join("" if line.strip()=="." else line.strip() for line in description_lines[1:]).strip()
     if looks_broken(desc): desc=""
     if looks_broken(long_desc): long_desc=""
     low=filename.lower()
