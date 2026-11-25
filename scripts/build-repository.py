@@ -15,9 +15,9 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://oliixwxiilo.github.io"
-ARCH = "iphoneos-arm64"
+ARCHES = ("iphoneos-arm64", "iphoneos-arm64e")
+FLAT_ARCH = "iphoneos-arm64"
 DIST = ROOT / "dists" / "stable"
-INDEX_DIR = DIST / "main" / "binary-iphoneos-arm64"
 META_DIR = ROOT / "metadata" / "packages"
 DEPICTIONS = ROOT / "depictions"
 
@@ -210,11 +210,11 @@ def hash_file(path, algorithm):
     return h.hexdigest()
 
 
-def release_text(files, prefix):
+def release_text(files, prefix, architectures=ARCHES):
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
     lines = [
         "Origin: 丑象派", "Label: 丑象派", "Suite: stable", "Codename: stable",
-        f"Date: {now}", f"Architectures: {ARCH}", "Components: main",
+        f"Date: {now}", "Architectures: " + " ".join(architectures), "Components: main",
         "Description: Rootless iOS package repository"
     ]
     for algo, label in [("md5", "MD5Sum"), ("sha1", "SHA1"), ("sha256", "SHA256"), ("sha512", "SHA512")]:
@@ -243,7 +243,7 @@ def main():
         arch = control.get("Architecture")
         if not package_id or not version or not arch:
             raise SystemExit(f"安装包缺少 Package/Version/Architecture：{deb.relative_to(ROOT)}")
-        if arch not in (ARCH, "all"):
+        if arch not in (*ARCHES, "all"):
             print(f"跳过不兼容架构：{deb.relative_to(ROOT)} ({arch})")
             continue
         identity = (package_id, version, arch)
@@ -290,32 +290,44 @@ def main():
             parts = value.splitlines() or [""]
             record_lines.append(f"{key}: {parts[0]}")
             record_lines.extend(" " + part for part in parts[1:])
-        records.append("\n".join(record_lines))
+        records.append((arch, "\n".join(record_lines)))
         print(f"已索引：{package_id} {version} ({deb.relative_to(ROOT)})")
 
     if not records:
-        raise SystemExit("没有可发布的 iphoneos-arm64/all 安装包")
-    package_data = ("\n\n".join(records) + "\n\n").encode("utf-8")
-    INDEX_DIR.mkdir(parents=True, exist_ok=True)
-    (INDEX_DIR / "Packages").write_bytes(package_data)
-    (INDEX_DIR / "Packages.gz").write_bytes(gzip.compress(package_data, compresslevel=9, mtime=0))
-    (INDEX_DIR / "Packages.xz").write_bytes(lzma.compress(package_data, format=lzma.FORMAT_XZ, preset=9))
+        raise SystemExit("没有可发布的 iphoneos-arm64、iphoneos-arm64e 或 all 安装包")
 
-    # Standard distribution Release.
+    # Build a separate Packages index for each supported architecture.
+    # Architecture-independent "all" packages are included in both indexes.
     dist_files = []
-    for filename in ("Packages", "Packages.gz", "Packages.xz"):
-        path = INDEX_DIR / filename
-        dist_files.append((path, f"main/binary-iphoneos-arm64/{filename}"))
-    (DIST / "Release").write_text(release_text(dist_files, ""), encoding="utf-8")
+    for target_arch in ARCHES:
+        arch_records = [record for package_arch, record in records
+                        if package_arch in (target_arch, "all")]
+        package_data = ("\n\n".join(arch_records) + ("\n\n" if arch_records else "")).encode("utf-8")
+        index_dir = DIST / "main" / f"binary-{target_arch}"
+        index_dir.mkdir(parents=True, exist_ok=True)
+        for filename, payload in (
+            ("Packages", package_data),
+            ("Packages.gz", gzip.compress(package_data, compresslevel=9, mtime=0)),
+            ("Packages.xz", lzma.compress(package_data, format=lzma.FORMAT_XZ, preset=9)),
+        ):
+            path = index_dir / filename
+            path.write_bytes(payload)
+            dist_files.append((path, f"main/binary-{target_arch}/{filename}"))
+        print(f"已生成 {target_arch} 索引：{len(arch_records)} 条记录")
 
-    # Flat-repository compatibility files at the web root.
-    root_packages = ROOT / "Packages"
-    root_packages.write_bytes(package_data)
-    (ROOT / "Packages.gz").write_bytes(gzip.compress(package_data, compresslevel=9, mtime=0))
-    (ROOT / "Packages.xz").write_bytes(lzma.compress(package_data, format=lzma.FORMAT_XZ, preset=9))
+    # Standard distribution Release includes hashes for both architecture indexes.
+    (DIST / "Release").write_text(release_text(dist_files), encoding="utf-8")
+
+    # Flat-repository compatibility files at the web root remain arm64-based.
+    flat_records = [record for package_arch, record in records
+                    if package_arch in (FLAT_ARCH, "all")]
+    flat_data = ("\n\n".join(flat_records) + ("\n\n" if flat_records else "")).encode("utf-8")
+    (ROOT / "Packages").write_bytes(flat_data)
+    (ROOT / "Packages.gz").write_bytes(gzip.compress(flat_data, compresslevel=9, mtime=0))
+    (ROOT / "Packages.xz").write_bytes(lzma.compress(flat_data, format=lzma.FORMAT_XZ, preset=9))
     flat_files = [(ROOT / f"Packages{suffix}", f"Packages{suffix}") for suffix in ("", ".gz", ".xz")]
-    (ROOT / "Release").write_text(release_text(flat_files, ""), encoding="utf-8")
-    print(f"完成：共生成 {len(records)} 条软件包记录；索引、压缩文件和 Release 校验值均已更新。")
+    (ROOT / "Release").write_text(release_text(flat_files, "", (FLAT_ARCH,)), encoding="utf-8")
+    print(f"完成：共读取 {len(records)} 个可发布架构包记录；已生成 arm64/arm64e 独立索引及 Release 校验值。")
 
 
 if __name__ == "__main__":
