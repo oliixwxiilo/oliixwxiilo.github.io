@@ -105,62 +105,6 @@ def find_package_icon(package_id, control, meta):
     return ""
 
 
-def find_package_screenshots(package_id, control, meta):
-    """Collect screenshots from a matching package/name folder without requiring JSON."""
-    screenshot_root = ROOT / "assets" / "screenshots"
-    if not screenshot_root.exists():
-        return []
-
-    candidates = [
-        package_id,
-        package_id.rsplit(".", 1)[-1],
-        control.get("Name", ""),
-        meta.get("插件名称", ""),
-    ]
-    keys = []
-    for candidate in candidates:
-        key = normalize_icon_key(candidate)
-        if key and key not in keys:
-            keys.append(key)
-
-    supported = {".png", ".jpg", ".jpeg", ".webp"}
-    found = []
-
-    # Preferred convention: assets/screenshots/<plugin display name>/*
-    # Package-ID and its final component are accepted as folder names too.
-    for folder in sorted(p for p in screenshot_root.rglob("*") if p.is_dir()):
-        if normalize_icon_key(folder.name) not in keys:
-            continue
-        found.extend(
-            p for p in sorted(folder.rglob("*"))
-            if p.is_file() and p.suffix.lower() in supported
-        )
-
-    # Also accept files directly in assets/screenshots/ named after the package/name,
-    # optionally followed by a separator and a sequence number.
-    for path in sorted(screenshot_root.iterdir()):
-        if not path.is_file() or path.suffix.lower() not in supported:
-            continue
-        stem = normalize_icon_key(path.stem)
-        if any(stem == key or stem.startswith(key) for key in keys):
-            found.append(path)
-
-    unique = []
-    seen = set()
-    for path in found:
-        relative = path.relative_to(ROOT).as_posix()
-        if relative not in seen:
-            seen.add(relative)
-            unique.append(relative)
-    if unique:
-        print(f"已自动关联截图：{package_id} -> {len(unique)} 张")
-        for item in unique:
-            print(f"  截图：{item}")
-    else:
-        print(f"提示：没有找到 {package_id} 对应的截图")
-    return unique
-
-
 def write_depiction(package_id, control, meta, deb_size):
     folder = DEPICTIONS / package_id
     folder.mkdir(parents=True, exist_ok=True)
@@ -170,35 +114,6 @@ def write_depiction(package_id, control, meta, deb_size):
     description = description.split("\n", 1)[0].strip()
     upload_date = meta.get("上传日期") or ""
     supported = meta.get("支持的系统") or "暂未确认"
-    screenshot_paths = []
-    # Keep valid manually listed screenshots first; missing paths fall back to auto-discovery.
-    for item in meta.get("插件截图", []) or []:
-        p = ROOT / item
-        if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}:
-            relative = p.relative_to(ROOT).as_posix()
-            if relative not in screenshot_paths:
-                screenshot_paths.append(relative)
-        else:
-            print(f"提示：资料中指定的截图不存在或格式不支持，尝试自动匹配：{item}")
-    for item in find_package_screenshots(package_id, control, meta):
-        if item not in screenshot_paths:
-            screenshot_paths.append(item)
-    # Publish ASCII-only aliases inside each depiction. This avoids image URL
-    # decoding problems in older Sileo builds when source folders contain Chinese
-    # characters, spaces, or other non-ASCII names.
-    screenshot_dir = folder / "screenshots"
-    screenshots = []
-    for index, item in enumerate(screenshot_paths, 1):
-        source = ROOT / item
-        alias_name = f"screenshot-{index:02d}{source.suffix.lower()}"
-        alias_path = screenshot_dir / alias_name
-        screenshot_dir.mkdir(parents=True, exist_ok=True)
-        alias_path.write_bytes(source.read_bytes())
-        relative_alias = alias_path.relative_to(ROOT).as_posix()
-        screenshots.append({
-            "url": public_url(Path(relative_alias)),
-            "accessibilityText": f"{name} 截图 {index}"
-        })
     icon_path = meta.get("插件图标") or ""
     icon_exists = bool(icon_path and (ROOT / icon_path).is_file())
     if icon_path and not icon_exists:
@@ -215,18 +130,6 @@ def write_depiction(package_id, control, meta, deb_size):
     ]
     if upload_date:
         detail_views.append({"class": "DepictionTableTextView", "title": "上传日期", "text": upload_date})
-    if screenshots:
-        detail_views.append({"class": "DepictionHeaderView", "title": "插件截图"})
-        # Use ordinary Markdown image syntax inside the standard depiction
-        # markdown view. Avoid raw HTML, which can stall older Sileo renderers.
-        image_markdown = "\\n\\n".join(
-            f'![{item["accessibilityText"]}]({item["url"]})'
-            for item in screenshots
-        )
-        detail_views.append({
-            "class": "DepictionMarkdownView",
-            "markdown": image_markdown
-        })
     older = meta.get("旧版本下载", []) or []
     if older:
         detail_views.append({"class": "DepictionHeaderView", "title": "历史版本"})
@@ -273,10 +176,6 @@ def write_depiction(package_id, control, meta, deb_size):
         encoding="utf-8"
     )
 
-    screenshot_html = "".join(
-        f'<img src="{html.escape(s["url"], quote=True)}" alt="{html.escape(s["accessibilityText"], quote=True)}">'
-        for s in screenshots
-    )
     changelog_html = ""
     for entry in meta.get("更新日志", []) or []:
         lines = "".join(f"<li>{html.escape(str(x))}</li>" for x in entry.get("内容", []) or [])
@@ -287,7 +186,7 @@ def write_depiction(package_id, control, meta, deb_size):
 :root{{color-scheme:light dark}}body{{font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.65}}
 h1{{font-size:28px}}h2{{font-size:20px;border-bottom:1px solid #8885;padding-bottom:8px;margin-top:28px}}
 .meta{{display:grid;grid-template-columns:130px 1fr;gap:8px 14px}}.meta b{{opacity:.7}}
-.gallery{{display:flex;overflow-x:auto;gap:12px}}.gallery img{{height:360px;width:auto;border-radius:12px}}
+
 section{{border-bottom:1px solid #8885;padding:8px 0}}
 </style></head><body><h1>{html.escape(name)}</h1><p>{html.escape(description or "暂无介绍")}</p>
 <h2>版本资料</h2><div class="meta">
@@ -296,7 +195,7 @@ section{{border-bottom:1px solid #8885;padding:8px 0}}
 <b>安装包大小</b><span>{deb_size:,} 字节</span>
 <b>支持的系统</b><span>{html.escape(supported)}</span>
 <b>上传日期</b><span>{html.escape(upload_date or "未填写")}</span>
-</div><h2>插件截图</h2><div class="gallery">{screenshot_html or "<p>暂无截图</p>"}</div>
+</div>
 <h2>更新日志</h2>{changelog_html or "<p>暂无更新日志</p>"}
 </body></html>"""
     (folder / "index.html").write_text(html_doc, encoding="utf-8")
