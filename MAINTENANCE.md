@@ -1,30 +1,34 @@
-# 丑象派 维护说明
+# 丑象派维护说明
 
 ## 网站内容
-- 首页：`index.html`，只维护外部商店入口和页面文字，不放第三方插件下载按钮。
-- 头像与网页图标：`assets/repo-avatar.jpg`。
-- 修改以上文件并推送到 `main` 后，GitHub Actions 会自动部署 GitHub Pages。
+- 首页：`index.html`，维护商店入口和中文页面文字。
+- 软件源头像与网页图标：`assets/repo-avatar.jpg`。
+- GitHub 的 `main` 分支更新后，会自动触发网页部署。
+
+## 插件资料目录
+- 插件图标：`assets/icons/`，建议使用正方形 PNG 图片。
+- 插件截图：`assets/screenshots/插件名称/`，可放多张 PNG、JPG 或 WebP 图片。
+- 插件介绍、版本资料、更新日志：`metadata/packages/插件名称.json`。
+- 当前版本安装包：`pool/main/`。
+- 历史版本安装包：`pool/old/插件名称/`。
+
+每个插件的资料模板使用中文字段，包含插件名称、版本号、图标、截图、介绍、更新日志、旧版本、支持的系统、安装包大小和上传日期。暂时不确定的资料留空，不要猜测。
 
 ## APT 软件包
 本源使用 Rootless iOS 架构 `iphoneos-arm64`，发行版 `stable`，组件 `main`。
 
-1. 将已确认可用于 Rootless 的 `.deb` 文件放入 `pool/main/`。
-2. 在 Debian/Ubuntu 或 Theos 构建环境中安装 `dpkg-dev`、`gzip`、`xz-utils`。
-3. 在仓库根目录运行：`bash scripts/rebuild-apt-index.sh`。
-4. 检查生成的 `dists/stable/main/binary-iphoneos-arm64/Packages`、压缩索引和 `dists/stable/Release`。
-5. 将 `.deb`、索引和 Release 一并提交到 `main`。Actions 成功后，等待 Pages 更新。
-6. 在 Sileo/Zebra 刷新软件源，检查包名、版本、依赖和安装结果。
+1. 将当前版本的 `.deb` 放入 `pool/main/`。
+2. 将旧版本的 `.deb` 放入 `pool/old/插件名称/`，不要放进当前版本索引目录。
+3. 更新对应的 `metadata/packages/插件名称.json`。
+4. 在仓库根目录运行：`bash scripts/rebuild-apt-index.sh`。
+5. 检查生成的索引和 Release 文件，提交所有变更。
+6. 等待 GitHub Pages 部署成功，再在 Sileo/Zebra 刷新软件源。
 
-不要手工填写 Packages 的校验和。脚本会从实际文件重新生成 MD5、SHA1、SHA256、SHA512 和文件大小，避免 Release 与索引不匹配。
+不要手工填写索引校验值。索引脚本会根据实际安装包重新生成校验信息。
 
 ## 当前已发布
-- `com.oliixwxiilo.fqmusic`（番茄音乐）1.0，Rootless 架构 `iphoneos-arm64`。
+- 番茄音乐 1.0，软件包标识：`com.oliixwxiilo.fqmusic`。
 - 安装依赖：`mobilesubstrate`。
-- 本包由仓库维护者提供；上传前已核对 deb 控制信息与文件清单。仍需在目标设备上验证安装、注入和运行效果。
-- 目前没有发布签名密钥；若未来需要提高 APT 信任保障，可再规划 Release 签名（InRelease/Release.gpg）。
-
-## 日常维护
-- 只改网站：修改 `index.html`，提交到 `main` 即可。
-- 更换头像：替换 `assets/repo-avatar.jpg`，保持首页引用路径不变。
-- 发布/更新插件：放入 `pool/main/`，运行索引脚本，再提交包与索引。
-- 每次提交后检查 GitHub Actions 的 `Deploy GitHub Pages` 工作流为绿色成功状态。
+- 安装包大小：6164 字节。
+- 支持的系统版本尚未确认，因此资料模板中暂时留空。
+- 尚未配置 Release 签名密钥。
