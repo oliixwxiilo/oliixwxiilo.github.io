@@ -105,7 +105,7 @@
 2. 读取安装包控制信息，检查包标识、版本和架构。
 3. 自动关联图标，并读取可选的 JSON 插件资料。\n4. 自动计算安装包大小，并从安装包控制信息读取系统要求与架构。
 4. 生成 Sileo 插件详情 JSON 和网页详情页。
-5. 生成 `Packages`、`Packages.gz`、`Packages.xz`。
+5. 生成 `Packages`、`Packages.gz`、`Packages.xz`，并将常见软件包分类名称转换为中文（例如 Tweaks 显示为“插件”、Themes 显示为“主题”）。
 6. 重新生成 `Release` 文件及对应校验哈希。
 7. 将仓库内容部署到 GitHub Pages。
 
