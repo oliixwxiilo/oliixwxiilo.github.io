@@ -318,16 +318,16 @@ def main():
     # Standard distribution Release includes hashes for both architecture indexes.
     (DIST / "Release").write_text(release_text(dist_files), encoding="utf-8")
 
-    # Flat-repository compatibility files at the web root remain arm64-based.
-    flat_records = [record for package_arch, record in records
-                    if package_arch in (FLAT_ARCH, "all")]
+    # Flat-repository compatibility files at the web root include both architectures.
+    # APT selects packages matching the client's architecture from this combined index.
+    flat_records = [record for _, record in records]
     flat_data = ("\n\n".join(flat_records) + ("\n\n" if flat_records else "")).encode("utf-8")
     (ROOT / "Packages").write_bytes(flat_data)
     (ROOT / "Packages.gz").write_bytes(gzip.compress(flat_data, compresslevel=9, mtime=0))
     (ROOT / "Packages.xz").write_bytes(lzma.compress(flat_data, format=lzma.FORMAT_XZ, preset=9))
     flat_files = [(ROOT / f"Packages{suffix}", f"Packages{suffix}") for suffix in ("", ".gz", ".xz")]
-    (ROOT / "Release").write_text(release_text(flat_files, "", (FLAT_ARCH,)), encoding="utf-8")
-    print(f"完成：共读取 {len(records)} 个可发布架构包记录；已生成 arm64/arm64e 独立索引及 Release 校验值。")
+    (ROOT / "Release").write_text(release_text(flat_files, "", ARCHES), encoding="utf-8")
+    print(f"完成：共读取 {len(records)} 个可发布架构包记录；已生成双架构独立索引和根目录兼容索引。")
 
 
 if __name__ == "__main__":
