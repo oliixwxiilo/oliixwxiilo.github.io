@@ -57,6 +57,8 @@ def check_release(release_path, expected_files):
             a = line.split()
             if len(a) == 3:
                 entries[a[2]] = a[0].lower()
+            elif len(a) == 2:
+                entries[a[1]] = a[0].lower()
         if set(entries) != set(expected_files):
             raise SystemExit(section + " paths mismatch in " + str(release_path) + ": " + repr(set(entries)))
         for name in expected_files:
