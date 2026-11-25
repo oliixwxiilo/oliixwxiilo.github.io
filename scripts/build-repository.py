@@ -105,6 +105,37 @@ def find_package_icon(package_id, control, meta):
     return ""
 
 
+def format_size(size):
+    """Return a compact human-readable package size."""
+    if size >= 1024 * 1024:
+        return f"{size / (1024 * 1024):.2f} MB"
+    if size >= 1024:
+        return f"{size / 1024:.1f} KB"
+    return f"{size} 字节"
+
+
+def detected_system(control, meta):
+    """Read declared minimum OS compatibility from Debian control metadata."""
+    raw = (
+        control.get("Firmware")
+        or control.get("MinOSVersion")
+        or control.get("MinimumOSVersion")
+        or control.get("iOS-Version")
+        or control.get("IOS-Version")
+        or ""
+    ).strip()
+    if raw:
+        value = raw.replace("iphoneos", "").strip()
+        match = re.fullmatch(r"(?:>=|=>)\\s*([0-9][0-9.]*)(?:\\s*.*)?", value)
+        if match:
+            return f"iOS {match.group(1)} 及以上"
+        match = re.fullmatch(r"([0-9][0-9.]*)", value)
+        if match:
+            return f"iOS {match.group(1)}"
+        return f"iOS 要求：{value}"
+    return str(meta.get("支持的系统") or "安装包未注明")
+
+
 def write_depiction(package_id, control, meta, deb_size):
     folder = DEPICTIONS / package_id
     folder.mkdir(parents=True, exist_ok=True)
@@ -113,7 +144,9 @@ def write_depiction(package_id, control, meta, deb_size):
     description = meta.get("插件介绍") or control.get("Description", "")
     description = description.split("\n", 1)[0].strip()
     upload_date = meta.get("上传日期") or ""
-    supported = meta.get("支持的系统") or "暂未确认"
+    supported = detected_system(control, meta)
+    architecture = control.get("Architecture", "未知")
+    package_size = format_size(deb_size)
     icon_path = meta.get("插件图标") or ""
     icon_exists = bool(icon_path and (ROOT / icon_path).is_file())
     if icon_path and not icon_exists:
@@ -125,8 +158,9 @@ def write_depiction(package_id, control, meta, deb_size):
         {"class": "DepictionMarkdownView", "markdown": description or "暂无介绍"},
         {"class": "DepictionSeparatorView"},
         {"class": "DepictionTableTextView", "title": "当前版本", "text": version},
-        {"class": "DepictionTableTextView", "title": "安装包大小", "text": f"{deb_size:,} 字节"},
+        {"class": "DepictionTableTextView", "title": "安装包大小", "text": package_size},
         {"class": "DepictionTableTextView", "title": "支持的系统", "text": supported},
+        {"class": "DepictionTableTextView", "title": "架构", "text": architecture},
     ]
     if upload_date:
         detail_views.append({"class": "DepictionTableTextView", "title": "上传日期", "text": upload_date})
@@ -192,8 +226,9 @@ section{{border-bottom:1px solid #8885;padding:8px 0}}
 <h2>版本资料</h2><div class="meta">
 <b>软件包标识</b><span>{html.escape(package_id)}</span>
 <b>当前版本</b><span>{html.escape(version)}</span>
-<b>安装包大小</b><span>{deb_size:,} 字节</span>
+<b>安装包大小</b><span>{html.escape(package_size)}</span>
 <b>支持的系统</b><span>{html.escape(supported)}</span>
+<b>架构</b><span>{html.escape(architecture)}</span>
 <b>上传日期</b><span>{html.escape(upload_date or "未填写")}</span>
 </div>
 <h2>更新日志</h2>{changelog_html or "<p>暂无更新日志</p>"}
