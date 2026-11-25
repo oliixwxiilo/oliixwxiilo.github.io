@@ -207,15 +207,19 @@ def write_depiction(package_id, control, meta, deb_size):
     if upload_date:
         detail_views.append({"class": "DepictionTableTextView", "title": "上传日期", "text": upload_date})
     if screenshots:
-        detail_views.extend([
-            {"class": "DepictionHeaderView", "title": "插件截图"},
-            {
-                "class": "DepictionScreenshotsView",
-                "screenshots": screenshots,
-                "itemCornerRadius": 10,
-                "itemSize": {"x": 220, "y": 390}
-            }
-        ])
+        detail_views.append({"class": "DepictionHeaderView", "title": "插件截图"})
+        # Use the documented native image view for each screenshot. This avoids
+        # carousel rendering inconsistencies across Sileo builds while keeping
+        # every image directly visible in the package detail page.
+        for screenshot in screenshots:
+            detail_views.append({
+                "class": "DepictionImageView",
+                "URL": screenshot["url"],
+                "width": 320,
+                "height": 568,
+                "cornerRadius": 10,
+                "alignment": 1
+            })
     older = meta.get("旧版本下载", []) or []
     if older:
         detail_views.append({"class": "DepictionHeaderView", "title": "历史版本"})
