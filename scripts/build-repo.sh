@@ -13,20 +13,21 @@ python3 - <<'PY'
 from pathlib import Path
 import gzip, re
 
-raw = Path("Packages").read_text(encoding="utf-8")
-stanzas = [s for s in re.split(r"\n\s*\n", raw.strip()) if s.strip()]
-arches = ("iphoneos-arm64", "iphoneos-arm64e")
-for arch in arches:
+raw = Path("Packages").read_bytes()
+stanzas = [s for s in re.split(rb"\n\s*\n", raw.strip()) if s.strip()]
+arches = (b"iphoneos-arm64", b"iphoneos-arm64e")
+for arch_bytes in arches:
+    arch = arch_bytes.decode("ascii")
     selected = []
     for stanza in stanzas:
-        fields = dict(re.findall(r"^([A-Za-z0-9-]+):\s*(.*)$", stanza, re.M))
-        if fields.get("Architecture") == arch:
+        fields = dict(re.findall(rb"^([A-Za-z0-9-]+):\s*(.*)$", stanza, re.M))
+        if fields.get(b"Architecture") == arch_bytes:
             selected.append(stanza.strip())
     if not selected:
         raise SystemExit(f"No packages found for {arch}")
     directory = Path("dists/stable/main") / f"binary-{arch}"
     directory.mkdir(parents=True, exist_ok=True)
-    data = ("\n\n".join(selected) + "\n").encode()
+    data = b"\n\n".join(selected) + b"\n"
     (directory / "Packages").write_bytes(data)
     with (directory / "Packages.gz").open("wb") as f:
         with gzip.GzipFile(filename="", mode="wb", fileobj=f, compresslevel=9, mtime=0) as gz:
