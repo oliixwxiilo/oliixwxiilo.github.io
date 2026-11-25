@@ -183,13 +183,22 @@ def write_depiction(package_id, control, meta, deb_size):
     for item in find_package_screenshots(package_id, control, meta):
         if item not in screenshot_paths:
             screenshot_paths.append(item)
-    screenshots = [
-        {
-            "url": public_url(Path(item)),
-            "accessibilityText": f"{name} 截图"
-        }
-        for item in screenshot_paths
-    ]
+    # Publish ASCII-only aliases inside each depiction. This avoids image URL
+    # decoding problems in older Sileo builds when source folders contain Chinese
+    # characters, spaces, or other non-ASCII names.
+    screenshot_dir = folder / "screenshots"
+    screenshots = []
+    for index, item in enumerate(screenshot_paths, 1):
+        source = ROOT / item
+        alias_name = f"screenshot-{index:02d}{source.suffix.lower()}"
+        alias_path = screenshot_dir / alias_name
+        screenshot_dir.mkdir(parents=True, exist_ok=True)
+        alias_path.write_bytes(source.read_bytes())
+        relative_alias = alias_path.relative_to(ROOT).as_posix()
+        screenshots.append({
+            "url": public_url(Path(relative_alias)),
+            "accessibilityText": f"{name} 截图 {index}"
+        })
     icon_path = meta.get("插件图标") or ""
     icon_exists = bool(icon_path and (ROOT / icon_path).is_file())
     if icon_path and not icon_exists:
@@ -208,18 +217,21 @@ def write_depiction(package_id, control, meta, deb_size):
         detail_views.append({"class": "DepictionTableTextView", "title": "上传日期", "text": upload_date})
     if screenshots:
         detail_views.append({"class": "DepictionHeaderView", "title": "插件截图"})
-        # Use the documented native image view for each screenshot. This avoids
-        # carousel rendering inconsistencies across Sileo builds while keeping
-        # every image directly visible in the package detail page.
-        for screenshot in screenshots:
-            detail_views.append({
-                "class": "DepictionImageView",
-                "URL": screenshot["url"],
-                "width": 320,
-                "height": 568,
-                "cornerRadius": 10,
-                "alignment": 1
-            })
+        # Render through the documented raw-HTML Markdown mode. It is a simple
+        # fallback that does not depend on the native image/carousel view classes.
+        image_html = "".join(
+            f'<img src="{html.escape(item["url"], quote=True)}" '
+            f'alt="{html.escape(item["accessibilityText"], quote=True)}" '
+            f'style="display:block;width:100%;height:auto;max-height:640px;'
+            f'object-fit:contain;border-radius:10px;margin:12px 0;">'
+            for item in screenshots
+        )
+        detail_views.append({
+            "class": "DepictionMarkdownView",
+            "markdown": image_html,
+            "useRawFormat": True,
+            "useMargins": True
+        })
     older = meta.get("旧版本下载", []) or []
     if older:
         detail_views.append({"class": "DepictionHeaderView", "title": "历史版本"})
