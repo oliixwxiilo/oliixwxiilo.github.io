@@ -1,0 +1,19 @@
+Origin: Oliixwxiilo
+Label: 丑象派
+Suite: stable
+Codename: iphoneos
+Architectures: iphoneos-arm64 iphoneos-arm64e
+Components: main
+Description: Rootless and RootHide personal jailbreak repository
+
+MD5Sum:
+ b88219aca2318404ece2e7845c62e64f main/binary-iphoneos-arm64/Packages
+ 55819ee960e1c18f53b630387a74cb4c main/binary-iphoneos-arm64/Packages.gz
+ 825144e1bbef584cdf8850e6e8bcb8a5 main/binary-iphoneos-arm64e/Packages
+ e443ca199d23634d380439d8d1c35c45 main/binary-iphoneos-arm64e/Packages.gz
+
+SHA256:
+ eabe6758b99bf80f8dcd792397c372f14fdc948518c14c8703bf101c8129ee3f main/binary-iphoneos-arm64/Packages
+ 5dca47da162b1107ab4c317d008505d8c66ea60a790f03e29f5ff3e2661e067d main/binary-iphoneos-arm64/Packages.gz
+ 58c767869c1679068c9f4b9342f53edf3eca021d4be76db5e0c7c539d819169d main/binary-iphoneos-arm64e/Packages
+ de86bc95ab81982f9bb4074f49fa4e1ed41d9f24f4964f2b3850a02513da026d main/binary-iphoneos-arm64e/Packages.gz

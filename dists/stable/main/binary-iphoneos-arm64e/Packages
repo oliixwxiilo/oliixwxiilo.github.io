@@ -1,0 +1,92 @@
+Package: com.baiduwp.vip
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.baiduwp.vip
+Replaces: com.baiduwp.vip
+Provides: com.baiduwp.vip
+Filename: debs/roothide/com.baiduwp.vip-1.0-roothide.deb
+Size: 56212
+MD5sum: 04b766436c3993bb632ae079537209a6
+SHA1: 2159b0b8ee535533f48cfb2af721e6479f24743c
+SHA256: 4585d83e6e4b74c796aad0feb7f46fbe8b0d9d2b495797dbc5c21d02389d505b
+Section: Tweaks
+Priority: optional
+Description: 百度网盘解锁部分会员，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 百度网盘解锁部分会员
+
+Package: com.charlieleung.trollopenjb
+Version: 1.5.2+offline.5
+Architecture: iphoneos-arm64e
+Maintainer: 一刀
+Installed-Size: 55444
+Depends: firmware (>= 15.0),mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist, com.opa334.libsandy
+Filename: debs/roothide/com.charlieleung.trollopenjb-1.5.2-roothide.deb
+Size: 16761890
+MD5sum: d12abbab3231b73801fb8081cfce8d0b
+SHA1: d2cb238fce13f3e82e5d556b93c50729357e93e2
+SHA256: e6212d8e47f3280f417c9efef5f250ce53cc460f92112c954c71b19973056411
+Section: Tweaks
+Description: 内置离线版，在16系统隐根状态测试正常，其他系统自测。
+Author: 一刀
+Name: TrollOpen
+
+Package: com.n95.zh
+Version: 4.4
+Architecture: iphoneos-arm64e
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: debs/roothide/com.n95.zh-4.4-roothide.deb
+Size: 2080
+MD5sum: 40c543ecfdd548c56194a504e737013b
+SHA1: 33bd4fc4d53ff6d42bbb6515fac6d782e1905f27
+SHA256: 45deb25321b83d10250d8fedd0ad0104c6e5dc2f2d7e3edb8a4f071b1c73d2f5
+Section: Tweaks
+Description: N95简体中文包，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: N95简体中文�
+
+Package: com.textreplace.cn
+Version: 1.0
+Architecture: iphoneos-arm64e
+Essential: no
+Maintainer: oliixwxiilo
+Pre-Depends: rootless-compat(>= 0.9)
+Conflicts: com.textreplace.cn
+Replaces: com.textreplace.cn
+Provides: com.textreplace.cn
+Filename: debs/roothide/com.textreplace.cn-1.0-roothide.deb
+Size: 27940
+MD5sum: 8429195b19d37ad052d7e89bf797e327
+SHA1: 88a5d277b643ad9598aa3e3c530af9b80fb97c9c
+SHA256: dd99dd2f1e9c38f43fb9ad1a3d68600f0818ea7bdcbe91aaa397a5cad5917cc5
+Section: Tweaks
+Priority: optional
+Description: 双指长按界面弹出替换弹窗，目前只注入了com.apple.Preferences，需要别的自行添加，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 替换文本字符
+
+Package: ws.hbang.newterm33
+Version: 3.0~beta1-2048
+Architecture: iphoneos-arm64e
+Maintainer: HASHBANG Productions <support@hbang.ws>
+Depends: firmware (>= 14.0), zsh | bash | fish, coreutils, ncurses, system-cmds
+Recommends: gettext-localizations, iterm2-shell-integration, zsh-autosuggestions, zsh-syntax-highlighting
+Conflicts: ws.hbang.newterm, ws.hbang.newterm2
+Replaces: ws.hbang.newterm, ws.hbang.newterm2
+Filename: debs/roothide/ws.hbang.newterm33-3.0~beta1-2048-roothide.deb
+Size: 5351216
+MD5sum: 9ae35291cba032fe756568e87ae84123
+SHA1: e60bfcd402e51dbcfb12309d3c2a3f16279515ea
+SHA256: ee8c1bbca08a1eabc99a6bd3ea48f5eef030976c314ab6e08aef57c672be37a5
+Section: Tweaks
+Description: 终端管理，汉化版
+Tag: compatible_min::ios14.0
+Author: HASHBANG Productions <support@hbang.ws>
+Depiction: https://chariz.com/get/newterm-beta
+Icon: https://img.chariz.cloud/icon/newterm-beta/icon@3x.png
+Name: NewTerm 3 Beta汉化版
+Support: https://hashbang.productions/support/
