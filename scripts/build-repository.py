@@ -105,6 +105,62 @@ def find_package_icon(package_id, control, meta):
     return ""
 
 
+def find_package_screenshots(package_id, control, meta):
+    """Collect screenshots from a matching package/name folder without requiring JSON."""
+    screenshot_root = ROOT / "assets" / "screenshots"
+    if not screenshot_root.exists():
+        return []
+
+    candidates = [
+        package_id,
+        package_id.rsplit(".", 1)[-1],
+        control.get("Name", ""),
+        meta.get("插件名称", ""),
+    ]
+    keys = []
+    for candidate in candidates:
+        key = normalize_icon_key(candidate)
+        if key and key not in keys:
+            keys.append(key)
+
+    supported = {".png", ".jpg", ".jpeg", ".webp"}
+    found = []
+
+    # Preferred convention: assets/screenshots/<plugin display name>/*
+    # Package-ID and its final component are accepted as folder names too.
+    for folder in sorted(p for p in screenshot_root.rglob("*") if p.is_dir()):
+        if normalize_icon_key(folder.name) not in keys:
+            continue
+        found.extend(
+            p for p in sorted(folder.rglob("*"))
+            if p.is_file() and p.suffix.lower() in supported
+        )
+
+    # Also accept files directly in assets/screenshots/ named after the package/name,
+    # optionally followed by a separator and a sequence number.
+    for path in sorted(screenshot_root.iterdir()):
+        if not path.is_file() or path.suffix.lower() not in supported:
+            continue
+        stem = normalize_icon_key(path.stem)
+        if any(stem == key or stem.startswith(key) for key in keys):
+            found.append(path)
+
+    unique = []
+    seen = set()
+    for path in found:
+        relative = path.relative_to(ROOT).as_posix()
+        if relative not in seen:
+            seen.add(relative)
+            unique.append(relative)
+    if unique:
+        print(f"已自动关联截图：{package_id} -> {len(unique)} 张")
+        for item in unique:
+            print(f"  截图：{item}")
+    else:
+        print(f"提示：没有找到 {package_id} 对应的截图")
+    return unique
+
+
 def write_depiction(package_id, control, meta, deb_size):
     folder = DEPICTIONS / package_id
     folder.mkdir(parents=True, exist_ok=True)
@@ -114,16 +170,26 @@ def write_depiction(package_id, control, meta, deb_size):
     description = description.split("\n", 1)[0].strip()
     upload_date = meta.get("上传日期") or ""
     supported = meta.get("支持的系统") or "暂未确认"
-    screenshots = []
+    screenshot_paths = []
+    # Keep valid manually listed screenshots first; missing paths fall back to auto-discovery.
     for item in meta.get("插件截图", []) or []:
         p = ROOT / item
-        if p.is_file():
-            screenshots.append({
-                "url": public_url(Path(item)),
-                "accessibilityText": f"{name} 截图"
-            })
+        if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}:
+            relative = p.relative_to(ROOT).as_posix()
+            if relative not in screenshot_paths:
+                screenshot_paths.append(relative)
         else:
-            print(f"提示：截图尚未上传，暂不显示：{item}")
+            print(f"提示：资料中指定的截图不存在或格式不支持，尝试自动匹配：{item}")
+    for item in find_package_screenshots(package_id, control, meta):
+        if item not in screenshot_paths:
+            screenshot_paths.append(item)
+    screenshots = [
+        {
+            "url": public_url(Path(item)),
+            "accessibilityText": f"{name} 截图"
+        }
+        for item in screenshot_paths
+    ]
     icon_path = meta.get("插件图标") or ""
     icon_exists = bool(icon_path and (ROOT / icon_path).is_file())
     if icon_path and not icon_exists:
