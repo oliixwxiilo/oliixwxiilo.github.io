@@ -2,11 +2,8 @@
 
 - 网站地址：https://oliixwxiilo.github.io/
 - 软件源地址：https://oliixwxiilo.github.io/
-- 软件源版本：stable
-- 软件包分类：main
-- 支持架构：iphoneos-arm64
 
-本网站提供越狱商店导航，并托管本软件源自行发布的软件包。不会托管或分发第三方插件安装包。
+纯属自用，有自己发布也有网络搜集，仅供交流使用，请勿非法传播用于商业目的。
 
 ## 插件资料目录
 
@@ -16,4 +13,3 @@
 - 当前版本安装包：`pool/main/`
 - 历史版本安装包：`pool/old/插件名称/`
 
-当前已发布：番茄音乐 1.0（软件包标识：`com.oliixwxiilo.fqmusic`）。
