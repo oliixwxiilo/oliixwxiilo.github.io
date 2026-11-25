@@ -1,0 +1,11 @@
+Origin: oliixwxiilo Repo
+Label: oliixwxiilo Repo
+Suite: stable
+Codename: stable
+Architectures: iphoneos-arm64
+Description: Rootless iOS package repository
+
+MD5Sum:
+ 3d0a7f4bfd30af967e6a95ff93486d03 571 Packages
+SHA256:
+ 9b917006dabf55019df4225fcd00fd036bb402cf2d1b6688253a2c63dd763bfb 571 Packages
