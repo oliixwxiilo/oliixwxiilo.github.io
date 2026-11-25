@@ -56,6 +56,55 @@ def public_url(path):
     return BASE_URL + "/" + quote(path.as_posix(), safe="/-._~")
 
 
+def normalize_icon_key(value):
+    """Normalize package/name text so icon matching is case- and punctuation-insensitive."""
+    return re.sub(r"[^0-9a-z\\u4e00-\\u9fff]+", "", str(value or "").lower())
+
+
+def find_package_icon(package_id, control, meta):
+    """Find an icon without requiring a per-package JSON file."""
+    icon_dir = ROOT / "assets" / "icons"
+    if not icon_dir.exists():
+        return ""
+
+    # An explicitly configured, existing icon always wins.
+    configured = str(meta.get("插件图标") or "").strip()
+    if configured and (ROOT / configured).is_file():
+        return configured
+    if configured:
+        print(f"提示：资料中指定的图标不存在，尝试自动匹配：{configured}")
+
+    candidates = [
+        package_id,
+        package_id.rsplit(".", 1)[-1],
+        control.get("Name", ""),
+        meta.get("插件名称", ""),
+    ]
+    keys = []
+    for candidate in candidates:
+        key = normalize_icon_key(candidate)
+        if key and key not in keys:
+            keys.append(key)
+    if not keys:
+        return ""
+
+    extensions = {".png", ".jpg", ".jpeg", ".webp"}
+    icons = sorted(
+        p for p in icon_dir.rglob("*")
+        if p.is_file() and p.suffix.lower() in extensions
+    )
+    # Exact normalized matches first; package-ID final component supports names
+    # such as KillBackground13.png for xyz.cypwn.killbackground13.
+    for key in keys:
+        matches = [p for p in icons if normalize_icon_key(p.stem) == key]
+        if matches:
+            selected = matches[0].relative_to(ROOT).as_posix()
+            print(f"已自动关联图标：{package_id} -> {selected}")
+            return selected
+    print(f"提示：没有找到 {package_id} 对应的图标")
+    return ""
+
+
 def write_depiction(package_id, control, meta, deb_size):
     folder = DEPICTIONS / package_id
     folder.mkdir(parents=True, exist_ok=True)
@@ -226,7 +275,18 @@ def main():
             raise SystemExit(f"发现重复的软件包版本：{package_id} {version} {arch}")
         seen.add(identity)
         size = deb.stat().st_size
-        meta = metadata.get(package_id, {})
+        # Metadata JSON is optional: construct safe defaults from the Debian control
+        # fields, then automatically associate an icon by package ID or display name.
+        meta = dict(metadata.get(package_id, {}))
+        meta.setdefault("软件包标识", package_id)
+        meta.setdefault("插件名称", control.get("Name") or package_id)
+        meta.setdefault("当前版本", version)
+        icon_path = find_package_icon(package_id, control, meta)
+        if icon_path:
+            meta["插件图标"] = icon_path
+        else:
+            meta.pop("插件图标", None)
+
         depiction_file = DEPICTIONS / package_id / "depiction.json"
         if not depiction_file.exists() or version == str(meta.get("当前版本", "")):
             icon_url, depiction_url, sileo_url = write_depiction(package_id, control, meta, size)
