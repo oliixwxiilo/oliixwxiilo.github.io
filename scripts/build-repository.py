@@ -124,7 +124,10 @@ SECTION_TRANSLATIONS = {
     "Repositories": "软件源",
     "Widgets": "小组件",
     "Terminal Support": "终端工具",
-    "RootHide Packages": "越狱隐藏插件包",
+    "RootHide": "隐根插件",
+    "RootHide Packages": "隐根插件",
+    "Rootless": "无根插件",
+    "Rootless Packages": "无根插件",
 }
 
 
