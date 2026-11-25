@@ -58,7 +58,7 @@ def public_url(path):
 
 def normalize_icon_key(value):
     """Normalize package/name text so icon matching is case- and punctuation-insensitive."""
-    return re.sub(r"[^0-9a-z\\u4e00-\\u9fff]+", "", str(value or "").lower())
+    return re.sub(r"[^0-9a-z\u4e00-\u9fff]+", "", str(value or "").lower())
 
 
 def find_package_icon(package_id, control, meta):
