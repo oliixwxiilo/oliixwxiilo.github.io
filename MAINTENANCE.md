@@ -1,52 +1,71 @@
 # 丑象派维护说明
 
-## 平时你只需要做什么
+## 平时只需要上传什么
 
-以后每个插件按需放入以下目录，然后把文件提交到 GitHub 的 main 分支即可：
+每个插件按需放入以下目录，然后提交到 GitHub 的 main 分支：
 
-- 插件图标：\`assets/icons/插件名称.png\`
-- 插件截图：\`assets/screenshots/插件名称/\`
-- 中文资料：\`metadata/packages/插件名称.json\`
-- 当前版本安装包：\`pool/main/插件标识_版本_iphoneos-arm64.deb\`
-- 历史版本安装包：\`pool/old/插件名称/\`
+- 当前版本安装包：`pool/main/`
+- 插件图标：`assets/icons/`
+- 插件截图：`assets/screenshots/插件名称/`
+- 可选中文资料：`metadata/packages/`
+- 历史版本安装包：`pool/old/插件名称/`
 
-每个插件的 JSON 资料使用中文字段。请保持“软件包标识”与 .deb 内的 Package 字段一致；“当前版本”与当前安装包版本一致。截图、图标文件名和 JSON 中填写的路径必须一致。
+**基础发布只需要 .deb。** 图标和截图不需要在 JSON 里逐条登记，构建脚本会自动匹配。
+
+## 图标自动匹配规则
+
+把图标放入 `assets/icons/`，文件名可以使用：
+
+1. 完整软件包标识，例如 `com.example.plugin.png`。
+2. 软件包标识最后一段，例如 `plugin.png`。
+3. 插件显示名称，例如 `我的插件.png`。
+
+支持 PNG、JPG、JPEG、WEBP。JSON 中如果填写了有效的“插件图标”路径，则优先使用该路径；路径失效时会继续自动匹配。
+
+## 截图自动匹配规则
+
+把截图直接放进对应插件目录，例如：
+
+`assets/screenshots/番茄音乐/`
+
+目录名称可以是插件显示名称、完整软件包标识，或软件包标识最后一段。构建时会自动收集该目录及其子目录中的图片，不需要逐张填写 JSON。
+
+也支持把截图直接放在 `assets/screenshots/` 根目录，并使用插件名称或软件包标识作为文件名前缀。支持 PNG、JPG、JPEG、WEBP。
+
+如果 JSON 中填写了有效的“插件截图”路径，会先显示这些图片，再补充自动发现的截图；重复图片只显示一次。无效路径会跳过并继续自动查找。
+
+## 可选中文资料
+
+`metadata/packages/插件资料.json` 用于补充自动无法可靠推断的内容：
+
+- 插件介绍
+- 更新日志
+- 支持的系统
+- 上传日期
+- 历史版本下载信息
+- 特殊图标或截图路径
+
+没有 JSON 时，系统仍会从 .deb 读取软件包标识、版本、架构、依赖等信息，生成基础详情。不会自动编造介绍、更新日志或系统兼容性。
 
 ## 自动发布流程
 
-每次向 main 分支提交后，GitHub Actions 会自动：
+提交到 main 分支后，GitHub Actions 会自动：
 
-1. 安装 APT 索引构建工具。
-2. 扫描 \`pool/main/\` 和 \`pool/old/\` 中的所有 .deb。
-3. 读取安装包真实的 Package、Version、Architecture、依赖等信息。
-4. 结合中文 JSON 生成 Sileo 原生详情 JSON 和网页详情页。
-5. 自动关联插件图标、截图、介绍、版本资料、历史版本和更新日志。
-6. 生成标准 APT 的 Packages、Packages.gz、Packages.xz。
-7. 同步根目录兼容用的 Packages、Packages.gz、Packages.xz。
-8. 重新计算标准 Release 和根目录 Release 的 MD5、SHA1、SHA256、SHA512。
-9. 部署整个软件源到 GitHub Pages。
+1. 扫描 `pool/main/` 和 `pool/old/` 中的 .deb。
+2. 读取安装包真实的 Package、Version、Architecture 和依赖信息。
+3. 自动匹配图标和截图，读取可选中文资料。
+4. 生成 Sileo 原生详情 JSON 和网页详情页。
+5. 生成 Packages、Packages.gz、Packages.xz。
+6. 重新计算 Release 文件中的 MD5、SHA1、SHA256、SHA512 校验值。
+7. 部署到 GitHub Pages。
 
-你不需要手工修改 Packages、Release，也不需要计算哈希。自动生成的索引和详情文件会随 GitHub Pages 发布；它们是在 Actions 构建时生成，不要求你手工维护这些生成文件。
+不要手工修改自动生成的 Packages、Release 和详情文件。只有 GitHub Actions 显示部署成功后，才代表新内容已发布。
 
-## 重要规则
+## 其他规则
 
-- 当前版本 .deb 放在 \`pool/main/\`。
-- 旧版本 .deb 放在 \`pool/old/插件名称/\`。旧版本仍会被加入 APT 多版本索引。
-- 不要把不同插件的 .deb 混放到同一个旧版本目录以外的路径。
-- 同一个软件包标识、版本号、架构不能重复出现。
-- 图标和截图如果尚未上传，自动构建会先跳过对应图片，不会拿软件源头像冒充插件图标。
-- “支持的系统”未确认时显示“暂未确认”，不要猜测。
-- 只有 GitHub Actions 显示部署成功后，才代表新版本已发布到网站。
-- Release 当前未配置 GPG 签名密钥，不能称为已签名软件源。
-
-## 番茄音乐示例
-
-- 插件名称：番茄音乐
-- 软件包标识：\`com.oliixwxiilo.fqmusic\`
-- 当前版本：\`1.0\`
-- 当前安装包：\`pool/main/com.oliixwxiilo.fqmusic_1.0_iphoneos-arm64.deb\`
-- 中文资料：\`metadata/packages/番茄音乐.json\`
-- 图标路径：\`assets/icons/番茄音乐.png\`
-- 截图目录：\`assets/screenshots/番茄音乐/\`
-
-番茄音乐目前还没有实际上传插件图标和截图，所以这两项暂时不会显示；把图片放入上述位置并提交后，自动构建就会加入详情页。
+- 当前版本 .deb 放在 `pool/main/`。
+- 历史版本 .deb 放在 `pool/old/插件名称/`。
+- 同一个软件包标识、版本号、架构不能重复。
+- 未上传的图标或截图会被跳过，不会用软件源头像冒充。
+- “支持的系统”未确认时显示“暂未确认”，不会猜测。
+- Release 当前未配置 GPG 签名密钥，因此不是已签名软件源。
