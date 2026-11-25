@@ -150,6 +150,10 @@ def format_size(size):
 
 def detected_system(control, meta):
     """Read declared minimum OS compatibility from Debian control metadata."""
+    # Explicit JSON compatibility text takes precedence over package control fields.
+    configured = str(meta.get("支持的系统") or "").strip()
+    if configured:
+        return configured
     raw = (
         control.get("Firmware")
         or control.get("MinOSVersion")
@@ -347,6 +351,8 @@ def main():
         fields["SHA1"] = hash_file(deb, "sha1")
         fields["SHA256"] = hash_file(deb, "sha256")
         fields["Name"] = meta.get("插件名称") or fields.get("Name") or package_id
+        # Keep the package-list summary consistent with the optional JSON metadata.
+        fields["Description"] = meta.get("插件介绍") or fields.get("Description") or ""
         if fields.get("Section"):
             fields["Section"] = translate_section(fields["Section"])
         if icon_url:
