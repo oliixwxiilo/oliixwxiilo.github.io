@@ -22,8 +22,8 @@ gzip -9n -c "$PACKAGES" > "$PACKAGES.gz"
 xz -9e --threads=1 -c "$PACKAGES" > "$PACKAGES.xz"
 
 {
-  echo "Origin: oliixwxiilo Repo"
-  echo "Label: oliixwxiilo Repo"
+  echo "Origin: 丑象派"
+  echo "Label: 丑象派"
   echo "Suite: stable"
   echo "Codename: stable"
   echo "Architectures: iphoneos-arm64"
