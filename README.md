@@ -1,4 +1,4 @@
-# oliixwxiilo Repo
+# 丑象派
 
 - Website: https://oliixwxiilo.github.io/
 - APT source: https://oliixwxiilo.github.io/
