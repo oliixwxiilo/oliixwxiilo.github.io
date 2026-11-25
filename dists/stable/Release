@@ -5,7 +5,20 @@ Codename: stable
 Architectures: iphoneos-arm64
 Components: main
 Description: Rootless iOS package repository
+Date: Wed, 25 Nov 2026 00:41:03 +0000
 MD5Sum:
- d41d8cd98f00b204e9800998ecf8427e 0 main/binary-iphoneos-arm64/Packages
+ 3d0a7f4bfd30af967e6a95ff93486d03 571 main/binary-iphoneos-arm64/Packages
+ 56e55e97738bcc71a2b3e5d0baa09f8e 472 main/binary-iphoneos-arm64/Packages.gz
+ c0c455c9a0ec1e30e33cf7af1dfbf850 500 main/binary-iphoneos-arm64/Packages.xz
+SHA1:
+ 8c4fe15c6cef13fb490335d92c7b910b531d5578 571 main/binary-iphoneos-arm64/Packages
+ 0e6a011a940ac5e75ce2ec0d429fa176333fee65 472 main/binary-iphoneos-arm64/Packages.gz
+ 4b49effd488b6e0f86f12abd839bc26cbeaea8b6 500 main/binary-iphoneos-arm64/Packages.xz
 SHA256:
- e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-iphoneos-arm64/Packages
+ 9b917006dabf55019df4225fcd00fd036bb402cf2d1b6688253a2c63dd763bfb 571 main/binary-iphoneos-arm64/Packages
+ 3a1377b7cbfb52863136099f111e3ecaa38fab11f33e31c76488456bb78543cd 472 main/binary-iphoneos-arm64/Packages.gz
+ 26627daf7e0dca9c692dd688ac3723431bf20f4db7b3aee705bc26c710e8ef87 500 main/binary-iphoneos-arm64/Packages.xz
+SHA512:
+ b85b517af652419110b8065a5cbe6b7ed31e9e44b2f6ecb9f99910f464e50ea64bf3107240824ec9a4e1a8a2dbf7abbf8a280b4c4883f3f8ea6f9e8401d917c6 571 main/binary-iphoneos-arm64/Packages
+ f9bd0cb864ea71fd1ab9832e658c2a575bd985c3f5d675bbd0c79e802a5da89d1f511a972254037e637c8317740d2425d85f7cd639801f6778e5ee6d4f0b5be2 472 main/binary-iphoneos-arm64/Packages.gz
+ 06739e0f8838bd7fa93fbe697cbd015ae7f81027b2f5e752e037a58675f82b385884c274c38a8af46b44c301f42adf7724e0e745a9548f5afe93ab90d96deffd 500 main/binary-iphoneos-arm64/Packages.xz

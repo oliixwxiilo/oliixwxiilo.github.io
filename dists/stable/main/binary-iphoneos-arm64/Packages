@@ -1,0 +1,15 @@
+Package: com.oliixwxiilo.fqmusic
+Version: 1.0
+Architecture: iphoneos-arm64
+Maintainer: oliixwxiilo
+Depends: mobilesubstrate
+Filename: pool/main/com.oliixwxiilo.fqmusic_1.0_iphoneos-arm64.deb
+Size: 6164
+MD5sum: 4107c231379f7b8b1ee996db6c95fbbd
+SHA1: b542644c06e807eec8e85b1b76b3a4091f7990cb
+SHA256: 53bfa2b6f83870164d57758c6f317155791d4e1c7ee776a6bb6a3d754d939c75
+Section: Tweaks
+Description: 番茄音乐解锁会员，修改底栏交互，去除短剧跟领现金按钮，仅供交流使用，请勿非法传播用于商业目的
+Author: oliixwxiilo
+Name: 番茄音乐
+
