@@ -1,11 +1,12 @@
 name: Build APT Repo
 on:
   push:
-    branches: [ main, refactor/modern-apt ]
+    branches: [ main, refactor/modern-apt, fix/apt-standard-and-flat-indexes ]
     paths-ignore:
       - Packages
       - Packages.gz
       - Release
+      - dists/**
       - catalog.json
       - version-history.json
       - package-audit.json
@@ -50,6 +51,6 @@ jobs:
             echo "Indexes are already up to date."
             exit 0
           fi
-          git commit -m "Build APT repository indexes"
+          git commit -m "Build flat and standard APT indexes"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push
