@@ -210,7 +210,7 @@ def hash_file(path, algorithm):
     return h.hexdigest()
 
 
-def release_text(files, prefix, architectures=ARCHES):
+def release_text(files, prefix="", architectures=ARCHES):
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
     lines = [
         "Origin: 丑象派", "Label: 丑象派", "Suite: stable", "Codename: stable",
