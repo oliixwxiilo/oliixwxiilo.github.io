@@ -4,35 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101827">
-<meta name="description" content="丑象派 — iOS 越狱软件源与常用商店导航">
+<meta name="description" content="丑象派软件源添加入口">
 <link rel="icon" type="image/jpeg" href="/assets/repo-avatar.jpg">
 <title>丑象派</title>
 <style>
 :root{color-scheme:dark;--bg:#09140f;--panel:#14231b;--line:#30483a;--muted:#a3b8a9;--text:#f1f5ee;--accent:#91c7a5}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -12%,#254b37 0,transparent 52%),radial-gradient(ellipse at 100% 45%,rgba(46,91,65,.16),transparent 42%),var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{width:min(760px,calc(100% - 36px));margin:0 auto;padding:72px 0 48px}.brand{display:flex;align-items:center;gap:16px;margin-bottom:36px}.logo{width:58px;height:58px;flex:0 0 58px;display:block;object-fit:cover;border:1px solid #45634e;border-radius:18px;background:#14251b;box-shadow:0 5px 18px rgba(0,0,0,.25)}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.16em;text-transform:uppercase}.brand h1{font-size:clamp(25px,6vw,36px);line-height:1.15;margin:4px 0 0}.intro{color:var(--muted);margin:0 0 30px}.section-title{font-size:17px;margin:28px 0 12px}.links{display:grid;gap:10px}.item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(18,29,48,.86);color:var(--text);text-decoration:none;transition:border-color .15s,transform .15s}.item:hover{border-color:#78a98a;transform:translateY(-1px)}.item strong{display:block;font-size:15px}.item small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.arrow{color:var(--accent);font-size:20px}.note{margin-top:24px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:13px}footer{margin-top:34px;color:#71829b;font-size:12px;text-align:center}a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% -12%,#254b37 0,transparent 52%),var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(520px,100%);text-align:center}
+.logo{width:76px;height:76px;object-fit:cover;border:1px solid #45634e;border-radius:22px;background:#14251b;box-shadow:0 5px 18px rgba(0,0,0,.25)}
+h1{font-size:30px;line-height:1.2;margin:14px 0 8px}
+.url{margin:0 0 28px;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+nav{display:grid;gap:12px}
+.item{display:flex;align-items:center;justify-content:center;min-height:56px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(20,35,27,.9);color:var(--text);font-weight:650;text-decoration:none;transition:border-color .15s,transform .15s}
+.item:hover{border-color:var(--accent);transform:translateY(-1px)}
+.copy{margin-top:18px;border:0;background:transparent;color:var(--accent);font:inherit;font-size:14px;padding:10px 16px}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
 </head>
 <body>
 <main>
-<header class="brand">
-<img class="logo" src="/assets/repo-avatar.jpg" alt="丑象派软件源头像">
-<div><div class="eyebrow">越狱软件源</div><h1>丑象派</h1></div>
-</header>
-<p class="intro">iOS 越狱软件源导航。选择下方商店，前往对应的官方页面。</p>
-<h2 class="section-title">常用商店与官方软件源</h2>
-<nav class="links" aria-label="常用商店">
-<a class="item" href="https://havoc.app/" target="_blank" rel="noopener"><span><strong>Havoc</strong><small>插件、主题与开发者软件源</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://repo.chariz.com/" target="_blank" rel="noopener"><span><strong>Chariz</strong><small>越狱插件与主题商店</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener"><span><strong>BigBoss</strong><small>经典越狱软件源</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://ellekit.space/" target="_blank" rel="noopener"><span><strong>ElleKit</strong><small>Rootless 环境相关组件</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://apt.procurs.us/" target="_blank" rel="noopener"><span><strong>Procursus</strong><small>越狱基础组件软件源</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://sparkdev.me/" target="_blank" rel="noopener"><span><strong>SparkDev</strong><small>插件与主题开发者商店</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://getzbra.com/" target="_blank" rel="noopener"><span><strong>Zebra</strong><small>Zebra 包管理器官方网站</small></span><span class="arrow">↗</span></a>
-<a class="item" href="https://repo.getsileo.app/" target="_blank" rel="noopener"><span><strong>Sileo</strong><small>Sileo 包管理器官方软件源</small></span><span class="arrow">↗</span></a>
+<img class="logo" src="/assets/repo-avatar.jpg" alt="丑象派">
+<h1>丑象派</h1>
+<p class="url">https://oliixwxiilo.github.io/</p>
+<nav aria-label="添加丑象派软件源">
+<a class="item" href="sileo://source/https://oliixwxiilo.github.io/">添加到 Sileo</a>
+<a class="item" href="zbra://sources/add/https://oliixwxiilo.github.io/">添加到 Zebra</a>
+<a class="item" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://oliixwxiilo.github.io/">添加到 Cydia</a>
+<a class="item" href="installer://add/repo=https://oliixwxiilo.github.io/">添加到 Installer</a>
+<a class="item" href="apt-repo://https://oliixwxiilo.github.io/">添加到 Saily</a>
 </nav>
-<div class="note">本网站仅提供外部商店导航，不托管或分发第三方插件安装包。外部链接由各商店维护。</div>
-<footer>© 丑象派</footer>
+<button class="copy" type="button" onclick="navigator.clipboard.writeText('https://oliixwxiilo.github.io/').then(()=>{this.textContent='已复制软件源地址'}).catch(()=>{this.textContent='请手动复制上方地址'})">复制软件源地址</button>
 </main>
 </body>
 </html>
