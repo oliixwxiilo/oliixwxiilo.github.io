@@ -60,7 +60,7 @@ def write_depiction(package_id, control, meta, deb_size):
     folder = DEPICTIONS / package_id
     folder.mkdir(parents=True, exist_ok=True)
     name = meta.get("插件名称") or control.get("Name") or package_id
-    version = control.get("Version", meta.get("当前版本", ""))
+    version = meta.get("当前版本") or control.get("Version", "")
     description = meta.get("插件介绍") or control.get("Description", "")
     description = description.split("\n", 1)[0].strip()
     upload_date = meta.get("上传日期") or ""
@@ -227,7 +227,14 @@ def main():
         seen.add(identity)
         size = deb.stat().st_size
         meta = metadata.get(package_id, {})
-        icon_url, depiction_url, sileo_url = write_depiction(package_id, control, meta, size)
+        depiction_file = DEPICTIONS / package_id / "depiction.json"
+        if not depiction_file.exists() or version == str(meta.get("当前版本", "")):
+            icon_url, depiction_url, sileo_url = write_depiction(package_id, control, meta, size)
+        else:
+            icon_path = meta.get("插件图标") or ""
+            icon_url = public_url(Path(icon_path)) if icon_path and (ROOT / icon_path).is_file() else control.get("Icon", "")
+            depiction_url = public_url(Path("depictions") / package_id / "index.html")
+            sileo_url = public_url(Path("depictions") / package_id / "depiction.json")
         fields = dict(control)
         fields["Filename"] = deb.relative_to(ROOT).as_posix()
         fields["Size"] = str(size)
