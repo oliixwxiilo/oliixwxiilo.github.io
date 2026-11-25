@@ -126,7 +126,7 @@ def detected_system(control, meta):
     ).strip()
     if raw:
         value = raw.replace("iphoneos", "").strip()
-        match = re.fullmatch(r"(?:>=|=>)\\s*([0-9][0-9.]*)(?:\\s*.*)?", value)
+        match = re.fullmatch(r"(?:>=|=>)\s*([0-9][0-9.]*)(?:\s*.*)?", value)
         if match:
             return f"iOS {match.group(1)} 及以上"
         match = re.fullmatch(r"([0-9][0-9.]*)", value)
