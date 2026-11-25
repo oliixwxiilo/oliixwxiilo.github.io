@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages
+name: 构建软件源并部署网站
 
 on:
   push:
@@ -15,20 +15,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: \${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 获取仓库文件
         uses: actions/checkout@v6
-      - name: Configure Pages
+
+      - name: 安装 APT 索引构建工具
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev
+
+      - name: 自动生成软件包索引和插件详情
+        run: python3 scripts/build-repository.py
+
+      - name: 配置 GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Upload site
+
+      - name: 打包网站和软件源
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
-      - name: Deploy
+
+      - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
