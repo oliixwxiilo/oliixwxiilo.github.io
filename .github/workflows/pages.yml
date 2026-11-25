@@ -18,7 +18,7 @@ jobs:
   build-and-deploy:
     environment:
       name: github-pages
-      url: \${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: 获取仓库文件
@@ -39,6 +39,10 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
+
+      # Pages artifact metadata can take a short time to become visible to deploy-pages.
+      - name: 等待部署文件登记完成
+        run: sleep 15
 
       - name: 部署到 GitHub Pages
         id: deployment
