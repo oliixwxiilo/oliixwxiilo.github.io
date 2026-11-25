@@ -105,6 +105,36 @@ def find_package_icon(package_id, control, meta):
     return ""
 
 
+SECTION_TRANSLATIONS = {
+    "Tweaks": "插件",
+    "Themes": "主题",
+    "Utilities": "实用工具",
+    "System": "系统",
+    "Networking": "网络",
+    "Internet": "网络",
+    "Multimedia": "多媒体",
+    "Development": "开发工具",
+    "Fonts": "字体",
+    "Games": "游戏",
+    "Ringtones": "铃声",
+    "Addons": "附加组件",
+    "Accessories": "辅助工具",
+    "Productivity": "效率工具",
+    "Security": "安全",
+    "Repositories": "软件源",
+    "Widgets": "小组件",
+    "Terminal Support": "终端工具",
+}
+
+
+def translate_section(value):
+    """Localize common package-manager categories while preserving custom sections."""
+    section = str(value or "").strip()
+    if not section:
+        return section
+    return SECTION_TRANSLATIONS.get(section, SECTION_TRANSLATIONS.get(section.title(), section))
+
+
 def format_size(size):
     """Return a compact human-readable package size."""
     if size >= 1024 * 1024:
@@ -313,6 +343,8 @@ def main():
         fields["SHA1"] = hash_file(deb, "sha1")
         fields["SHA256"] = hash_file(deb, "sha256")
         fields["Name"] = meta.get("插件名称") or fields.get("Name") or package_id
+        if fields.get("Section"):
+            fields["Section"] = translate_section(fields["Section"])
         if icon_url:
             fields["Icon"] = icon_url
         fields["Depiction"] = depiction_url
