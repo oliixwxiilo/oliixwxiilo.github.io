@@ -17,10 +17,10 @@
 
 不要手工填写 Packages 的校验和。脚本会从实际文件重新生成 MD5、SHA1、SHA256、SHA512 和文件大小，避免 Release 与索引不匹配。
 
-## 当前状态
-- 网站导航和头像已部署。
-- APT 目录结构已建立。
-- 当前 Packages 索引为空，尚无可安装包；不要把空索引描述成已有插件的软件源。
+## 当前已发布
+- `com.oliixwxiilo.fqmusic`（番茄音乐）1.0，Rootless 架构 `iphoneos-arm64`。
+- 安装依赖：`mobilesubstrate`。
+- 本包由仓库维护者提供；上传前已核对 deb 控制信息与文件清单。仍需在目标设备上验证安装、注入和运行效果。
 - 目前没有发布签名密钥；若未来需要提高 APT 信任保障，可再规划 Release 签名（InRelease/Release.gpg）。
 
 ## 日常维护

@@ -8,4 +8,4 @@
 
 The website is a directory of links to external jailbreak stores. It does not host third-party package downloads.
 
-The APT repository currently contains an empty package index. Add package records and publish matching `.deb` files before announcing any packages. When the index changes, regenerate the Release checksums from the exact published Packages file bytes.
+Published package: `com.oliixwxiilo.fqmusic` (番茄音乐) version `1.0`, architecture `iphoneos-arm64`. Package metadata and indexes are published under `pool/main/` and `dists/stable/`.
