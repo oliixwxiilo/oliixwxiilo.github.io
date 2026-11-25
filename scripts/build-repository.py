@@ -217,20 +217,15 @@ def write_depiction(package_id, control, meta, deb_size):
         detail_views.append({"class": "DepictionTableTextView", "title": "上传日期", "text": upload_date})
     if screenshots:
         detail_views.append({"class": "DepictionHeaderView", "title": "插件截图"})
-        # Render through the documented raw-HTML Markdown mode. It is a simple
-        # fallback that does not depend on the native image/carousel view classes.
-        image_html = "".join(
-            f'<img src="{html.escape(item["url"], quote=True)}" '
-            f'alt="{html.escape(item["accessibilityText"], quote=True)}" '
-            f'style="display:block;width:100%;height:auto;max-height:640px;'
-            f'object-fit:contain;border-radius:10px;margin:12px 0;">'
+        # Use ordinary Markdown image syntax inside the standard depiction
+        # markdown view. Avoid raw HTML, which can stall older Sileo renderers.
+        image_markdown = "\\n\\n".join(
+            f'![{item["accessibilityText"]}]({item["url"]})'
             for item in screenshots
         )
         detail_views.append({
             "class": "DepictionMarkdownView",
-            "markdown": image_html,
-            "useRawFormat": True,
-            "useMargins": True
+            "markdown": image_markdown
         })
     older = meta.get("旧版本下载", []) or []
     if older:
