@@ -272,7 +272,12 @@ section{{border-bottom:1px solid #8885;padding:8px 0}}
 <h2>更新日志</h2>{changelog_html or "<p>暂无更新日志</p>"}
 </body></html>"""
     (folder / "index.html").write_text(html_doc, encoding="utf-8")
-    return icon_url, public_url(Path("depictions") / package_id / "index.html"), public_url(Path("depictions") / package_id / "depiction.json")
+    depiction_path = folder / "depiction.json"
+    depiction_url = public_url(Path("depictions") / package_id / "index.html")
+    # Version the native depiction URL by its content hash so Sileo cannot keep
+    # showing a stale cached changelog after metadata changes.
+    sileo_url = public_url(Path("depictions") / package_id / "depiction.json") + "?v=" + hash_file(depiction_path, "sha256")[:12]
+    return icon_url, depiction_url, sileo_url
 
 
 def hash_file(path, algorithm):
@@ -343,7 +348,7 @@ def main():
             icon_path = meta.get("插件图标") or ""
             icon_url = public_url(Path(icon_path)) if icon_path and (ROOT / icon_path).is_file() else control.get("Icon", "")
             depiction_url = public_url(Path("depictions") / package_id / "index.html")
-            sileo_url = public_url(Path("depictions") / package_id / "depiction.json")
+            sileo_url = public_url(Path("depictions") / package_id / "depiction.json") + "?v=" + hash_file(depiction_file, "sha256")[:12]
         fields = dict(control)
         fields["Filename"] = deb.relative_to(ROOT).as_posix()
         fields["Size"] = str(size)
